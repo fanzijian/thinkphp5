@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>学习过程评测综合管理系统</title>
+<link href="/thinkphp5/public/static/common/css/login.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/thinkphp5/public/static/common/js/jquery.min.js"></script>
+<script type="text/javascript">
+$().ready( function() {
+
+	var $loginForm = $("#loginForm");
+	var $username = $("#username");
+	var $password = $("#password");
+
+	// 提交表单验证,记住登录用户名
+	$loginForm.submit( function() {
+		if ($username.val() == "") {
+			alert("请输入您的用户名!");
+			return false;
+		}
+		if ($password.val() == "") {
+			alert("请输入您的密码!");
+			return false;
+		}
+	});
+
+	$("#submitBtn").click(function(){
+		$loginForm.submit();
+	});
+	
+	// 回车即提交
+	document.onkeydown = function (e) { 
+		var theEvent = window.event || e; 
+		var code = theEvent.keyCode || theEvent.which; 
+		if (code == 13) { 
+			$("#submitBtn").click();
+		} 
+	}; 
+	
+});
+</script>
+</head>
+<body>
+	<script type="text/javascript">
+
+		// 登录页面若在框架内，则跳出框架
+		if (self != top) {
+			top.location = self.location;
+		};
+
+	</script>
+	<form id="loginForm" action="{:url('Login/login')}" method="post">
+	<img class="bgimg" src="/thinkphp5/public/static/common/images/bg.jpg" width="100%" />
+	<div class="logincontent animation" id="logincontent">
+	 <div class="top">
+				<div style="color: white; font-size: 25px; padding-top: 25px; margin-left: auto; margin-right: auto; width: 300px">
+				学习过程评测综合管理系统
+				</div>
+			</div>
+	 <div class="con">
+		<span class="font">用户名：</span>
+		<span class="input"><input id="username" name="username" placeholder="请输入用户名" type="text" /></span><br />
+		<span class="font">密&nbsp;&nbsp;&nbsp;&nbsp;码：</span>
+		<span class="input"><input id="password" name="password" placeholder="请输入密码" type="password" /></span><br />
+		<span class="font">身&nbsp;&nbsp;&nbsp;&nbsp;份:</span>
+		<span class="input">
+		 	<div class="radio"><input class="radio_input" type="radio" name="identity" value="0" checked="checked" /><span>学生</span></div>
+			<div class="radio"><input class="radio_input" type="radio" name="identity" value="1" />教师 </div>
+			<div class="radio"><input class="radio_input" type="radio" name="identity" value="2" />管理员 </div>
+		</span>
+
+	</div>
+	 <div class="bottombtn">
+	  <div class="brnlogin" id="submitBtn">登录</div>
+	 </div>
+	</div>
+	<div class="copy">© 华中科技大学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;版权所有 </div>
+	</form>
+</body>
+</html>
+
+

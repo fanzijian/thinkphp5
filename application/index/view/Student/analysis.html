@@ -1,0 +1,54 @@
+{extend name="Student/Template/base"/}
+{block name="script"}
+var analysisData=eval({$data});
+var title = analysisData['title'];
+var subtitle = analysisData['subtitle'];
+
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: title
+        },
+        subtitle: {
+            text: subtitle
+        },
+        credits:{
+            enabled:false // 禁用版权信息
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '注视时长百分比',
+            data: analysisData['data']
+        }]
+    });
+});
+{/block}
+{block name="search"}
+{/block}
+{block name="content"} 
+<div id="container" style="min-width:400px;height:400px"></div>
+<div style="text-align:right">
+    <input type="button" class="formButton" onclick="window.history.back(); return false;" value="返  回" hidefocus />
+</div>
+{/block} 

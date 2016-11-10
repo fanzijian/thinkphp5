@@ -1,0 +1,42 @@
+{extend name="Teacher/Template/base"/}
+{block name="title"}
+教师主页
+{/block}
+{block name="search"}
+{/block}
+{block name="content"}
+<table class="table ">
+	<tr>
+		<td colspan=2 style="text-align:center;"><img src="\thinkphp5\public\resource\questions\{$question->title_url}" style="height: 88px;"></td>
+	</tr>
+	<tr>
+		<td style="text-align:center;"><img src="\thinkphp5\public\resource\questions\{$question->a_url}" style="width:400px;height:300px;"></td>
+		<td style="text-align:center;"><img src="\thinkphp5\public\resource\questions\{$question->b_url}" style="width:400px;height:300px;"></td>
+	</tr>
+	<tr>
+		<td style="text-align:center;"><img src="\thinkphp5\public\resource\questions\{$question->c_url}" style="width:400px;height:300px;"></td>
+		<td style="text-align:center;"><img src="\thinkphp5\public\resource\questions\{$question->d_url}" style="width:400px;height:300px;"></td>
+	</tr>
+</table>
+<ul class="pagination">
+{if condition="request()->param('page') == 1"}
+<li class="disabled"><span>&laquo;</span></li>
+{else /}
+<li><a href="?page=1">&laquo;</a></li>
+{/if}
+{for start="1" end="$total_page + 1"}
+{if condition="request()->param('page') == $i"}
+<li class="active"><span>{$i}</span></li>
+{else /}
+<li><a href="?page={$i}">{$i}</a></li>
+{/if}
+{/for}
+{if condition="request()->param('page') == $total_page"}
+<li class="disabled"><span>&raquo;</span></li>
+{else /}
+<li><a href="?page={$total_page}">&raquo;</a></li>
+{/if}
+</ul>
+{/block}
+
+

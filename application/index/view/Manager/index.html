@@ -1,0 +1,44 @@
+{extend name="Manager/Template/base"/}
+{block name="title"}
+管理员主页
+{/block}
+{block name="search"}
+{/block}
+{block name="content"}
+<table style="margin:auto">
+    <tbody valign="middle">
+        <tr class="row">
+            <td class="col-md-4">
+                <img src="\thinkphp5\public\resource\photo\manager\{$Manager->photo_url}" style="width:260px;height:320px;">
+            </td>
+            <td class="col-md-8">
+                <table class="table table-hover table-bordered">
+                    <tr>
+                        <td style="text-align: center;">姓名</td>
+                        <td style="text-align: center;">{$Manager->name}</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">编号</td>
+                        <td style="text-align: center;">{$Manager->username}</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">性别</td>
+                        <td style="text-align: center;">{$Manager->sex}</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">学校</td>
+                        <td style="text-align: center;">{$Manager->school}</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">联系方式</td>
+                        <td style="text-align: center;">{$Manager->email}</td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+{/block}
+
+

@@ -1,0 +1,31 @@
+{extend name="Student/Template/base"/}
+{block name="title"}
+学生主页
+{/block}
+{block name="search"}
+{/block}
+{block name="content"}
+<table class="table table-hover table-bordered">
+    <tr class="info">
+        <th>序号</th>
+        <th>题目编号</th>
+        <th>您的答案</th>
+        <th>正确答案</th>
+        <th>答题用时(s)</th>
+        <th>操作</th>
+    </tr>
+    {volist name="questionResults" id="questionResult" key="key"}
+    <tr>
+        <td>{$key}</td>
+        <td>{$questionResult->question_id}</td>
+        <td>{$questionResult->answer}</td>
+        <td>{$questionResult->Question->where('id',$questionResult->question_id)->find()->answer}</td>
+        <td>{$questionResult->duration}</td>
+        <td><a class="btn btn-danger btn-sm" href="{:url('showQuestion?question_id=' . $questionResult->question_id)}"><i class="glyphicon glyphicon-pencil"></i>&nbsp;查看原题</a>&nbsp;<a class="btn btn-sm btn-primary" href="{:url('showQuestionAnalysis?id=' . $questionResult->id)}"><i class="glyphicon glyphicon-pencil"></i>&nbsp;眼动分析</a></td>
+    </tr>
+    {/volist}
+</table>
+{$questionResults->render()}
+{/block}
+
+

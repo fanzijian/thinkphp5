@@ -1,0 +1,68 @@
+{extend name="Manager/Template/base"/}
+{block name="title"}
+管理员信息修改
+{/block}
+
+{block name="search"}
+{/block}
+{block name="content"}
+<form action="{:url('update')}" method="post">
+<table style="margin:auto">
+    <tbody valign="middle">
+        <tr class="row">
+            <td class="col-md-4">
+                <img src="\thinkphp5\public\resource\photo\manager\{$Manager->photo_url}" style="width:260px;height:320px;">
+            </td>
+            <td class="col-md-8">
+                <table class="table table-hover table-bordered">
+                    <tr>
+                        <td style="text-align: center;"><label>姓名:</label></td>
+                        <td style="text-align: center;">
+                            <input type="hidden" name="id" value="{$Manager->getData('id')}" />
+                            <input type="text" name="name" value="{$Manager->getData('name')}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;"><label>编号:</label></td>
+                        <td style="text-align: center;">
+                        <input type="text" name="username" readonly="readonly" value="{$Manager->getData('username')}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;"><label>学校:</label></td>
+                        <td style="text-align: center;">
+                            <input type="text" name="school" value="{$Manager->getData('school')}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;"><label>邮箱:</label></td>
+                        <td style="text-align: center;">
+                            <input type="email" name="email" value="{$Manager->getData('email')}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;"><label>头像:</label></td>
+                        <td style="text-align: center;">
+                            <input type="text" name="photo_url" value="{$Manager->getData('photo_url')}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;"><label>性别:</label></td>
+                        <td style="text-align: center;">
+                            <input type="radio" name="sex" value="0" id="sex0" {eq name="Manager->getData('sex')" value="0"}checked="checked"{/eq}/><label for="sex0">男</label>
+                <input type="radio" name="sex" value="1" id="sex1" {eq name="Manager->getData('sex')" value="1"}checked="checked"{/eq}/><label for="sex1">女</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;" colspan="2">
+                            <input type="submit" class="formButton" value="确  定" hidefocus />&nbsp;&nbsp;
+                            <input type="button" class="formButton" onclick="window.history.back(); return false;" value="返  回" hidefocus />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</form>
+{/block}

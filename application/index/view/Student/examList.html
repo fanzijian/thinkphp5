@@ -1,0 +1,28 @@
+{extend name="Student/Template/base"/}
+{block name="title"}
+学生主页
+{/block}
+{block name="search"}
+{/block}
+{block name="content"}
+<table class="table table-hover table-bordered">
+    <tr class="info">
+        <th>序号</th>
+        <th>试卷编号</th>
+        <th>课程编号</th>
+        <th>操作</th>
+    </tr>
+    {volist name="exams" id="exam" key="key"}
+    <tr>
+        <td>{$key}</td>
+        <td>{$exam->paper_id}</td>
+        <td>{$exam->course_id}</td>
+        <td><a class="btn btn-primary btn-sm" href="{:url('showQuestionResult?exam_id=' . $exam->id . '&stu_id=' . $Student->id)}"><i class="glyphicon glyphicon-pencil"></i>&nbsp;试题详情</a>&nbsp;&nbsp;
+            <a class="btn btn-primary btn-sm" href="{:url('showExamAnalysis?exam_id=' . $exam->id . '&stu_id=' . $Student->id)}"><i class="glyphicon glyphicon-pencil"></i>&nbsp;综合分析</a></td>
+    </tr>
+    {/volist}
+</table>
+
+{/block}
+
+

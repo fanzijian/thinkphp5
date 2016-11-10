@@ -1,0 +1,188 @@
+{extend name="Teacher/Template/base"/}
+<!DOCTYPE html>
+{block name="script"}
+    /**
+     * [select 控制学生table以及examtable的显示以及checkbox的显示问题]
+     * @return 
+     */
+    function select(){
+        var op = $("#search_type option:selected");
+        if(op.val() == '0'){
+            $("#examList").show();
+            $("#studentList").hide();
+            $("input[name='studentIdList[]']").each(function(){
+                $(this).attr("checked",false);
+            });  
+        }else{
+            $("#examList").hide();
+            $("#studentList").show();
+            $("input[name='examIdList[]']").each(function(){
+                $(this).attr("checked",false);
+            });  
+        }
+    }
+{/block}
+{block name="search"}
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <div class="form-inline">
+            <div class="form-group">
+                <select class="form-control" id="search_type" name="search_type" onChange="select()">
+                  <option value="0" {if condition="input('get.search_type') == 0"} selected {/if}>学生学号</option>
+                  <option value="1" {if condition="input('get.search_type') == 1"} selected {/if}>考试编号</option>
+                </select>
+                <input id="search_content" name="search_content" type="text" class="form-control" placeholder="请输入搜索内容..." value={:input( 'get.search_content')}>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 text-right">
+        <button id="compare" name="compare" class="btn btn-default"><i class="glyphicon glyphicon-search"></i>&nbsp;对比查询</button>
+    </div>
+</div>
+<hr />
+{/block}
+{block name="content"}
+                <table id="examList" class="table table-hover table-bordered">
+                    <tr class="info">
+                        <th>序号</th>
+                        <th>考试序号</th>
+                        <th>课程名称</th>
+                        <th>勾选对象</th>
+
+                    </tr>
+                    {volist name="exams" id="exam" key="key"}
+                    <tr>
+                        <td>{$key}</td>
+                        <td>{$exam->id}</td>
+                        <td>{$exam->Course->name}</td>
+                        <td><label><input name="examIdList[]" type="checkbox" value="{$exam->id}" /></label></td>
+                    </tr>
+                    {/volist}
+                </table>
+                <table id="studentList" class="table table-hover table-bordered" style="display:none">
+                    <tr class="info">
+                        <th>序号</th>
+                        <th>姓名</th>
+                        <th>班级</th>
+                        <th>勾选对象</th>
+                    </tr>
+                    {volist name="students" id="student" key="key"}
+                    <tr>
+                        <td>{$key}</td>
+                        <td>{$student->name}</td>
+                        <td>{$student->Klass->name}</td>
+                        <td><label><input name="studentIdList[]" type="checkbox" value="{$student->id}" /></label></td>
+                    </tr>
+                    {/volist}
+                </table>
+    <div id="picture0" style="min-width:400px;height:400px"></div>
+    <div id="picture1" style="min-width:400px;height:400px"></div>
+    <div id="picture2" style="min-width:400px;height:400px"></div>
+    <div id="picture3" style="min-width:400px;height:400px"></div>
+    <script type="text/javascript">
+        $("#compare").click(function(){
+            //获取输入数据
+            var search_type = $("#search_type").val();
+            var search_content = $("#search_content").val();
+
+            //获取checkbox数据
+            var studentIdList = new Array();
+            $("input:checkbox[name='studentIdList[]']:checked").map(function(index,elem) {
+                studentIdList.push($(elem).val());
+            });
+            //console.log(studentIdList);
+
+            var examIdList = new Array();
+            $("input:checkbox[name='examIdList[]']:checked").map(function(index,elem) {
+                examIdList.push($(elem).val());
+            });
+            //console.log(examIdList);
+
+            data = {search_type:search_type,search_content:search_content,studentIdList:studentIdList,examIdList:examIdList};
+
+
+            $.ajax({
+                    type: "POST",
+                    url:'showStuAnalysisResult',
+                    data:data,
+                    dataType:'json',
+                    async: false,
+                    error: function(request) {
+                        alert("Connection error");
+                        //console.log(request);
+                    },
+                    success: function(message) {
+                        var messageObj = eval("(" + message + ")");
+                        if(messageObj['status'] == true){
+                            data = messageObj['data'];
+                            drawPicture(data);
+                        }else{
+                            alert('参数输入错误！');
+                        }
+                        //alert(data);
+                    }
+                });
+        });
+        function drawPicture(dataobj) {
+            //dataobj = eval("("+data+")");
+            //console.log(dataobj);
+            var title = new Array();
+            var xAxis = new Array();
+            var result = new Array();
+
+            //i表示第i个指标的图数据
+            for (var i = dataobj['title'].length - 1; i >= 0; i--) {
+                title[i] = dataobj['title'][i];
+                xAxis[i] = dataobj['xAxis'][i];
+                result[i] = dataobj['data'][i];
+            };
+            var yAxisTitleArray = ['准确率(%)','总时长(s)','指标1(s)','指标2(2)'];
+            var unitArray = ['%','s','s','s'];
+            for(var i = 3; i >= 0; i--){
+                $('#picture'+i).highcharts({
+                    chart: {
+                        type: 'column'
+                    },
+                    title: {
+                        text: title[i]
+                    },
+                    xAxis: {
+                        categories: xAxis[i],
+                        crosshair: true
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: yAxisTitleArray[i]
+                        }
+                    },
+                    credits:{
+                        enabled:false // 禁用版权信息
+                    },
+                    tooltip: {
+                        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                        '<td style="padding:0"><b>{point.y:.1f}' + unitArray[i] + '</b></td></tr>',
+                        footerFormat: '</table>',
+                        shared: true,
+                        useHTML: true
+                    },
+                    plotOptions: {
+                        column: {
+                            pointPadding: 0.2,
+                            borderWidth: 0
+                        }
+                    },
+                    series: [
+                        result[i]
+                    ]
+                });
+            };
+
+
+        }
+    </script>
+{/block}
+
+

@@ -1,0 +1,45 @@
+{extend name="Teacher/Template/base"/}
+{block name="title"}
+教师主页
+{/block}
+
+{block name="search"}
+{/block}
+{block name="content"}
+<table style="margin:auto">
+    <tbody valign="middle">
+        <tr class="row">
+            <td class="col-md-4">
+                <img src="\thinkphp5\public\resource\photo\teacher\{$Teacher->photo_url}" style="width:260px;height:320px;">
+            </td>
+            <td class="col-md-8">
+                <table class="table table-hover table-bordered">
+                    <tr>
+                        <td style="text-align: center;">姓名</td>
+                        <td style="text-align: center;">{$Teacher->name}</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">编号</td>
+                        <td style="text-align: center;">{$Teacher->username}</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">性别</td>
+                        <td style="text-align: center;">{$Teacher->sex}</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">学校</td>
+                        <td style="text-align: center;">{$Teacher->school}</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">联系方式</td>
+                        <td style="text-align: center;">{$Teacher->email}</td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+{/block}
+
+

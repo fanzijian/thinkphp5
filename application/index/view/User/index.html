@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Bootstrap菜单</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <!-- Bootstrap -->
+    <link href="/thinkphp5/public/static/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/thinkphp5/public/static/common/css/font-awesome.min.css">
+    <script src="/thinkphp5/public/static/common/js/jquery.min.js"></script>
+    <script src="/thinkphp5/public/static/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/thinkphp5/public/static/common/css/sider.css">
+  </head>
+  <body  class="container">
+    {block name="siderBar"}
+    <aside class="col-md-2">
+        <div class="span2" style="margin-top:73px;"> 
+            <a href="#mgrMenu" class="nav menu-first collapsed " data-toggle="collapse"><i class="icon-user-md icon-large"></i> 用户管理</a>
+            <ul id="mgrMenu" class="nav nav-list collapse menu-second"> 
+                <li><a href="#"><i class="icon-user"></i> 增加用户</a></li>
+                <li><a href="#"><i class="icon-edit"></i> 修改用户</a></li>
+                <li><a href="#"><i class="icon-trash"></i> 删除用户</a></li>
+                <li><a href="#"><i class="icon-list"></i> 用户列表</a></li>
+            </ul> 
+            <a href="#deviceMenu" class="nav menu-first collapsed" data-toggle="collapse"><i class="icon-user-md icon-large"></i> 设备管理</a>
+            <ul id="deviceMenu" class="nav nav-list collapse menu-second"> 
+                <li><a href="#"><i class="icon-user"></i> 设备列表</a></li>
+            </ul> 
+            <a href="#quotaMenu" class="nav menu-first collapsed" data-toggle="collapse"><i class="icon-user-md icon-large"></i> 指标管理</a>
+            <ul id="quotaMenu" class="nav nav-list collapse menu-second"> 
+                <li><a href="#"><i class="icon-user"></i> 指标详情</a></li>
+            </ul>
+            <a href="#infoMenu" class="nav menu-first collapsed" data-toggle="collapse"><i class="icon-user-md icon-large"></i> 信息管理</a>
+            <ul id="infoMenu" class="nav nav-list collapse menu-second"> 
+                <li><a href="#"><i class="icon-user"></i> 信息详情</a></li>
+            </ul>
+        </div> 
+    </aside>
+    {/block}
+    <!-- 菜单导航 -->
+    <div class="col-md-10">
+    <div class="row" >
+        <div class="col-md-12">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="https://www.zybuluo.com/omg-two/note/522730">omg_two主页</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="{:url('Teacher/index')}">教师管理</a></li>
+                            <li><a href="{:url('Student/index')}">学生管理</a></li>
+                            <li><a href="{:url('Klass/index')}">班级管理</a></li>
+                            <li><a href="{:url('Course/index')}">课程管理</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="{:url('Login/logout')}">注销</a></li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+        </div>
+    </div>
+    <!-- /菜单导航 -->
+
+    <div class="row">
+        <div class="col-md-12">
+            {block name="search"}
+            <hr />
+            <div class="row">
+                <div class="col-md-8">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label class="sr-only" for="name">姓名</label>
+                            <input name="name" type="text" class="form-control" placeholder="姓名..." value={:input( 'get.name')}>
+                        </div>
+                        <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i>&nbsp;查询</button>
+                    </form>
+                </div>
+                <div class="col-md-4 text-right">
+                    <a href="{:url('add')}" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>&nbsp;增加</a>
+                </div>
+            </div>
+            <hr /> {/block} {block name="content"} {/block} {block name="page"} {/block}
+        </div>
+    </div>
+</div>
+</body>
+
+  </body>
+</html>
+

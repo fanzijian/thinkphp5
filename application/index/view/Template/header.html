@@ -1,0 +1,29 @@
+<!-- 菜单导航 -->
+<div class="row">
+    <div class="col-md-12">
+        <nav class="navbar navbar-default" role="navigation">
+        	{block name="header"}
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="https://www.zybuluo.com/omg-two/note/522730">omg_two主页</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="{:url('Teacher/index')}">教师管理</a></li>
+                        <li><a href="{:url('Student/index')}">学生管理</a></li>
+                        <li><a href="{:url('Klass/index')}">班级管理</a></li>
+                        <li><a href="{:url('Course/index')}">课程管理</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{:url('Login/logout')}">注销</a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            {/block}
+            <!-- /.container-fluid -->
+        </nav>
+    </div>
+</div>
+<!-- /菜单导航 -->

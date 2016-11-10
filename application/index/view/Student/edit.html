@@ -1,0 +1,71 @@
+{extend name="Student/Template/base"/}
+{block name="title"}
+学生管理
+{/block}
+
+{block name="search"}
+{/block}
+{block name="content"}
+<form action="{:url('save')}" method="post">
+<table style="margin:auto">
+    <tbody valign="middle">
+        <tr class="row">
+            <td class="col-md-4">
+                <img src="\thinkphp5\public\resource\photo\student\{$Student->photo_url}" style="width:260px;height:320px;">
+            </td>
+            <td class="col-md-8">
+                <table class="table table-hover table-bordered">
+                    <tr>
+                        <td style="text-align: center;"><label>姓名:</label></td>
+                        <td style="text-align: center;">
+                            <input type="hidden" name="id" value="{$Student->getData('id')}" />
+                            <input type="text" name="name" value="{$Student->getData('name')}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;"><label>学号:</label></td>
+                        <td style="text-align: center;">
+                        <input type="text" name="username" readonly="readonly" value="{$Student->getData('username')}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;"><label>性别:</label></td>
+                        <td style="text-align: center;">
+                            <input type="radio" name="sex" value="0" id="sex0" {eq name="Student->getData('sex')" value="0"}checked="checked"{/eq}/><label for="sex0">男</label>
+                <input type="radio" name="sex" value="1" id="sex1" {eq name="Student->getData('sex')" value="1"}checked="checked"{/eq}/><label for="sex1">女</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;"><label>学校:</label></td>
+                        <td style="text-align: center;">
+                            <input type="text" name="school" value="{$Student->getData('school')}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;"><label>邮箱:</label></td>
+                        <td style="text-align: center;">
+                            <input type="email" name="email" value="{$Student->getData('email')}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">
+                            <label>班级</label>
+                        </td>
+                        <td style="text-align: center;">
+                            <select name="klass_id">
+                            {volist name="klasses" id="klass"}
+                                <option value="{$klass->id}" {eq name="klass->id" value="$Student->klass_id"}selected="selected"{/eq}>{$klass->name}</option>
+                            {/volist}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;" colspan="2"><button type="submit">保存</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="formButton" onclick="window.history.back(); return false;" value="返回" hidefocus /></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</form>
+{/block}

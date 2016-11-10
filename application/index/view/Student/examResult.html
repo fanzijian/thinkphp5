@@ -1,0 +1,25 @@
+{extend name="Student/Template/base"/}
+{block name="title"}
+学生主页
+{/block}
+
+{block name="search"}
+{/block}
+{block name="content"}
+<table class="table table-hover table-bordered">
+    <tr class="info">
+        <th>答题总时长</th>
+        <th>正确率</th>
+        <th>试卷编号</th>
+        <th>操作</th>
+    </tr>
+    <tr>
+        <td>{$questionResults->sum('duration')}秒</td>
+        <td>{$questionResults->sum('is_right')/$questionResults->count() * 100}%</td>
+        <td>{$questionResults->find()->exam_id}</td>
+        <td>详情/可视化</td>
+    </tr>
+</table>
+{/block}
+
+
