@@ -55,7 +55,7 @@ class Teacher extends Model
      * @return bool 成功true,失败false.
      * author     fzj
      */
-    static public function logOut()
+    static public function logout()
     {
     	// 销毁session中数据
         session('id', null);
@@ -80,7 +80,33 @@ class Teacher extends Model
             return false;
         }
     }
+    /**
+     * [changePassword 修改密码]
+     * @param  [int] $id          [教师id]
+     * @param  [string] $oldPassword [教师旧密码]
+     * @param  [string] $newPassword [教师新密码]
+     * @return [int]              [0:系统操作异常; 1:更新密码成功; 2:原始密码错误]
+     */
+    static public function changePassword($id, $oldPassword, $newPassword)
+    {
+        //获取学生密码
+        $Teacher = Teacher::get($id);
+        if(false == $Teacher){
+            return 0;//$this->error('未找到id为' . $id . '的学生！')
+        }
+        $password = $Teacher->password;
+        //判断密码是否一致
+        if($oldPassword != $password){
+            return 2;//$this->error('原始密码错误！')
+        }
+        $Teacher->password = $newPassword;
+        if(false === $Teacher->save()){
+            return 0;//$this->error('更新密码失败，请重试！')
+        }
 
+        //返回判断结果
+        return 1;//$this->success('更新密码成功！')
+    }
     public function Courses()
     {
         return $this->hasMany('Course');

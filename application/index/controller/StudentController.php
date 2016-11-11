@@ -193,6 +193,10 @@ class StudentController extends IndexController
 
 		return $htmls;
 	}
+	/**
+	 * [showExamAnalysis 展示测试综合分析]
+	 * @return [html] [返回包含QuestionResult对象的页面]
+	 */
 	public function showExamAnalysis()
 	{
 		//获取测试编号exam_id，stu_id
@@ -215,6 +219,39 @@ class StudentController extends IndexController
 			return $htmls;
 		} catch (Exception $e) {
 			return $this->error('系统错误' . $e->getMessage());
+		}
+	}
+	/**
+	 * [passwordEdit 密码修改页面]
+	 * @return [html] [密码修改页面]
+	 */
+	public function passwordEdit()
+	{
+		return $this->fetch('Student/passwordEdit');
+	}
+	/**
+	 * [passwordSave 修改密码保存]
+	 * @return [msg] [返回修改密码结果]
+	 */
+	public function passwordSave()
+	{
+		//获取输入密码与新密码
+		$oldPassword = $this->request->param('oldPassword');
+		$newPassword = $this->request->param('newPassword');
+
+		switch (Student::changePassword(session('id'), $oldPassword, $newPassword)) {
+			case '0':
+				return $this->error('系统操作异常，请重试！');
+				break;
+			case '1':
+				return $this->success('更新密码成功,请重新登录！', url('Login/index'));
+				break;
+			case '2':
+				return $this->error('旧密码输入错误！');
+				break;
+			default:
+				return $this->error('系统操作异常，请重试！');
+				break;
 		}
 	}
 }

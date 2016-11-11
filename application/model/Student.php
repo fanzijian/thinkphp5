@@ -44,25 +44,32 @@ class Student extends Model
 
         return false;
     }
+    /**
+     * [changePassword 修改密码]
+     * @param  [int] $id          [学生id]
+     * @param  [string] $oldPassword [学生旧密码]
+     * @param  [string] $newPassword [学生新密码]
+     * @return [int]              [0:系统操作异常; 1:更新密码成功; 2:原始密码错误]
+     */
     static public function changePassword($id, $oldPassword, $newPassword)
     {
         //获取学生密码
         $Student = Student::get($id);
         if(false == $Student){
-            return $this->error('未找到id为' . $id . '的学生！');
+            return 0;//$this->error('未找到id为' . $id . '的学生！')
         }
         $password = $Student->password;
         //判断密码是否一致
         if($oldPassword != $password){
-            return $this->error('原始密码错误！');
+            return 2;//$this->error('原始密码错误！')
         }
         $Student->password = $newPassword;
         if(false === $Student->save()){
-            return $this->error('更新密码失败，请重试！');
+            return 0;//$this->error('更新密码失败，请重试！')
         }
 
         //返回判断结果
-        return $this->success('更新密码成功！');
+        return 1;//$this->success('更新密码成功！')
     }
     /**
      * 验证密码是否正确
