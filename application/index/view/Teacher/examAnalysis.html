@@ -1,5 +1,7 @@
 {extend name="Teacher/Template/base"/}
-<!DOCTYPE html>
+{block name="title"}
+查询管理
+{/block}
 {block name="script"}
     /**
      * [select 控制学生table以及examtable的显示以及checkbox的显示问题]
@@ -104,7 +106,7 @@
 
             $.ajax({
                     type: "POST",
-                    url:'showStuAnalysisResult',
+                    url:'showExamAnalysisResult',
                     data:data,
                     dataType:'json',
                     async: false,

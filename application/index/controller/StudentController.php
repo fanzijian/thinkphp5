@@ -183,7 +183,7 @@ class StudentController extends IndexController
 				['C选项',(float)$QuestionResult->duration_c],
 				['D选项',(float)$QuestionResult->duration_d],
 				['其他区域',(float)$QuestionResult->duration_others]];
-		$data['title'] = '第' . $id . '答题眼动注视时长百分比图';
+		$data['title'] = '第' . $QuestionResult->question_id . '答题眼动注视时长百分比图';
 		$data['subtitle'] = '答题总时长' . $QuestionResult->duration . '秒';
 		//绑定数据到V层
 		$this->assign('data',json_encode($data));
@@ -214,6 +214,7 @@ class StudentController extends IndexController
 			//根据exam_id，stu_id在exam_result表中查找该次测试的分析数据
 			//传递数据到V层
 			$this->assign('questionResults',$questionResults);
+			//var_dump($questionResults);
 			//返回htmls
 			$htmls = $this->fetch('Student/examResult');
 			return $htmls;

@@ -107,6 +107,45 @@ class Teacher extends Model
         //返回判断结果
         return 1;//$this->success('更新密码成功！')
     }
+    /**
+     * [getStudents 获取自己的学生对象全集]
+     * @return [array]$students [一个由student对象组成的数组]
+     */
+    public function getStudents()
+    {
+        $courses = $this->Courses;
+        if(false != $courses){
+
+            $klasses = array();
+            foreach ($courses as $key => $course) {
+                $klasses = array_merge($klasses, $course->Klasses);
+            }
+            if(false != $klasses){
+                $students = array();
+                foreach ($klasses as $key => $klass) {
+                    $students = array_merge($students, $klass->Students);
+                }
+                return $students;
+            }
+        }
+        return null;
+    }
+    /**
+     * [getStudentsIdList 获取自己学生的id全集]
+     * @return [array]$studentsIdList [如果没有学生，返回null，否则返回学生id数组]
+     */
+    public function getStudentsIdList()
+    {
+        $students = $this->getStudents();
+        if(false != $students){
+            $studentsIdList = array();
+            foreach ($students as $key => $student) {
+                array_push($studentsIdList, $student->id);
+            }
+            return $studentsIdList;
+        }
+        return null;
+    }
     public function Courses()
     {
         return $this->hasMany('Course');

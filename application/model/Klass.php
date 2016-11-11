@@ -27,6 +27,11 @@ class Klass extends Model
         return $this->belongsTo('teacher');
     }
 
+    public function Students()
+    {
+    	return $this->hasMany('student');
+    }
+
 }
 
 ?>

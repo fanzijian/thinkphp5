@@ -1,6 +1,6 @@
 {extend name="Teacher/Template/base"/}
 {block name="title"}
-教师主页
+考试管理
 {/block}
 {block name="search"}
 <hr />
@@ -10,7 +10,7 @@
             <div class="form-group">
                 <select class="form-control" name="search_type">
                   <option value="0" {if condition="input('get.search_type') == 0"} selected {/if}>课程名称</option>
-                  <option value="1" {if condition="input('get.search_type') == 1"} selected {/if}>试卷编号</option>
+                  <option value="1" {if condition="input('get.search_type') == 1"} selected {/if}>测试编号</option>
                   <option value="2" {if condition="input('get.search_type') == 2"} selected {/if}>其他</option>
                 </select>
                 <input name="search_content" type="text" class="form-control" placeholder="请输入搜索内容..." value={:input( 'get.search_content')}>
@@ -28,14 +28,14 @@
 <table class="table table-hover table-bordered">
     <tr class="info">
         <th>序号</th>
-        <th>试卷编号</th>
+        <th>测试编号</th>
         <th>课程名称</th>
         <th>操作</th>
     </tr>
     {volist name="exams" id="exam" key="key"}
     <tr>
         <td>{$key}</td>
-        <td>{$exam->paper_id}</td>
+        <td>{$exam->id}</td>
         <td>{$exam->Course->name}</td>
         <td><a class="btn btn-primary btn-sm" href="{:url('showExamQuestionList?exam_id=' . $exam->id)}"><i class="glyphicon glyphicon-pencil"></i>&nbsp;试题详情</a>&nbsp;&nbsp;
             </td>

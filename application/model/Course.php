@@ -48,7 +48,10 @@ class Course extends Model
 			return true;
 		}
 	}
-
+	public function Teacher()
+    {
+        return $this->belongsTo('teacher');
+    }
 
 }
 

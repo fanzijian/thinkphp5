@@ -1,0 +1,45 @@
+{extend name="Teacher/Template/base"/}
+{block name="title"}
+课程管理
+{/block}
+{block name="search"}
+{/block}
+{block name="content"}
+<form action="{:url('saveStudent')}" method="post">
+<table style="margin:auto">
+    <tbody valign="middle">
+        <di class="row">
+            <td class="col-md-12">
+                <table class="table table-hover table-bordered">
+                    <tr>
+                        <td style="text-align: center;"><label>课程名称:</label></td>
+                        <td style="text-align: center;">
+                            <input type="hidden" name="id" value="{$Course->getData('id')}" />
+                            <input type="text" name="name" value="{$Course->getData('name')}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;"><label>总节次:</label></td>
+                        <td style="text-align: center;">
+                        <input type="text" name="username" value="{$Course->getData('total')}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;"><label>任课老师:</label></td>
+                        <td style="text-align: center;">
+                            <input type="text" name="school" value="{$Course->Teacher->name}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;" colspan="2">
+                            <input type="submit" class="formButton" value="确  定" hidefocus />&nbsp;&nbsp;
+                            <input type="button" class="formButton" onclick="window.history.back(); return false;" value="返  回" hidefocus />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</form>
+{/block}

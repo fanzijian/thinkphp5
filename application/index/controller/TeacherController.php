@@ -65,8 +65,6 @@ class TeacherController extends IndexController
 		} catch (Exception $e) {
 			return '系统错误' . $e->getMessage();
 		}
-
-
 	}
 
     public function update()
@@ -111,6 +109,7 @@ class TeacherController extends IndexController
     {
         
         $Student = new Student;
+        $Teacher = Teacher::get(['id'=>session('id')]);
 
         $pageSize = 5;
         //获取查询类别
@@ -125,7 +124,7 @@ class TeacherController extends IndexController
         
 
         //查询是否有相应学生对象
-        $students = $Student->where($search_attribute[$search_type], 'like', '%' . $search_content . '%')->paginate($pageSize);
+        $students = $Student->where('id','in',$Teacher->getStudentsIdList())->where($search_attribute[$search_type], 'like', '%' . $search_content . '%')->paginate($pageSize);
         
         //传递到V层
         $this->assign('students',$students);
@@ -191,7 +190,6 @@ class TeacherController extends IndexController
         } catch (Exception $e) {
             return $this->error('系统错误'. $e->getMessage());
         }
-
     }
     /**
      * [teacherAddStudent 教师添加学生信息]
@@ -262,10 +260,12 @@ class TeacherController extends IndexController
         //获取查询类别
         
         $search_type = $this->request->param('search_type');
+
+        $search_content = $this->request->param('search_content');
+
         if(null == $search_type){
             $search_type = 2;
         }
-        $search_content = $this->request->param('search_content');
 
         if(0 == $search_type){
             //根据课程名称搜索,待优化，无法实现模糊匹配
@@ -279,14 +279,17 @@ class TeacherController extends IndexController
         }else if(1 == $search_type){
             //根据exam_id搜索
             $exam_id = $search_content;
-            $exams = $Exam->where('id',$exam_id)->select();
+            if('' == $exam_id){
+                $exams = $Exam->all();
+            }else{
+                $exams = $Exam->where('id',$exam_id)->select();
+            }
 
         }else if(2 == $search_type){
             //其他未定义
             $exams = $Exam->all();
         }
 
-        
         //传递到V层
         $this->assign('exams',$exams);
         //返回对象
@@ -296,7 +299,7 @@ class TeacherController extends IndexController
     } 
 
     /**
-     * 获取试题列表
+     * [showExamQuestionList 获取试题列表]
      * @return [html] [返回试卷试题页面]
      */
     public function showExamQuestionList()
@@ -323,14 +326,20 @@ class TeacherController extends IndexController
         return $htmls;
     }
     /**
-     * [showStuAnalysis 进入可视化对比展示选择页面]
+     * [showExamAnalysis 进入可视化对比展示选择页面]
      * @return [htmls] [返回包含exam、student对象全集]
      */
-    public function showStuAnalysis()
+    public function showExamAnalysis()
     {
 
         $exams = Exam::all();
-        $students = Student::all();
+        //$students = Student::all();
+
+        $Teacher = Teacher::get(['id'=>session('id')]);
+        if(false == $Teacher){
+            return $this->error('未找到id为' . $session('id') . '的老师！');
+        }
+        $students = $Teacher->getStudents();
 
         if(false == $exams){
             return $this->error('不存在考试数据！');
@@ -345,14 +354,14 @@ class TeacherController extends IndexController
         
         //返回页面
 
-        $htmls = $this->fetch('Teacher/stuAnalysis');
+        $htmls = $this->fetch('Teacher/examAnalysis');
         return $htmls;
     }
     /**
-     * 获取查询对比绘图数据
+     * [showExamAnalysisResult 获取查询对比绘图数据]
      *@return [json] [返回名为data的json对象，包含title，xAxis，data等数据]
      */
-    public function showStuAnalysisResult()
+    public function showExamAnalysisResult()
     {
         $status = true;
         $data = array();
@@ -471,18 +480,37 @@ class TeacherController extends IndexController
                 break;
         }
     }
+    /**
+     * [showCourseList 展示该教师教学的课程列表]
+     * @return [html] [返回包含course对象的html]
+     */
+    public function showCourseList()
+    {
+        //初始化数据
+        $pageSize = 5;
+        //获取查询内容
+        $search_type = $this->request->param('search_type');
+        $search_content = $this->request->param('search_content');
+        if(is_null($search_type)||'' == $search_type){
+            $search_type = 0;
+        }
+        if(0 == $search_type){
+            //查找course对象
+            $courses = Course::where('teacher_id',session('id'))->where('name', 'like', '%' . $search_content . '%')->paginate($pageSize);
+        }
+        //绑定数据到V层
+        $this->assign('courses', $courses);
+        $htmls = $this->fetch('Teacher/courseList');
+        return $htmls;
+        //返回
+    }
     public function test()
     {
-        $ExamResult = new ExamResult;
-            $Student = Student::get(['username'=>'M201571667']);
-            if(false == $Student){
-                return false;
-            }
-            $stu_id = $Student->id;
-            $stu_name = $Student->name;
-        $examResults = ExamResult::where('exam_id',1)->where('stu_id','in',[10,15,14]);
-        var_dump($examResults->column('accuracy'));
-        var_dump($examResults->column('duration_total'));
+        $Course = Course::get(1);
+        $this->assign('Course',$Course);
+        return $this->fetch('courseDetail');
+
+
     }
 }
 ?>
