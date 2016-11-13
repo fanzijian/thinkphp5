@@ -73,17 +73,42 @@
 					            </ul>
                             </li>
                             <li class="dropdown">
-					            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					               查询管理 
-					               <b class="caret"></b>
-					            </a>
-					            <ul class="dropdown-menu">
-					            	<li><a href="{:url('Teacher/showExamAnalysis')}">考试分析</a></li>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                   自习场景 
+                                   <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">指标一</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="{:url('Teacher/showCourseAnalysis')}">课堂分析</a></li>
-					            </ul>
+                                    <li><a href="#">指标二</a></li>
+                                </ul>
                             </li>
-
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                   课堂场景 
+                                   <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">学生指标一</a></li>
+                                    <li><a href="#">学生指标二</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="{:url('Teacher/showCourseAnalysis')}">课堂整体分析</a></li>
+                                    <li><a href="{:url('Teacher/showCourseAnalysis')}">课堂指标一</a></li>
+                                    <li><a href="#">课堂指标二</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                   考试场景 
+                                   <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{:url('Teacher/showExamAnalysis') . '?type=0'}">准确率</a></li>
+                                    <li><a href="{:url('Teacher/showExamAnalysis') . '?type=1'}">平均答题时长</a></li>
+                                    <!-- <li class="divider"></li>
+                                    <li><a href="{:url('Teacher/showExamAnalysis') . '?type=2'}">各个选项关注占比</a></li> -->
+                                </ul>
+                            </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="{:url('Login/logout')}">安全退出</a></li>

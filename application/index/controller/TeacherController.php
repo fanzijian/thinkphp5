@@ -8,6 +8,8 @@ use app\model\Course;
 use app\model\Exam;
 use app\model\Question;
 use app\model\ExamResult;
+use app\model\CourseSchedule;
+use app\model\CourseResult;
 /**
 *教师管理，继承think\Controller后，就可以利用V层对数据进行打包。
 */
@@ -504,12 +506,71 @@ class TeacherController extends IndexController
         return $htmls;
         //返回
     }
+
+    public function showCourseSchedule()
+    {
+        //获取课程id
+        $course_id = $this->request->param('id');
+
+        //获取时间安排表
+        $courseSchedules = CourseSchedule::where('course_id',$course_id)->select();
+
+        $this->assign('courseSchedules',$courseSchedules);
+
+        $htmls = $this->fetch('Teacher/courseSchedule');
+        //返回详情页面
+        return $htmls;
+    }
+    public function showCourseResult()
+    {
+        $courseResults = new CourseResult;
+        //获取查询类别,1:学生查询，2：课程查询
+        $search_type = $this->request->param('search_type');
+        if(1 == $search_type){
+            //获取学生学号，获取课程名称
+            $stu_username = $this->request->param('stu_username');
+            $course_name = $this->request->param('course_name');
+            //获取查询对象id
+            $Student = Student::get(['username'=>$stu_username]);
+            if(false == $Student){
+                return $this->error('未找到该学生！');
+            }
+            $stu_id = $Student->id;
+            $Course  = Course::get(['name'=>$course_name]);
+            if(false == $Course){
+                return $this->error('未找到该课程！');
+            }
+            $course_id = $Course->id;
+
+            //获取学生课程结果对象全集
+            $courseResults = CourseResult::where('stu_id',$stu_id)->where('course_id',$course_id)->select();
+
+
+
+        }else if(2 == $search_type){
+            //获取课程id,节次
+            $course_name = $this->request->param('course_name');
+
+            $Course  = Course::get(['name'=>$course_name]);
+            if(false == $Course){
+                return $this->error('未找到该课程！');
+            }
+            $course_id = $Course->id;
+            $num = $this->request->param('num');
+
+            //获取学生课程结果对象全集
+            $courseResults = CourseResult::where('course_id',$course_id)->where('num',$num)->select();
+
+        }
+        $this->assign('courseResults',$courseResults);
+        return $this->fetch('courseAnalysis');
+    }
+
     public function test()
     {
         $Course = Course::get(1);
         $this->assign('Course',$Course);
         return $this->fetch('courseDetail');
-
 
     }
 }

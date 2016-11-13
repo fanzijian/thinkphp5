@@ -25,6 +25,13 @@
     }
 {/block}
 {block name="search"}
+{php} $type = input('get.type');{/php}
+{switch name="type"}
+    {case value="0"}准确率分析{/case}
+    {case value="1"}平均答题时长分析{/case}
+    {case value="2"}各选项关注占比分析{/case}
+    {default /}1
+{/switch}
 <hr />
 <div class="row">
     <div class="col-md-8">
@@ -78,10 +85,10 @@
                     </tr>
                     {/volist}
                 </table>
-    <div id="picture0" style="min-width:400px;height:400px"></div>
-    <div id="picture1" style="min-width:400px;height:400px"></div>
+    <div id="picture" style="min-width:400px;height:400px"></div>
+<!--     <div id="picture1" style="min-width:400px;height:400px"></div>
     <div id="picture2" style="min-width:400px;height:400px"></div>
-    <div id="picture3" style="min-width:400px;height:400px"></div>
+    <div id="picture3" style="min-width:400px;height:400px"></div> -->
     <script type="text/javascript">
         $("#compare").click(function(){
             //获取输入数据
@@ -141,8 +148,10 @@
             };
             var yAxisTitleArray = ['准确率(%)','总时长(s)','指标1(s)','指标2(2)'];
             var unitArray = ['%','s','s','s'];
-            for(var i = 3; i >= 0; i--){
-                $('#picture'+i).highcharts({
+
+            var i = {:request()->param('type')};
+            //for(var i = 3; i >= 0; i--){
+                $('#picture').highcharts({
                     chart: {
                         type: 'column'
                     },
@@ -180,7 +189,7 @@
                         result[i]
                     ]
                 });
-            };
+            //};
 
 
         }
