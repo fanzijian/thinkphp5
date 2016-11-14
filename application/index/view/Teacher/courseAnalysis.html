@@ -3,34 +3,14 @@
 查询管理
 {/block}
 {block name="script"}
-    /**
-     * [select ]
-     * @return 
-     */
-    function select(type){
-        if(type == 1){
-            $("#group_stu").show();
-            $("#group_course").hide();
-            $("#search_type_1").addClass("active");
-            $("#search_type_2").removeClass("active");
-            $("#search_type").val(1);
-        }else if(type == 2){
-            $("#group_stu").hide();
-            $("#group_course").show();
-            $("#search_type_1").removeClass("active");
-            $("#search_type_2").addClass("active");
-            $("#search_type").val(2);
-        }
-    }
 {/block}
 {block name="search"}
 <ul class="nav nav-tabs">
-  <li id="search_type_1" class="active" onClick="select(1)"><a href="#">学生参与度</a></li>
-  <li id="search_type_2" onClick="select(2)"><a href="#">课堂参与度</a></li>
+  <li id="search_type_1" class="active" ><a href="#">课堂整体态势分析</a></li>
 </ul>
-<hr />
+<br />
 
-<form action="{:url('Teacher/showCourseResult')}" method="post">
+<form action="{:url('Teacher/showCourseAnalysis')}" method="post">
 <div class="row">
     <div class="col-md-8">
         <div class="form-inline">
@@ -38,14 +18,8 @@
                 <label >课程名称:</lable>
                 <input id="course_name" name="course_name" type="text" class="form-control" placeholder="请输入搜索内容..." value="{:input('post.course_name')}">
 
-                <span id="group_course" style="display:none">
-                    <label >&nbsp;&nbsp;课程节次:</lable>
-                    <input id="num" name="num" type="text" class="form-control" placeholder="请输入搜索内容..." value="{:input('post.num')}">
-                </span>
-                <span id="group_stu">
-                    <label >&nbsp;&nbsp;学生学号:</lable>
-                    <input id="stu_username" name="stu_username" type="text" class="form-control" placeholder="请输入搜索内容..." value="{:input('post.stu_username')}">
-                </span>
+                <label >&nbsp;&nbsp;课程节次:</lable>
+                <input id="num" name="num" type="text" class="form-control" placeholder="请输入搜索内容..." value="{:input('post.num')}">
             </div>
         </div>
     </div>
@@ -58,32 +32,7 @@
 <hr />
 {/block}
 {block name="content"}
-<table id="talbe_stu" class="table table-hover table-bordered">
-    <tr class="info">
-        <th>序号</th>
-        <th>课程名称</th>
-        <th>教师名称</th>
-        <th>学生名称</th>
-        <th>节次</th>
-        <th>举手次数</th>
-        <th>站立次数</th>
-        <th>趴桌次数</th>
-        <th>参与度</th>
-    </tr>
-    {volist name="courseResults" id="courseResult" key="key"}
-    <tr>
-        <td>{$key}</td>
-        <td>{$courseResult->Course->name}</td>
-        <td>{$courseResult->Course->Teacher->name}</td>
-        <td>{$courseResult->Student->name}</td>
-        <td>{$courseResult->num}</td>
-        <td>{$courseResult->hand_up}</td>
-        <td>{$courseResult->stand_up}</td>
-        <td>{$courseResult->sleep_on_desk}</td>
-        <td>{$courseResult->participation_degree}</td>
-    </tr>
-    {/volist}
-</table>
+内容待完善
 
 {/block}
 

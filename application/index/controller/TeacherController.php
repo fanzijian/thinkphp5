@@ -524,6 +524,7 @@ class TeacherController extends IndexController
     public function showCourseResult()
     {
         $courseResults = new CourseResult;
+        $type = $this->request->param('type');
         //获取查询类别,1:学生查询，2：课程查询
         $search_type = $this->request->param('search_type');
         if(1 == $search_type){
@@ -546,7 +547,6 @@ class TeacherController extends IndexController
             $courseResults = CourseResult::where('stu_id',$stu_id)->where('course_id',$course_id)->select();
 
 
-
         }else if(2 == $search_type){
             //获取课程id,节次
             $course_name = $this->request->param('course_name');
@@ -561,17 +561,34 @@ class TeacherController extends IndexController
             //获取学生课程结果对象全集
             $courseResults = CourseResult::where('course_id',$course_id)->where('num',$num)->select();
 
+
         }
         $this->assign('courseResults',$courseResults);
-        return $this->fetch('courseAnalysis');
+        $this->assign('type',$type);
+        $htmls = $this->fetch('Teacher/courseResult');
+        return $htmls;
     }
 
+    public function showCourseAnalysis()
+    {
+
+        $htmls = $this->fetch('courseAnalysis');
+        return $htmls;
+    }
     public function test()
     {
-        $Course = Course::get(1);
-        $this->assign('Course',$Course);
-        return $this->fetch('courseDetail');
+        $courseResults = CourseResult::where('course_id',1)->where('stu_id',15)->select();
 
+        $hand_up = array();
+        $stand_up = array();
+        $sleep_on_desk = array();
+        $participation_degree = array();
+
+        foreach ($courseResults as $key => $courseResult) {
+            array_push($hand_up, $courseResult->hand_up);
+        }
+
+        var_dump($hand_up);
     }
 }
 ?>
