@@ -10,29 +10,124 @@
 </ul>
 <br />
 
-<form action="{:url('Teacher/showCourseAnalysis')}" method="post">
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-10">
         <div class="form-inline">
             <div class="form-group">
-                <label >课程名称:</lable>
-                <input id="course_name" name="course_name" type="text" class="form-control" placeholder="请输入搜索内容..." value="{:input('post.course_name')}">
-
+                <label >&nbsp;&nbsp;课程名称:</lable>
+                <select id="course_name" class="form-control" name="course_name" style="width: 180px;">
+                    {volist name="courses" id="course" key="key"}
+                        <option value="{$course->name}" {if condition="input('post.course_name') == $course->name"} selected {/if}>{$course->name}</option>
+                    {/volist}
+                </select>
                 <label >&nbsp;&nbsp;课程节次:</lable>
-                <input id="num" name="num" type="text" class="form-control" placeholder="请输入搜索内容..." value="{:input('post.num')}">
+                <input id="course_num" name="course_num" type="text" style="width: 40px;"class="form-control" value="{:input('post.course_num')}">
+                <label >&nbsp;&nbsp;时间间隔:</lable>
+                <input id="interval" name="interval" type="text" style="width: 50px;" class="form-control" value="{:input('post.interval')}">
+                <label >&nbsp;&nbsp;异常阈值:</lable>
+                <input id="min_interval" name="min_interval" type="text" style="width: 40px;" class="form-control" value="{:input('post.min_interval')}">
+                <label >&nbsp;&nbsp;班级名称:</lable>
+                <select id="klass_name" class="form-control" name="klass_name" style="width: 180px;">
+                    {volist name="klasses" id="klass" key="key"}
+                        <option value="{$klass->name}" {if condition="input('post.klass_name') == $klass->name"} selected {/if}>{$klass->name}</option>
+                    {/volist}
+                </select>
             </div>
         </div>
     </div>
-    <div class="col-md-4 text-right">
-        <input type="hidden" id="search_type" name="search_type" value="1">
-        <button id="compare" type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i>&nbsp;查询</button>
+    <div class="col-md-2 text-right">
+        <button id="compare" name="compare" class="btn btn-default"><i class="glyphicon glyphicon-search"></i>&nbsp;查询</button>
     </div>
 </div>
-</form>
 <hr />
 {/block}
 {block name="content"}
-内容待完善
+<div id="container" style="min-width:400px;height:400px"></div>
+
+<script type="text/javascript">
+    $("#compare").click(function(){
+        var course_name = $("#course_name").val();
+        var course_num = $("#course_num").val();
+        var interval = $("#interval").val();
+        var min_interval = $("#min_interval").val();
+        var klass_name = $("#klass_name").val();
+
+        data = {course_name:course_name,course_num:course_num,interval:interval,min_interval:min_interval,klass_name:klass_name};
+
+        $.ajax({
+            type: "POST",
+            url:'getCourseActiveness',
+            data:data,
+            dataType:'json',
+            async: false,
+            error: function(request) {
+                alert("Connection error");
+                console.log(eval("(" + request + ")"));
+            },
+            success: function(message) {
+                var messageObj = eval("(" + message + ")");
+                if(messageObj['status'] == true){
+                    data = messageObj['data'];
+                    drawPicture(data);
+                }else{
+                    alert('参数输入错误！');
+                }
+                //alert(data);
+            }
+        });
+    });
+
+    function drawPicture(data){
+
+    $('#container').highcharts({
+        chart: {
+            type: 'spline'
+        },
+        title: {
+            text: '课程活跃度态势分析'
+        },
+        subtitle: {
+            text: '抬头听课人数统计图'
+        },
+        xAxis: {
+            title: {
+                text: '时间 (s)'
+            },
+            labels: {
+                formatter: function () {
+                    return this.value + 's';
+                }
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        yAxis: {
+            title: {
+                text: '抬头听课人数'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            headerFormat: '',
+            pointFormat: '{point.x} s: {point.y}人'
+        },
+        series: [{
+            name: '课堂活跃度曲线',
+            data: data
+        }]
+    });
+}
+
+
+
+</script>
 
 {/block}
 

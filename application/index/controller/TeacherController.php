@@ -560,7 +560,7 @@ class TeacherController extends IndexController
 
             //获取学生课程结果对象全集
             $courseResults = CourseResult::where('course_id',$course_id)->where('num',$num)->select();
-
+            
 
         }
         $this->assign('courseResults',$courseResults);
@@ -571,24 +571,50 @@ class TeacherController extends IndexController
 
     public function showCourseAnalysis()
     {
+        $klasses = Klass::all();
+        $courses = Teacher::get(['id'=>session('id')])->Courses;
+
+        $this->assign('klasses',$klasses);
+        $this->assign('courses',$courses);
+
 
         $htmls = $this->fetch('courseAnalysis');
         return $htmls;
     }
-    public function test()
+    public function getCourseActiveness()
     {
-        $courseResults = CourseResult::where('course_id',1)->where('stu_id',15)->select();
+        $status = false;
+        //获取查询条件
+        $course_name = $this->request->param('course_name');
+        $course_num = $this->request->param('course_num');
+        $interval = $this->request->param('interval');
+        $min_interval = $this->request->param('min_interval');
+        $klass_name = $this->request->param('klass_name');
 
-        $hand_up = array();
-        $stand_up = array();
-        $sleep_on_desk = array();
-        $participation_degree = array();
+        //当未输入条件
+        if($interval == 0) $interval = 10;
+        if($min_interval == 0) $min_interval = 3;
 
-        foreach ($courseResults as $key => $courseResult) {
-            array_push($hand_up, $courseResult->hand_up);
+        $Course = Course::get(['name'=>$course_name]);
+        $Klass = Klass::get(['name'=>$klass_name]);
+
+        if(false != $Course && false != $Klass){
+            $courseActivenessArray = $Course->getCourseActivenessArrayByKlassId($Klass->id,$course_num, $interval, $min_interval);
+            $status = true;
         }
 
-        var_dump($hand_up);
+        //填充消息结构体
+        $message['status'] = $status;
+        $message['data'] = $courseActivenessArray;
+
+        return json_encode($message);
+    }
+    public function test()
+    {
+        $courseActivenessArray = Course::get(1)->getCourseActivenessArrayByKlassId(2,1,10,3);
+
+        var_dump($courseActivenessArray);
+
     }
 }
 ?>

@@ -136,11 +136,11 @@ $(function () {
     var participation_degree = new Array();
 
     xAxis = eval("(" + '{:json_encode($xAxis)}' + ")");
-    hand_up = eval("(" + "{:json_encode($hand_up)}" + ")");
-    stand_up = eval("(" + "{:json_encode($stand_up)}" + ")");
-    sleep_on_desk = eval("(" + "{:json_encode($sleep_on_desk)}" + ")");
-    participation_degree = eval("(" + "{:json_encode($participation_degree)}" + ")");
-    var title = "{:$title}"
+    hand_up = eval("(" + '{:json_encode($hand_up)}' + ")");
+    stand_up = eval("(" + '{:json_encode($stand_up)}' + ")");
+    sleep_on_desk = eval("(" + '{:json_encode($sleep_on_desk)}' + ")");
+    participation_degree = eval("(" + '{:json_encode($participation_degree)}' + ")");
+    var title = '{:$title}';
     console.log(hand_up);
     //alert(hand_up);
     $('#container').highcharts({
