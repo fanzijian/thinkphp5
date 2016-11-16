@@ -611,9 +611,14 @@ class TeacherController extends IndexController
     }
     public function test()
     {
-        $courseActivenessArray = Course::get(1)->getCourseActivenessArrayByKlassId(2,1,10,3);
+        $teacher = Teacher::get(['id'=>session('id')]);
+        $learnList = $teacher->getStuSelfLearningListByStuName('');
 
-        var_dump($courseActivenessArray);
+        $this->assign('learnList', $learnList);
+
+        return $this->fetch('Teacher/selfLearningList');
+
+
 
     }
 }

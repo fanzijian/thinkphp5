@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2016-11-13 20:48:28
+Date: 2016-11-16 19:36:43
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -50,12 +50,35 @@ CREATE TABLE `yunzhi_course_behavior_result` (
   `create_time` int(11) NOT NULL,
   `update_time` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yunzhi_course_behavior_result
 -- ----------------------------
-INSERT INTO `yunzhi_course_behavior_result` VALUES ('1', '1', '15', '1', '1', '0', '0', '0', '0');
+INSERT INTO `yunzhi_course_behavior_result` VALUES ('1', '1', '15', '1', '1', '0', '100', '0', '0');
+INSERT INTO `yunzhi_course_behavior_result` VALUES ('2', '1', '15', '1', '2', '100', '10', '0', '0');
+INSERT INTO `yunzhi_course_behavior_result` VALUES ('3', '1', '15', '1', '3', '110', '10', '0', '0');
+INSERT INTO `yunzhi_course_behavior_result` VALUES ('4', '1', '15', '1', '4', '120', '10', '0', '0');
+INSERT INTO `yunzhi_course_behavior_result` VALUES ('5', '1', '15', '1', '1', '130', '5', '0', '0');
+INSERT INTO `yunzhi_course_behavior_result` VALUES ('6', '1', '15', '1', '2', '135', '5', '0', '0');
+INSERT INTO `yunzhi_course_behavior_result` VALUES ('7', '1', '15', '1', '3', '140', '5', '0', '0');
+INSERT INTO `yunzhi_course_behavior_result` VALUES ('8', '1', '15', '1', '4', '145', '5', '0', '0');
+INSERT INTO `yunzhi_course_behavior_result` VALUES ('9', '1', '14', '1', '1', '0', '100', '0', '0');
+INSERT INTO `yunzhi_course_behavior_result` VALUES ('10', '1', '14', '1', '2', '100', '10', '0', '0');
+INSERT INTO `yunzhi_course_behavior_result` VALUES ('11', '1', '14', '1', '3', '110', '10', '0', '0');
+INSERT INTO `yunzhi_course_behavior_result` VALUES ('12', '1', '14', '1', '4', '120', '10', '0', '0');
+INSERT INTO `yunzhi_course_behavior_result` VALUES ('13', '1', '14', '1', '1', '130', '5', '0', '0');
+INSERT INTO `yunzhi_course_behavior_result` VALUES ('14', '1', '14', '1', '2', '135', '5', '0', '0');
+INSERT INTO `yunzhi_course_behavior_result` VALUES ('15', '1', '14', '1', '3', '140', '5', '0', '0');
+INSERT INTO `yunzhi_course_behavior_result` VALUES ('16', '1', '14', '1', '4', '145', '5', '0', '0');
+INSERT INTO `yunzhi_course_behavior_result` VALUES ('17', '1', '10', '1', '1', '0', '100', '0', '0');
+INSERT INTO `yunzhi_course_behavior_result` VALUES ('18', '1', '10', '1', '2', '100', '10', '0', '0');
+INSERT INTO `yunzhi_course_behavior_result` VALUES ('19', '1', '10', '1', '3', '110', '10', '0', '0');
+INSERT INTO `yunzhi_course_behavior_result` VALUES ('20', '1', '10', '1', '4', '120', '10', '0', '0');
+INSERT INTO `yunzhi_course_behavior_result` VALUES ('21', '1', '10', '1', '1', '130', '5', '0', '0');
+INSERT INTO `yunzhi_course_behavior_result` VALUES ('22', '1', '10', '1', '2', '135', '5', '0', '0');
+INSERT INTO `yunzhi_course_behavior_result` VALUES ('23', '1', '10', '1', '3', '140', '5', '0', '0');
+INSERT INTO `yunzhi_course_behavior_result` VALUES ('24', '1', '10', '1', '4', '145', '5', '0', '0');
 
 -- ----------------------------
 -- Table structure for yunzhi_course_result
@@ -73,7 +96,7 @@ CREATE TABLE `yunzhi_course_result` (
   `create_time` int(11) NOT NULL,
   `updata_time` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yunzhi_course_result
@@ -82,6 +105,11 @@ INSERT INTO `yunzhi_course_result` VALUES ('1', '1', '14', '1', '4', '3', '1', '
 INSERT INTO `yunzhi_course_result` VALUES ('2', '1', '10', '1', '2', '1', '10', '0.31', '0', '0');
 INSERT INTO `yunzhi_course_result` VALUES ('3', '1', '15', '1', '2', '1', '10', '0.31', '0', '0');
 INSERT INTO `yunzhi_course_result` VALUES ('4', '1', '10', '2', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('5', '1', '18', '2', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('6', '1', '19', '2', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('7', '1', '20', '2', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('8', '1', '21', '2', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('9', '1', '14', '2', '9', '9', '9', '0.90', '9', '9');
 
 -- ----------------------------
 -- Table structure for yunzhi_course_schedule
@@ -101,7 +129,7 @@ CREATE TABLE `yunzhi_course_schedule` (
 -- ----------------------------
 -- Records of yunzhi_course_schedule
 -- ----------------------------
-INSERT INTO `yunzhi_course_schedule` VALUES ('1', '1', '1', '0', '0', '0', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('1', '1', '1', '0', '200', '0', '0');
 INSERT INTO `yunzhi_course_schedule` VALUES ('2', '1', '2', '0', '0', '0', '0');
 INSERT INTO `yunzhi_course_schedule` VALUES ('3', '1', '3', '0', '0', '0', '0');
 INSERT INTO `yunzhi_course_schedule` VALUES ('4', '1', '4', '0', '0', '0', '0');
@@ -211,6 +239,94 @@ INSERT INTO `yunzhi_klass_course` VALUES ('12', '2', '4', '0', '0');
 INSERT INTO `yunzhi_klass_course` VALUES ('27', '4', '1', '0', '0');
 INSERT INTO `yunzhi_klass_course` VALUES ('26', '2', '1', '0', '0');
 INSERT INTO `yunzhi_klass_course` VALUES ('25', '1', '1', '0', '0');
+
+-- ----------------------------
+-- Table structure for yunzhi_learn
+-- ----------------------------
+DROP TABLE IF EXISTS `yunzhi_learn`;
+CREATE TABLE `yunzhi_learn` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `stu_id` int(11) NOT NULL,
+  `start_time` int(11) NOT NULL,
+  `end_time` int(11) NOT NULL,
+  `create_time` int(11) NOT NULL,
+  `update_time` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yunzhi_learn
+-- ----------------------------
+INSERT INTO `yunzhi_learn` VALUES ('1', 'thinphp预习', '15', '0', '0', '0', '0');
+
+-- ----------------------------
+-- Table structure for yunzhi_learn_behavior_result
+-- ----------------------------
+DROP TABLE IF EXISTS `yunzhi_learn_behavior_result`;
+CREATE TABLE `yunzhi_learn_behavior_result` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `stu_id` int(11) NOT NULL,
+  `learn_id` int(11) NOT NULL,
+  `behavior_type` tinyint(6) NOT NULL,
+  `behavior_time` int(11) NOT NULL,
+  `create_time` int(11) NOT NULL,
+  `update_time` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yunzhi_learn_behavior_result
+-- ----------------------------
+INSERT INTO `yunzhi_learn_behavior_result` VALUES ('1', '15', '1', '1', '1', '0', '0');
+INSERT INTO `yunzhi_learn_behavior_result` VALUES ('2', '15', '1', '2', '20', '0', '0');
+INSERT INTO `yunzhi_learn_behavior_result` VALUES ('3', '15', '1', '3', '30', '0', '0');
+
+-- ----------------------------
+-- Table structure for yunzhi_learn_pattern
+-- ----------------------------
+DROP TABLE IF EXISTS `yunzhi_learn_pattern`;
+CREATE TABLE `yunzhi_learn_pattern` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `stu_id` int(11) NOT NULL,
+  `learn_id` int(11) NOT NULL,
+  `pattern` tinyint(6) NOT NULL,
+  `pattern_begin_time` int(11) NOT NULL,
+  `pattern_duration` int(11) NOT NULL,
+  `create_time` int(11) NOT NULL,
+  `update_time` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yunzhi_learn_pattern
+-- ----------------------------
+INSERT INTO `yunzhi_learn_pattern` VALUES ('1', '15', '1', '1', '1', '10', '0', '0');
+INSERT INTO `yunzhi_learn_pattern` VALUES ('2', '15', '1', '2', '11', '9', '0', '0');
+INSERT INTO `yunzhi_learn_pattern` VALUES ('3', '15', '1', '3', '20', '23', '0', '0');
+
+-- ----------------------------
+-- Table structure for yunzhi_learn_status
+-- ----------------------------
+DROP TABLE IF EXISTS `yunzhi_learn_status`;
+CREATE TABLE `yunzhi_learn_status` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `stu_id` int(11) NOT NULL,
+  `learn_id` int(11) NOT NULL,
+  `status` tinyint(6) NOT NULL,
+  `status_begin_time` int(11) NOT NULL,
+  `status_duration` int(11) NOT NULL,
+  `create_time` int(11) NOT NULL,
+  `update_time` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yunzhi_learn_status
+-- ----------------------------
+INSERT INTO `yunzhi_learn_status` VALUES ('1', '15', '1', '1', '0', '10', '0', '0');
+INSERT INTO `yunzhi_learn_status` VALUES ('2', '15', '1', '2', '10', '20', '0', '0');
+INSERT INTO `yunzhi_learn_status` VALUES ('3', '15', '1', '3', '50', '20', '0', '0');
 
 -- ----------------------------
 -- Table structure for yunzhi_manager
@@ -350,7 +466,7 @@ CREATE TABLE `yunzhi_student` (
   `create_time` int(11) NOT NULL DEFAULT '0',
   `update_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yunzhi_student
@@ -358,6 +474,10 @@ CREATE TABLE `yunzhi_student` (
 INSERT INTO `yunzhi_student` VALUES ('15', '春原芽衣', 'S201571668', '123456', '1', '华中师范大学', '1.jpg', '3', '13164673497@163.com', '2016', '1478259826');
 INSERT INTO `yunzhi_student` VALUES ('14', '古河渚', 'S201571667', '123456', '1', '华中科技大学', '1.jpg', '4', '1158534904@qq.com', '0', '1478752427');
 INSERT INTO `yunzhi_student` VALUES ('10', '范子健', 'S201571695', '123456', '0', '华中科技大学', '1.jpg', '2', '13164673497@163.com', '0', '1478179359');
+INSERT INTO `yunzhi_student` VALUES ('18', '范子健1', 'S201571696', '123456', '0', '华中科技大学', '1.jpg', '3', '13164673497@163.com', '0', '1478179359');
+INSERT INTO `yunzhi_student` VALUES ('19', '范子健2', 'S201571699', '123456', '0', '华中科技大学', '1.jpg', '3', '13164673497@163.com', '0', '1478179359');
+INSERT INTO `yunzhi_student` VALUES ('20', '范子健3', 'S201571669', '123456', '0', '华中科技大学', '1.jpg', '3', '13164673497@163.com', '0', '1478179359');
+INSERT INTO `yunzhi_student` VALUES ('21', '范子健4', 'S201571670', '123456', '0', '华中科技大学', '1.jpg', '3', '4', '0', '1478179359');
 
 -- ----------------------------
 -- Table structure for yunzhi_teacher

@@ -150,4 +150,43 @@ class Teacher extends Model
     {
         return $this->hasMany('Course');
     }
+    public function checkIsMyStudent($id)
+    {
+        $studentsIdList = $this->getStudentsIdList;
+        return in_array($studentsIdList, $id);
+
+    }
+    public function getStuSelfLearningListByStuName($stuName)
+    {
+        $studentsIdList = Student::where('name','like','%' . $stuName . '%')->column('id');
+
+        $selfLearningList = $this->getStuSelfLearningListByStuIdList($studentsIdList);
+
+        return $selfLearningList;
+    }
+    public function getStuSelfLearningListByStuUsername($stuUsername)
+    {
+        $studentsIdList = Student::where('name','like','%' . $stuUsername . '%')->column('id');
+
+        $selfLearningList = $this->getStuSelfLearningListByStuIdList($studentsIdList);
+
+        return $selfLearningList;
+    }
+    public function getStuSelfLearningListByStuIdList($studentsIdList)
+    {
+        //$selfLearningList = new Learn;
+        if(empty($studentsIdList)){
+            return null;
+        }
+        $selfLearningList = Learn::where('stu_id','in', $studentsIdList)->select();
+        if(false != $selfLearningList){
+            return $selfLearningList;
+        }
+        return null;
+    }
+    public function getStuSelfLearningListByLearningName($learningName)
+    {
+        $selfLearningList = Learn::where('name','like','%' . $learningName . '%')->select();
+        return $selfLearningList;
+    }
 }
