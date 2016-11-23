@@ -10,6 +10,7 @@ use app\model\Question;
 use app\model\ExamResult;
 use app\model\CourseSchedule;
 use app\model\CourseResult;
+use app\model\Learn;
 /**
 *教师管理，继承think\Controller后，就可以利用V层对数据进行打包。
 */
@@ -608,6 +609,54 @@ class TeacherController extends IndexController
         $message['data'] = $courseActivenessArray;
 
         return json_encode($message);
+    }
+    public function showSelfLearningList()
+    {
+        $teacher = Teacher::get(['id'=>session('id')]);
+        $learnList = $teacher->getStuSelfLearningListByStuName('');
+
+        $this->assign('learnList', $learnList);
+
+        $htmls = $this->fetch('Teacher/selfLearningList');
+
+        return $htmls;
+    }
+    public function showBehaviorAnalysis()
+    {
+        $learn_id = $this->request->param('id');
+        $learn = Learn::get(['id'=>$learn_id]);
+
+        $learnBehaviorResultList = $learn->getLearnBehaviorResultList();
+
+        $this->assign('learnBehaviorResultList',$learnBehaviorResultList);
+        $htmls = $this->fetch('Teacher/behaviorAnalysis');
+
+        return $htmls;
+
+    }
+    public function showPatternAnalysis()
+    {
+        $learn_id = $this->request->param('id');
+        $learn = Learn::get(['id'=>$learn_id]);
+
+        $learnPatternList = $learn->getLearnPatternList();
+
+        $this->assign('learnPatternList',$learnPatternList);
+        $htmls = $this->fetch('Teacher/patternAnalysis');
+
+        return $htmls;
+    }
+    public function showStatusAnalysis()
+    {
+        $learn_id = $this->request->param('id');
+        $learn = Learn::get(['id'=>$learn_id]);
+
+        $learnStatusList = $learn->getLearnStatusList();
+
+        $this->assign('learnStatusList',$learnStatusList);
+        $htmls = $this->fetch('Teacher/statusAnalysis');
+
+        return $htmls;    
     }
     public function test()
     {

@@ -1,0 +1,81 @@
+{extend name="Teacher/Template/base"/}
+{block name="title"}
+自习场景
+{/block}
+{block name="search"}
+<hr />
+
+<hr />
+{/block}
+{block name="content"}
+<div id="container" style="min-width:400px;height:400px"></div>
+{php}
+$data = array();
+foreach($learnBehaviorResultList as $key => $behaviorResult){
+    $tmp = array();
+    $tmp = [$behaviorResult->getData('behavior_time'),$behaviorResult->getData('behavior_type')];
+    array_push($data, $tmp);
+}
+{/php}
+<script type="text/javascript">
+    $(document).ready(function(){
+        var data = eval("(" + '{:json_encode($data)}' + ")");
+        drawPicture(data);
+
+    });
+
+    function drawPicture(data){
+
+    $('#container').highcharts({
+        chart: {
+            type: 'spline'
+        },
+        title: {
+            text: '自习行为分析'
+        },
+        subtitle: {
+            text: '哈欠，眨眼，抬头'
+        },
+        xAxis: {
+            title: {
+                text: '时间 (s)'
+            },
+            labels: {
+                formatter: function () {
+                    return this.value + 's';
+                }
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        yAxis: {
+            title: {
+                text: '自习行为'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            headerFormat: '',
+            pointFormat: '{point.x} s: {point.y}人'
+        },
+        series: [{
+            name: '自习行为分析曲线',
+            data: data
+        }]
+    });
+}
+
+
+
+</script>
+
+{/block}
+
+
