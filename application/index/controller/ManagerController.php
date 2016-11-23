@@ -445,6 +445,10 @@ class ManagerController extends IndexController
                 break;
         }
     }
+    /**
+     * [showTeacherDetail 展示教师详细信息]
+     * @return [html] [返回包含teacher对象的html]
+     */
     public function showTeacherDetail()
     {
         try {
@@ -467,6 +471,10 @@ class ManagerController extends IndexController
             return $this->error('系统错误'. $e->getMessage());
         }
     }
+    /**
+     * [showCourseList 展示课程列表]
+     * @return [html] [返回包含courses对象的数组的html]
+     */
     public function showCourseList()
     {
         $Course = new Course;
@@ -493,6 +501,10 @@ class ManagerController extends IndexController
 
         return $htmls;
     }
+    /**
+     * [showCourseDetail 展示课程所有节次的安排信息]
+     * @return [html] [包含courseSchedule对象数组]
+     */
     public function showCourseDetail()
     {
         try {
@@ -519,6 +531,10 @@ class ManagerController extends IndexController
             return $this->error('系统错误'. $e->getMessage());
         }
     }
+    /**
+     * [editCourseSchedule 获取信息，进入某节课信息修改页面]
+     * @return [html] [返回包含courseSchedule对象的页面]
+     */
     public function editCourseSchedule()
     {
         //获取courseSchedule的id
@@ -547,6 +563,10 @@ class ManagerController extends IndexController
         //填充对象，并保存
         //返回结果
     }
+    /**
+     * [deleteCourseSchedule 删除某节课的安排]
+     * @return [html] [返回删除结果]
+     */
     public function deleteCourseSchedule()
     {
         //获取courseSchedule的id
@@ -562,6 +582,18 @@ class ManagerController extends IndexController
         }
         //运行正常，返回删除后的列表
         return $this->success('删除成功', url('Manager/showCourseDetail'));
+    }
+    /**
+     * [showKlassList 列出所有的班级]
+     * @return [html] [返回所有课程信息]
+     */
+    public function showKlassList()
+    {
+        $pageSize = 10;
+        $klasses = Klass::where('id','>',0)->paginate($pageSize);
+        $this->assign('klasses', $klasses);
+        $htmls = $this->fetch('Manager/klassList');
+        return $htmls;
     }
     public function test()
     {

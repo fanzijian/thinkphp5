@@ -6,6 +6,23 @@ use think\Model;
 */
 class Teacher extends Model
 {
+
+    /*
+     *输出性别属性
+     *@return     string ( 0:男，1:女 )
+     *@author     (fzj <1158534904@qq.com>)
+     */
+    public function getSexAttr($value)
+    {
+        $status = array('0'=>'男','1'=>'女');
+        $sex = $status[$value];
+        if (isset($sex))
+        {
+            return $sex;
+        }else{
+            return $status[0];
+        }
+    }    
     /**
      * 用户登录
      * @param  string $username 用户名
@@ -150,12 +167,22 @@ class Teacher extends Model
     {
         return $this->hasMany('Course');
     }
+    /**
+     * [checkIsMyStudent 判断是否是自己的学生]
+     * @param  [int] $id [学生id]
+     * @return [bool]     [true为在，false为不在]
+     */
     public function checkIsMyStudent($id)
     {
         $studentsIdList = $this->getStudentsIdList;
         return in_array($studentsIdList, $id);
 
     }
+    /**
+     * [getStuSelfLearningListByStuName 通过学生姓名获取学生自习列表]
+     * @param  [string] $stuName [学生姓名]
+     * @return [array]   $selfLearningList  [学生自习list]
+     */
     public function getStuSelfLearningListByStuName($stuName)
     {
         $studentsIdList = Student::where('name','like','%' . $stuName . '%')->column('id');
@@ -164,6 +191,11 @@ class Teacher extends Model
 
         return $selfLearningList;
     }
+    /**
+     * [getStuSelfLearningListByStuUsername 通过学生学号获取学生自习列表]
+     * @param  [string] $stuUsername [学生学号]
+     * @return [array]  $selfLearningList [学生自习list]
+     */
     public function getStuSelfLearningListByStuUsername($stuUsername)
     {
         $studentsIdList = Student::where('name','like','%' . $stuUsername . '%')->column('id');
@@ -172,6 +204,11 @@ class Teacher extends Model
 
         return $selfLearningList;
     }
+    /**
+     * [getStuSelfLearningListByStuIdList 通过学生id数组获取多个学生自习列表]
+     * @param  [array] $studentsIdList [学生id数组]
+     * @return [array] $selfLearningList [学生自习list]
+     */
     public function getStuSelfLearningListByStuIdList($studentsIdList)
     {
         //$selfLearningList = new Learn;
@@ -184,6 +221,11 @@ class Teacher extends Model
         }
         return null;
     }
+    /**
+     * [getStuSelfLearningListByLearningName 通过自习名称获取自习列表]
+     * @param  [string] $learningName [自习名称]
+     * @return [array] $selfLearningList [学生自习list]
+     */
     public function getStuSelfLearningListByLearningName($learningName)
     {
         $selfLearningList = Learn::where('name','like','%' . $learningName . '%')->select();

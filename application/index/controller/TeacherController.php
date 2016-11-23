@@ -507,7 +507,10 @@ class TeacherController extends IndexController
         return $htmls;
         //返回
     }
-
+    /**
+     * [showCourseSchedule 展示课程节次列表]
+     * @return [html] [courseSchedule]
+     */
     public function showCourseSchedule()
     {
         //获取课程id
@@ -522,6 +525,10 @@ class TeacherController extends IndexController
         //返回详情页面
         return $htmls;
     }
+    /**
+     * [showCourseResult 展示课程上课结果]
+     * @return [html] []
+     */
     public function showCourseResult()
     {
         $courseResults = new CourseResult;
@@ -569,7 +576,10 @@ class TeacherController extends IndexController
         $htmls = $this->fetch('Teacher/courseResult');
         return $htmls;
     }
-
+    /**
+     * [showCourseAnalysis 展示课堂分析页面]
+     * @return [html] [description]
+     */
     public function showCourseAnalysis()
     {
         $klasses = Klass::all();
@@ -582,6 +592,10 @@ class TeacherController extends IndexController
         $htmls = $this->fetch('courseAnalysis');
         return $htmls;
     }
+    /**
+     * [getCourseActiveness 获取课堂活跃度]
+     * @return [json] [返回json数据，包含课程活跃度]
+     */
     public function getCourseActiveness()
     {
         $status = false;
@@ -610,6 +624,10 @@ class TeacherController extends IndexController
 
         return json_encode($message);
     }
+    /**
+     * [showSelfLearningList 展示自习列表]
+     * @return [html] []
+     */
     public function showSelfLearningList()
     {
         $teacher = Teacher::get(['id'=>session('id')]);
@@ -621,6 +639,10 @@ class TeacherController extends IndexController
 
         return $htmls;
     }
+    /**
+     * [showBehaviorAnalysis 展示行为分析]
+     * @return [type] [description]
+     */
     public function showBehaviorAnalysis()
     {
         $learn_id = $this->request->param('id');
@@ -634,6 +656,10 @@ class TeacherController extends IndexController
         return $htmls;
 
     }
+    /**
+     * [showPatternAnalysis 展示模式分析]
+     * @return [type] [description]
+     */
     public function showPatternAnalysis()
     {
         $learn_id = $this->request->param('id');
@@ -646,6 +672,10 @@ class TeacherController extends IndexController
 
         return $htmls;
     }
+    /**
+     * [showStatusAnalysis 展示状态分析]
+     * @return [type] [description]
+     */
     public function showStatusAnalysis()
     {
         $learn_id = $this->request->param('id');

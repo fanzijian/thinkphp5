@@ -86,6 +86,13 @@ class Course extends Model
         }
         return null;
     }
+    /**
+     * [getStuBehaviorList 获取学生行为信息list]
+     * @param  [int]  $stu_id   [学生id]
+     * @param  [int]  $num      [课程节次]
+     * @param  integer $interval [最小判定间隔]
+     * @return [array]            [返回行为数据对象列表]
+     */
     public function getStuBehaviorList($stu_id, $num, $interval = 10)
     {
 
@@ -93,14 +100,24 @@ class Course extends Model
     	
     	return $stuBehaviorList;
     }
-
+    /**
+     * [getTotalStuNum 获取该课程学生总数]
+     * @return [int] $totalStuNum [所有学生总数]
+     */
     public function getTotalStuNum()
     {
     	$totalStuNum = count($this->getStudents());
 
     	return $totalStuNum;
     }
-
+    /**
+     * [getStuActivenessArrayById 通过学生id获取学生活跃度数组]
+     * @param  [int]  $stu_id       [学生id]
+     * @param  [int]  $num          [课堂节次]
+     * @param  integer $interval     [最小时间判定间隔]
+     * @param  integer $min_interval [最小异常间隔]
+     * @return [array] $activeness   [活跃度数组]
+     */
     public function getStuActivenessArrayById($stu_id, $num, $interval = 10, $min_interval = 3)
     {
 
@@ -146,6 +163,14 @@ class Course extends Model
 		}
 		return $activeness;
     }
+    /**
+     * [getCourseActivenessArrayByKlassId 通过班级id获取班级所有人活跃度数组]
+     * @param  [int]  $klass_id       [班级id]
+     * @param  [int]  $num          [课堂节次]
+     * @param  integer $interval     [最小时间判定间隔]
+     * @param  integer $min_interval [最小异常间隔]
+     * @return [array] $courseActivenessArray   [活跃度数组]
+     */
     public function getCourseActivenessArrayByKlassId($klass_id, $num, $interval = 10, $min_interval = 3){
     	//判断该班学生是否上这门课程
     	$klass = Klass::get(['id'=>$klass_id]);
