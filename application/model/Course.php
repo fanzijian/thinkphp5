@@ -20,6 +20,11 @@ class Course extends Model
     {
         return $this->hasMany('KlassCourse');
     }
+    public function getSchedules()
+    {
+        $courseSchedules = CourseSchedule::where('course_id',$this->id)->select();
+        return $courseSchedules;
+    }
 	/**
 	 * [getIsChecked 获取是否存在相关关联记录]
 	 * @param  Klass  &$Klass [班级]

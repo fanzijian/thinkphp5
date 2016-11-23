@@ -1,0 +1,41 @@
+{extend name="Manager/Template/base"/}
+{block name="title"}
+学生管理
+{/block}
+{block name="search"}
+{/block}
+{block name="content"}
+{php}$type = request()->action() === 'showstudentdetail' ? 'show' : 'edit';{/php}
+
+{eq name="type" value="show"}
+<form action="" method="post">
+{else/}
+<form action="{:url('saveCourse')}" method="post">
+{/eq}
+<table class="table table-hover table-bordered">
+    <tr class="info">
+        <th>序号</th>
+        <th>名称</th>
+        <th>节次</th>
+        <th>主题</th>
+        <th>任课老师</th>
+        <th>开始时间</th>
+        <th>结束时间</th>
+        <th>测试编号</th>
+        <th>操作</th>
+    </tr>
+    {volist name="courseSchedules" id="courseSchedule" key="key"}
+    <tr>
+        <td>{$key}</td>
+        <td>{$courseSchedule->Course->name}</td>
+        <td>{$courseSchedule->num}</td>
+        <td>{$courseSchedule->name}</td>
+        <td>{$courseSchedule->Course->Teacher->name}</td>
+        <td>{$courseSchedule->start_time}</td>
+        <td>{$courseSchedule->end_time}</td>
+        <td>{$courseSchedule->getExam()->Paper->id}</td>
+        <td><a class="btn btn-sm btn-primary" href="{:url('editCourseSchedule?id=' . $courseSchedule->id)}"><i class="glyphicon glyphicon-pencil"></i>&nbsp;编辑</a>&nbsp;<a class="btn btn-danger btn-sm" href="{:url('deleteCourseSchedule?id=' . $courseSchedule->id)}"><i class="glyphicon glyphicon-trash"></i>&nbsp;删除</a></td>
+    </tr>
+    {/volist}
+</table>
+{/block}

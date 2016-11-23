@@ -5,6 +5,9 @@ use app\model\Manager;//学生模型
 use app\model\Teacher;//教师模型
 use app\model\Student;//学生模型
 use app\model\Klass;//班级模型
+use app\model\Course;//课程模型
+use app\model\CourseSchedule;
+use app\model\Paper;
 /**
 *教师管理，继承think\Controller后，就可以利用V层对数据进行打包。
 */
@@ -246,6 +249,32 @@ class ManagerController extends IndexController
             return $this->success('操作成功', url('Manager/studentList'));
         }
     }
+    public function showStudentDetail()
+    {
+        try {
+            //获取学生id
+            $id = $this->request->param('id');
+
+            //获取学生对象
+            $Student = Student::get($id);
+            if(false === $Student){
+                throw new \Exception('不存在id为' . $id . '的学生！');
+            }
+            
+            //取出班级列表
+            $klasses = Klass::all();
+            $this->assign('klasses',$klasses);
+            $this->assign('Student',$Student);
+
+            //传递到V层
+            $htmls = $this->fetch('Manager/studentDetail');
+            //返回编辑页面
+            return $htmls;
+        } catch (Exception $e) {
+            return $this->error('系统错误'. $e->getMessage());
+        }
+
+    }
 //-------------------------------教师信息管理-------------------------------
     /**
      * [teacherList 教师列表]
@@ -415,6 +444,128 @@ class ManagerController extends IndexController
                 return $this->error('系统操作异常，请重试！');
                 break;
         }
+    }
+    public function showTeacherDetail()
+    {
+        try {
+            //获取教师id
+            $id = $this->request->param('id');
+
+            //获取教师对象
+            $Teacher = Teacher::get($id);
+            if(false === $Teacher){
+                throw new \Exception('不存在id为' . $id . '的教师！');
+            }
+            
+            $this->assign('Teacher',$Teacher);
+
+            //传递到V层
+            $htmls = $this->fetch('Manager/teacherDetail');
+            //返回编辑页面
+            return $htmls;
+        } catch (Exception $e) {
+            return $this->error('系统错误'. $e->getMessage());
+        }
+    }
+    public function showCourseList()
+    {
+        $Course = new Course;
+
+        $pageSize = 5;
+        //获取查询类别
+        
+        $search_type = $this->request->param('search_type');
+        if(null == $search_type){
+            $search_type = 0;
+        }
+        $search_content = $this->request->param('search_content');
+
+        $search_attribute = array('0'=>'name', '1'=>'total', '2'=>'');
+        
+
+        //查询是否有相应学生对象
+        $courses = $Course->where($search_attribute[$search_type], 'like', '%' . $search_content . '%')->paginate($pageSize);
+        
+        //传递到V层
+        $this->assign('courses',$courses);
+        //返回对象
+        $htmls = $this->fetch('Manager/courseList');
+
+        return $htmls;
+    }
+    public function showCourseDetail()
+    {
+        try {
+            //获取教师id
+            $id = $this->request->param('id');
+
+            //获取教师对象
+            $Course = Course::get($id);
+            if(false === $Course){
+                throw new \Exception('不存在id为' . $id . '的课程！');
+            }
+            
+            $courseSchedules = $Course->getSchedules();
+            if(false === $courseSchedules){
+                throw new \Exception('不存在该课程列表');
+            }
+            $this->assign('courseSchedules',$courseSchedules);
+
+            //传递到V层
+            $htmls = $this->fetch('Manager/courseDetail');
+            //返回编辑页面
+            return $htmls;
+        } catch (Exception $e) {
+            return $this->error('系统错误'. $e->getMessage());
+        }
+    }
+    public function editCourseSchedule()
+    {
+        //获取courseSchedule的id
+        $id = $this->request->param('id');
+        //获取对象并判断是否存在
+        $courseSchedule = CourseSchedule::get($id);
+        if(false == $courseSchedule){
+            return $this->error('未找到id为' . $id .'的courseSchedule对象');
+        }
+        $papers = Paper::all();
+        $this->assign('papers',$papers);
+        $this->assign('courseSchedule',$courseSchedule);
+        $htmls = $this->fetch('Manager/editCourseSchedule');
+        //返回修改页面
+        return $htmls;
+    }
+    public function addCourseSchedule()
+    {
+        //构造空的对象
+        //返回修改页面
+    }
+    public function saveCourseSchedule()
+    {
+        //根据传递过来数据是否有id判断是增加还是编辑
+        //获取对象
+        //填充对象，并保存
+        //返回结果
+    }
+    public function deleteCourseSchedule()
+    {
+        //获取courseSchedule的id
+        $id = $this->request->param('id');
+        //获取对象并判断是否存在
+        $courseSchedule = CourseSchedule::get($id);
+        if(false == $courseSchedule){
+            return $this->error('未找到id为' . $id .'的courseSchedule对象');
+        }
+        //判断并返回删除结果
+        if(false === $courseSchedule->delete()){
+            throw new \Exception('删除失败:' . $courseSchedule->getError());
+        }
+        //运行正常，返回删除后的列表
+        return $this->success('删除成功', url('Manager/showCourseDetail'));
+    }
+    public function test()
+    {
+        return $this->fetch('test');
     }
 }
 ?>

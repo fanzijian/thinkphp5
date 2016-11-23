@@ -1,0 +1,78 @@
+{extend name="Manager/Template/base"/}
+{block name="title"}
+课程管理
+{/block}
+{block name="search"}
+{/block}
+{block name="content"}
+<hr/>
+<form action="{:url('saveCourseSchedule')}" method="post">
+<table style="margin:auto">
+    <tbody valign="middle">
+        <tr class="row">
+            <td class="col-md-12">
+                <table class="table table-hover table-bordered">
+                    <tr>
+                        <td style="text-align: center;"><label>名称:</label></td>
+                        <td style="text-align: center;">
+                            <input type="hidden" name="id" value="{$courseSchedule->getData('id')}" />
+                            <input type="text" name="name" value="{$courseSchedule->Course->name}" style="background-color: #EEEEEE;" disabled/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;"><label>节次:</label></td>
+                        <td style="text-align: center;">
+                            <input type="text" name="num" value="{$courseSchedule->num}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;"><label>主题:</label></td>
+                        <td style="text-align: center;">
+                            <input type="text" name="name" value="{$courseSchedule->name}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;"><label>任课教师:</label></td>
+                        <td style="text-align: center;">
+                            <input type="email" name="teacher_name" value="{$courseSchedule->Course->Teacher->name}" style="background-color: #EEEEEE;" disabled/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;"><label>开始时间:</label></td>
+                        <td style="text-align: center;">
+                            <input type="text" name="start_time" value="{$courseSchedule->start_time}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;"><label>结束时间:</label></td>
+                        <td style="text-align: center;">
+                            <input type="text" name="end_time" value="{$courseSchedule->end_time}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">
+                            <label>试卷编号</label>
+                        </td>
+                        <td style="text-align: center;">
+                            <select name="paper_id" style="width: 174px;height: 26px; background-color: #EEEEEE;" disabled>
+                            {volist name="papers" id="paper"}
+                                <option value="{$paper->id}" {eq name="paper->id" value="$courseSchedule->getExam()->Paper->id"}selected="selected"{/eq}>{$paper->name}</option>
+                            {/volist}
+                            </select>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;" colspan="2">
+                            <input type="submit" class="formButton" value="确  定" hidefocus />&nbsp;&nbsp;
+                            <input type="button" class="formButton" onclick="window.history.back(); return false;" value="返  回" hidefocus />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</form>
+<hr/>
+{/block}

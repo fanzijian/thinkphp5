@@ -5,8 +5,17 @@
 {block name="search"}
 {/block}
 {block name="content"}
-<!-- {php}$action = request()->action() === 'managerEditStudent' ? 'Manager/save' : 'Manager/update';{/php} -->
+{php}
+$action = request()->action() === 'managerEditStudent' ? 'Manager/save' : 'Manager/update';
+$type = request()->action() === 'showteacherdetail' ? 'show' : 'edit';
+{/php}
+
+<hr/>
+{eq name="type" value="show"}
+<form action="" method="post">
+{else/}
 <form action="{:url('saveTeacher')}" method="post">
+{/eq}
 <table style="margin:auto">
     <tbody valign="middle">
         <tr class="row">
@@ -18,51 +27,90 @@
                     <tr>
                         <td style="text-align: center;"><label>姓名:</label></td>
                         <td style="text-align: center;">
+                            {eq name="type" value="show"}
+                                {$Teacher->name}
+                            {else/}
                             <input type="hidden" name="id" value="{$Teacher->getData('id')}" />
                             <input type="text" name="name" value="{$Teacher->getData('name')}" />
+                            {/eq}
                         </td>
                     </tr>
                     <tr>
                         <td style="text-align: center;"><label>学号:</label></td>
                         <td style="text-align: center;">
-                        <input type="text" name="username" value="{$Teacher->getData('username')}" />
+                            {eq name="type" value="show"}
+                            {$Teacher->username}
+                            {else/}
+                            <input type="text" name="username" value="{$Teacher->getData('username')}" />
+                            {/eq}
                         </td>
                     </tr>
                     <tr>
                         <td style="text-align: center;"><label>学校:</label></td>
                         <td style="text-align: center;">
+                            {eq name="type" value="show"}
+                            {$Teacher->school}
+                            {else/}
                             <input type="text" name="school" value="{$Teacher->getData('school')}" />
+                            {/eq}
                         </td>
                     </tr>
                     <tr>
                         <td style="text-align: center;"><label>邮箱:</label></td>
                         <td style="text-align: center;">
+                            {eq name="type" value="show"}
+                            {$Teacher->email}
+                            {else/}
                             <input type="email" name="email" value="{$Teacher->getData('email')}" />
+                            {/eq}
                         </td>
                     </tr>
                     <tr>
                         <td style="text-align: center;"><label>头像:</label></td>
                         <td style="text-align: center;">
+                            {eq name="type" value="show"}
+                            {$Teacher->photo_url}
+                            {else/}
                             <input type="text" name="photo_url" value="{$Teacher->getData('photo_url')}" />
+                            {/eq}
                         </td>
                     </tr>
                     <tr>
                         <td style="text-align: center;"><label>性别:</label></td>
                         <td style="text-align: center;">
+                            {eq name="type" value="show"}
+                            {$Teacher->sex}
+                            {else/}
                             <input type="radio" name="sex" value="0" id="sex0" {eq name="Teacher->getData('sex')" value="0"}checked="checked"{/eq}/><label for="sex0">男</label>
                 <input type="radio" name="sex" value="1" id="sex1" {eq name="Teacher->getData('sex')" value="1"}checked="checked"{/eq}/><label for="sex1">女</label>
+                            {/eq}
                         </td>
                     </tr>
+                    {eq name="type" value="show"}
+                    {else/}
                     <tr>
                         <td style="text-align: center;" colspan="2">
                             <input type="submit" class="formButton" value="确  定" hidefocus />&nbsp;&nbsp;
                             <input type="button" class="formButton" onclick="window.history.back(); return false;" value="返  回" hidefocus />
                         </td>
                     </tr>
+                    {/eq}
                 </table>
+                <div class="row" style="margin-bottom: 15px;">
+                {eq name="type" value="show"}
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6 text-right">
+                        <a class="btn btn-primary btn-sm" href="{:url('managerEditTeacher?id=' . $Teacher->id)}"><i class="glyphicon glyphicon-plus"></i>&nbsp;编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a class="btn btn-danger btn-sm" href="{:url('managerDeleteTeacher?id=' . $Teacher->id)}"><i class="glyphicon glyphicon-trash"></i>&nbsp;删除</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="button" class="btn btn-primary btn-sm" onclick="window.history.back(); return false;" value="返  回" hidefocus />
+                    </div>
+                {else/}
+                {/eq}
+                </div>
             </td>
         </tr>
     </tbody>
 </table>
+<hr/>
 </form>
 {/block}
