@@ -56,7 +56,7 @@
                         <td style="text-align: center;">
                             <select name="paper_id" style="width: 174px;height: 26px; background-color: #EEEEEE;" disabled>
                             {volist name="papers" id="paper"}
-                                <option value="{$paper->id}" {eq name="paper->id" value="$courseSchedule->getExam()->Paper->id"}selected="selected"{/eq}>{$paper->name}</option>
+                                <option value="{$paper->id}" {eq name="paper->id" value="$courseSchedule->Exams[0]->Paper->id"}selected="selected"{/eq}>{$paper->name}</option>
                             {/volist}
                             </select>
                             

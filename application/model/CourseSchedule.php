@@ -12,10 +12,10 @@ class CourseSchedule extends Model
     {
         return $this->belongsTo('Course');
     }
-    public function getExam()
+
+    public function Exams()
     {
-    	$exam = Exam::get(['course_id'=>$this->course_id,'course_num'=>$this->num]);
-    	return $exam;
+        return $this->hasMany('Exam');
     }
 }
 

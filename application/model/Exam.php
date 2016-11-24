@@ -12,9 +12,9 @@ class Exam extends Model
         return $this->belongsTo('paper');
     }
 
-	public function Course()
+	public function CourseSchedule()
     {
-        return $this->belongsTo('course');
+        return $this->belongsTo('CourseSchedule');
     }
     /**
      * 获取该次考试的试题对象
