@@ -8,6 +8,7 @@ use app\model\Klass;//班级模型
 use app\model\Course;//课程模型
 use app\model\CourseSchedule;
 use app\model\Paper;
+use app\model\Exam;
 /**
 *教师管理，继承think\Controller后，就可以利用V层对数据进行打包。
 */
@@ -595,9 +596,15 @@ class ManagerController extends IndexController
         $htmls = $this->fetch('Manager/klassList');
         return $htmls;
     }
+    public function showExamList()
+    {
+        $exams = Exam::all();
+        $this->assign('exams',$exams);
+        return $this->fetch('examList');
+    }
     public function test()
     {
-        return $this->fetch('test');
+
     }
 }
 ?>
