@@ -9,16 +9,25 @@ class Course extends Model
 {
 	public function Klasses()
 	{
-		return $this->belongsToMany('Klass',config('database.prefix') . 'klass_course');
+        $courseSchedules = $this->CourseSchedules;
+        $klassIdList = Klass::column('id');
+        $tmp = $klassIdList;
+        foreach ($courseSchedules as $key => $courseSchedule) {
+            $tmp = array_diff($tmp,$courseSchedule->getKlassIdList());
+        }
+        $klassIdList = array_diff($klassIdList, $tmp);
+
+        $Klasses = Klass::where('id','in',$klassIdList)->select();
+		return $Klasses;
 	}
 	
 	public function Exams()
 	{
 		return $this->hasMany('Exam');
 	}
-    public function KlassCourses()
+    public function CourseSchedules()
     {
-        return $this->hasMany('KlassCourse');
+        return $this->hasMany('CourseSchedule');
     }
     public function getSchedules()
     {

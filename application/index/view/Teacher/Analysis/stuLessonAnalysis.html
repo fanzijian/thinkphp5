@@ -1,0 +1,68 @@
+{extend name="Teacher/Template/base"/}
+{block name="title"}
+课堂学习过程分析
+{/block}
+{block name="search"}
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <strong>{$Student->Klass->name}</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>{$Student->name}</strong>
+    </div>
+    <div class="col-md-4 text-right">
+
+
+    </div>
+</div>
+<hr />
+{/block}
+{block name="content"}
+<table class="table table-hover table-bordered">
+    <tr class="info">
+        <th rowspan='2'>序号</th>
+        <th rowspan='2'>课程名称</th>
+        <th rowspan='2'>教师名称</th>
+        <th rowspan='2'>节次</th>
+        <th rowspan='2'>教学模式</th>
+        <th colspan='4'>行为分析指标</th>
+        <th colspan='4'>试题分析指标</th>
+        <th rowspan='2'>操作</th>
+    </tr>
+    <tr>
+    	<th>举手次数</th>
+    	<th>趴桌次数</th>
+    	<th>站立次数</th>
+    	<th>参与度</th>
+    	<th>考试时长</th>
+		<th>准确率</th>
+		<th>试题平均关注时长</th>
+		<th>试题平均关注次数</th>
+    </tr>
+    {volist name="courseSchedules" id="courseSchedule" key="key"}
+    {php}
+    	$CourseResult = $Student->getCourseResult($courseSchedule->id);
+		$ExamResult = $Student->getExamResult($courseSchedule->Exam->id);
+    {/php}
+    <tr>
+        <td>{$key}</td>
+        <td>{$courseSchedule->Course->name}</td>
+        <td>{$courseSchedule->Course->Teacher->name}</td>
+        <td>{$courseSchedule->num}</td>
+        <td>{$courseSchedule->type}</td>
+        <td>{$CourseResult->hand_up}</td>
+        <td>{$CourseResult->sleep_on_desk}</td>
+        <td>{$CourseResult->stand_up}</td>
+        <td>{$CourseResult->participation_degree}</td>
+        <td>{$ExamResult->duration_total}</td>
+        <td>{$ExamResult->accuracy}</td>
+        <td>{$ExamResult->duration_average}</td>
+        <td>{$ExamResult->visit_average}</td>
+        <td>
+            <a class="btn btn-sm btn-primary" href="{:url('#?courseSchedule_id=' . $courseSchedule->id . '&stu_id=' . $Student->id)}" disabled="true"><i class="glyphicon glyphicon-detail"></i>&nbsp;测试细节</a>
+        </td>
+    </tr>
+    {/volist}
+</table>
+
+{/block}
+
+

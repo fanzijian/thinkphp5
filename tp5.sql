@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2016-11-24 20:24:35
+Date: 2016-11-28 20:53:48
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -112,31 +112,279 @@ CREATE TABLE `yunzhi_course_result` (
   `create_time` int(11) NOT NULL,
   `updata_time` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=271 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yunzhi_course_result
 -- ----------------------------
-INSERT INTO `yunzhi_course_result` VALUES ('1', '1', '1', '14', '1', '4', '3', '1', '0.83', '0', '0');
-INSERT INTO `yunzhi_course_result` VALUES ('2', '1', '1', '10', '1', '2', '1', '10', '0.31', '0', '0');
-INSERT INTO `yunzhi_course_result` VALUES ('3', '1', '1', '15', '1', '2', '1', '10', '0.31', '0', '0');
-INSERT INTO `yunzhi_course_result` VALUES ('4', '1', '1', '10', '2', '3', '4', '5', '0.35', '0', '0');
-INSERT INTO `yunzhi_course_result` VALUES ('5', '1', '1', '18', '2', '3', '4', '5', '0.35', '0', '0');
-INSERT INTO `yunzhi_course_result` VALUES ('6', '1', '1', '19', '2', '3', '4', '5', '0.35', '0', '0');
-INSERT INTO `yunzhi_course_result` VALUES ('7', '1', '1', '20', '2', '3', '4', '5', '0.35', '0', '0');
-INSERT INTO `yunzhi_course_result` VALUES ('8', '1', '1', '21', '2', '3', '4', '5', '0.35', '0', '0');
-INSERT INTO `yunzhi_course_result` VALUES ('9', '1', '1', '14', '2', '9', '9', '9', '0.90', '9', '9');
-INSERT INTO `yunzhi_course_result` VALUES ('10', '2', '1', '1', '3', '5', '3', '2', '0.81', '0', '0');
-INSERT INTO `yunzhi_course_result` VALUES ('11', '2', '1', '3', '3', '6', '2', '1', '0.87', '0', '0');
-INSERT INTO `yunzhi_course_result` VALUES ('12', '2', '1', '4', '3', '3', '3', '1', '0.42', '0', '0');
-INSERT INTO `yunzhi_course_result` VALUES ('13', '2', '1', '7', '2', '2', '1', '3', '0.21', '0', '0');
-INSERT INTO `yunzhi_course_result` VALUES ('14', '2', '1', '9', '2', '4', '2', '2', '0.32', '0', '0');
-INSERT INTO `yunzhi_course_result` VALUES ('15', '2', '1', '13', '2', '6', '4', '2', '0.74', '0', '0');
-INSERT INTO `yunzhi_course_result` VALUES ('16', '2', '1', '24', '1', '6', '3', '3', '0.71', '0', '0');
-INSERT INTO `yunzhi_course_result` VALUES ('17', '2', '1', '20', '1', '2', '1', '5', '0.15', '0', '0');
-INSERT INTO `yunzhi_course_result` VALUES ('18', '2', '1', '18', '3', '2', '4', '6', '0.25', '0', '0');
-INSERT INTO `yunzhi_course_result` VALUES ('19', '2', '1', '12', '3', '1', '1', '5', '0.09', '0', '0');
-INSERT INTO `yunzhi_course_result` VALUES ('20', '2', '1', '11', '3', '2', '2', '1', '0.18', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('1', '1', '1', '1', '1', '4', '3', '1', '0.83', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('2', '1', '1', '2', '1', '2', '1', '10', '0.31', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('3', '1', '1', '3', '1', '2', '1', '10', '0.31', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('4', '1', '1', '4', '2', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('5', '1', '1', '5', '2', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('6', '1', '1', '6', '2', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('7', '1', '1', '7', '2', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('8', '1', '1', '8', '2', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('9', '1', '1', '9', '2', '9', '9', '9', '0.90', '9', '9');
+INSERT INTO `yunzhi_course_result` VALUES ('10', '1', '1', '10', '3', '5', '3', '2', '0.81', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('11', '1', '1', '11', '3', '6', '2', '1', '0.87', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('12', '1', '1', '12', '3', '3', '3', '1', '0.42', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('13', '1', '1', '13', '2', '2', '1', '3', '0.21', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('14', '1', '1', '14', '2', '4', '2', '2', '0.32', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('15', '1', '1', '15', '2', '6', '4', '2', '0.74', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('16', '1', '1', '16', '1', '6', '3', '3', '0.71', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('17', '1', '1', '17', '1', '2', '1', '5', '0.15', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('18', '1', '1', '18', '3', '2', '4', '6', '0.25', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('19', '1', '1', '19', '3', '1', '1', '5', '0.09', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('20', '1', '1', '20', '3', '2', '2', '1', '0.18', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('23', '1', '1', '23', '1', '2', '1', '10', '0.31', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('24', '1', '1', '24', '1', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('25', '1', '1', '25', '1', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('26', '1', '1', '26', '1', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('27', '1', '1', '27', '1', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('28', '1', '1', '28', '1', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('29', '1', '1', '29', '1', '9', '9', '9', '0.90', '9', '9');
+INSERT INTO `yunzhi_course_result` VALUES ('30', '1', '1', '30', '1', '5', '3', '2', '0.81', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('31', '1', '1', '31', '1', '6', '2', '1', '0.87', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('32', '1', '1', '32', '1', '3', '3', '1', '0.42', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('33', '1', '1', '33', '1', '2', '1', '3', '0.21', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('34', '1', '1', '34', '1', '4', '2', '2', '0.32', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('35', '1', '1', '35', '1', '6', '4', '2', '0.74', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('36', '1', '1', '36', '1', '6', '3', '3', '0.71', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('37', '1', '1', '37', '1', '2', '1', '5', '0.15', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('38', '1', '1', '38', '1', '2', '4', '6', '0.25', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('39', '1', '1', '39', '1', '1', '1', '5', '0.09', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('40', '1', '1', '40', '1', '2', '2', '1', '0.18', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('41', '1', '1', '41', '1', '2', '1', '5', '0.15', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('42', '1', '1', '42', '1', '2', '4', '6', '0.25', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('43', '1', '1', '43', '1', '1', '1', '5', '0.09', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('44', '1', '1', '44', '1', '2', '2', '1', '0.18', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('45', '1', '1', '45', '1', '2', '2', '1', '0.18', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('46', '1', '4', '1', '2', '4', '3', '1', '0.83', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('47', '1', '4', '2', '2', '2', '1', '10', '0.31', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('48', '1', '4', '3', '2', '2', '1', '10', '0.31', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('49', '1', '4', '4', '2', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('50', '1', '4', '5', '2', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('51', '1', '4', '6', '2', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('52', '1', '4', '7', '2', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('53', '1', '4', '8', '2', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('54', '1', '4', '9', '2', '9', '9', '9', '0.90', '9', '9');
+INSERT INTO `yunzhi_course_result` VALUES ('55', '1', '4', '10', '2', '5', '3', '2', '0.81', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('56', '1', '4', '11', '2', '6', '2', '1', '0.87', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('57', '1', '4', '12', '2', '3', '3', '1', '0.42', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('58', '1', '4', '13', '2', '2', '1', '3', '0.21', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('59', '1', '4', '14', '2', '4', '2', '2', '0.32', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('60', '1', '4', '15', '2', '6', '4', '2', '0.74', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('61', '1', '4', '16', '2', '6', '3', '3', '0.71', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('62', '1', '4', '17', '2', '2', '1', '5', '0.15', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('63', '1', '4', '18', '2', '2', '4', '6', '0.25', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('64', '1', '4', '19', '2', '1', '1', '5', '0.09', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('65', '1', '4', '20', '2', '2', '2', '1', '0.18', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('66', '1', '4', '21', '2', '4', '3', '1', '0.83', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('67', '1', '4', '22', '2', '2', '1', '10', '0.31', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('68', '1', '4', '23', '2', '2', '1', '10', '0.31', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('69', '1', '4', '24', '2', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('70', '1', '4', '25', '2', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('71', '1', '4', '26', '2', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('72', '1', '4', '27', '2', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('73', '1', '4', '28', '2', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('74', '1', '4', '29', '2', '9', '9', '9', '0.90', '9', '9');
+INSERT INTO `yunzhi_course_result` VALUES ('75', '1', '4', '30', '2', '5', '3', '2', '0.81', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('76', '1', '4', '31', '2', '6', '2', '1', '0.87', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('77', '1', '4', '32', '2', '3', '3', '1', '0.42', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('78', '1', '4', '33', '2', '2', '1', '3', '0.21', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('79', '1', '4', '34', '2', '4', '2', '2', '0.32', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('80', '1', '4', '35', '2', '6', '4', '2', '0.74', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('81', '1', '4', '36', '2', '6', '3', '3', '0.71', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('82', '1', '4', '37', '2', '2', '1', '5', '0.15', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('83', '1', '4', '38', '2', '2', '4', '6', '0.25', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('84', '1', '4', '39', '2', '1', '1', '5', '0.09', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('85', '1', '4', '40', '2', '2', '2', '1', '0.18', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('86', '1', '4', '41', '2', '2', '1', '5', '0.15', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('87', '1', '4', '42', '2', '2', '4', '6', '0.25', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('88', '1', '4', '43', '2', '1', '1', '5', '0.09', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('89', '1', '4', '44', '2', '2', '2', '1', '0.18', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('90', '1', '4', '45', '2', '2', '2', '1', '0.18', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('91', '1', '7', '1', '3', '4', '3', '1', '0.83', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('92', '1', '7', '2', '3', '2', '1', '10', '0.31', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('93', '1', '7', '3', '3', '2', '1', '10', '0.31', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('94', '1', '7', '4', '3', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('95', '1', '7', '5', '3', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('96', '1', '7', '6', '3', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('97', '1', '7', '7', '3', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('98', '1', '7', '8', '3', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('99', '1', '7', '9', '3', '9', '9', '9', '0.90', '9', '9');
+INSERT INTO `yunzhi_course_result` VALUES ('100', '1', '7', '10', '3', '5', '3', '2', '0.81', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('101', '1', '7', '11', '3', '6', '2', '1', '0.87', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('102', '1', '7', '12', '3', '3', '3', '1', '0.42', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('103', '1', '7', '13', '3', '2', '1', '3', '0.21', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('104', '1', '7', '14', '3', '4', '2', '2', '0.32', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('105', '1', '7', '15', '3', '6', '4', '2', '0.74', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('106', '1', '7', '16', '3', '6', '3', '3', '0.71', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('107', '1', '7', '17', '3', '2', '1', '5', '0.15', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('108', '1', '7', '18', '3', '2', '4', '6', '0.25', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('109', '1', '7', '19', '3', '1', '1', '5', '0.09', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('110', '1', '7', '20', '3', '2', '2', '1', '0.18', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('111', '1', '7', '21', '3', '4', '3', '1', '0.83', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('112', '1', '7', '22', '3', '2', '1', '10', '0.31', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('113', '1', '7', '23', '3', '2', '1', '10', '0.31', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('114', '1', '7', '24', '3', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('115', '1', '7', '25', '3', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('116', '1', '7', '26', '3', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('117', '1', '7', '27', '3', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('118', '1', '7', '28', '3', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('119', '1', '7', '29', '3', '9', '9', '9', '0.90', '9', '9');
+INSERT INTO `yunzhi_course_result` VALUES ('120', '1', '7', '30', '3', '5', '3', '2', '0.81', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('121', '1', '7', '31', '3', '6', '2', '1', '0.87', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('122', '1', '7', '32', '3', '3', '3', '1', '0.42', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('123', '1', '7', '33', '3', '2', '1', '3', '0.21', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('124', '1', '7', '34', '3', '4', '2', '2', '0.32', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('125', '1', '7', '35', '3', '6', '4', '2', '0.74', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('126', '1', '7', '36', '3', '6', '3', '3', '0.71', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('127', '1', '7', '37', '3', '2', '1', '5', '0.15', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('128', '1', '7', '38', '3', '2', '4', '6', '0.25', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('129', '1', '7', '39', '3', '1', '1', '5', '0.09', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('130', '1', '7', '40', '3', '2', '2', '1', '0.18', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('131', '1', '7', '41', '3', '2', '1', '5', '0.15', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('132', '1', '7', '42', '3', '2', '4', '6', '0.25', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('133', '1', '7', '43', '3', '1', '1', '5', '0.09', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('134', '1', '7', '44', '3', '2', '2', '1', '0.18', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('135', '1', '7', '45', '3', '2', '2', '1', '0.18', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('136', '1', '10', '1', '4', '4', '3', '1', '0.83', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('137', '1', '10', '2', '4', '2', '1', '10', '0.31', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('138', '1', '10', '3', '4', '2', '1', '10', '0.31', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('139', '1', '10', '4', '4', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('140', '1', '10', '5', '4', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('141', '1', '10', '6', '4', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('142', '1', '10', '7', '4', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('143', '1', '10', '8', '4', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('144', '1', '10', '9', '4', '9', '9', '9', '0.90', '9', '9');
+INSERT INTO `yunzhi_course_result` VALUES ('145', '1', '10', '10', '4', '5', '3', '2', '0.81', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('146', '1', '10', '11', '4', '6', '2', '1', '0.87', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('147', '1', '10', '12', '4', '3', '3', '1', '0.42', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('148', '1', '10', '13', '4', '2', '1', '3', '0.21', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('149', '1', '10', '14', '4', '4', '2', '2', '0.32', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('150', '1', '10', '15', '4', '6', '4', '2', '0.74', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('151', '1', '10', '16', '4', '6', '3', '3', '0.71', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('152', '1', '10', '17', '4', '2', '1', '5', '0.15', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('153', '1', '10', '18', '4', '2', '4', '6', '0.25', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('154', '1', '10', '19', '4', '1', '1', '5', '0.09', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('155', '1', '10', '20', '4', '2', '2', '1', '0.18', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('156', '1', '10', '21', '4', '4', '3', '1', '0.83', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('157', '1', '10', '22', '4', '2', '1', '10', '0.31', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('158', '1', '10', '23', '4', '2', '1', '10', '0.31', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('159', '1', '10', '24', '4', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('160', '1', '10', '25', '4', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('161', '1', '10', '26', '4', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('162', '1', '10', '27', '4', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('163', '1', '10', '28', '4', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('164', '1', '10', '29', '4', '9', '9', '9', '0.90', '9', '9');
+INSERT INTO `yunzhi_course_result` VALUES ('165', '1', '10', '30', '4', '5', '3', '2', '0.81', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('166', '1', '10', '31', '4', '6', '2', '1', '0.87', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('167', '1', '10', '32', '4', '3', '3', '1', '0.42', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('168', '1', '10', '33', '4', '2', '1', '3', '0.21', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('169', '1', '10', '34', '4', '4', '2', '2', '0.32', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('170', '1', '10', '35', '4', '6', '4', '2', '0.74', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('171', '1', '10', '36', '4', '6', '3', '3', '0.71', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('172', '1', '10', '37', '4', '2', '1', '5', '0.15', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('173', '1', '10', '38', '4', '2', '4', '6', '0.25', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('174', '1', '10', '39', '4', '1', '1', '5', '0.09', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('175', '1', '10', '40', '4', '2', '2', '1', '0.18', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('176', '1', '10', '41', '4', '2', '1', '5', '0.15', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('177', '1', '10', '42', '4', '2', '4', '6', '0.25', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('178', '1', '10', '43', '4', '1', '1', '5', '0.09', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('179', '1', '10', '44', '4', '2', '2', '1', '0.18', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('180', '1', '10', '45', '4', '2', '2', '1', '0.18', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('181', '1', '13', '1', '5', '4', '3', '1', '0.83', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('182', '1', '13', '2', '5', '2', '1', '10', '0.31', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('183', '1', '13', '3', '5', '2', '1', '10', '0.31', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('184', '1', '13', '4', '5', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('185', '1', '13', '5', '5', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('186', '1', '13', '6', '5', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('187', '1', '13', '7', '5', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('188', '1', '13', '8', '5', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('189', '1', '13', '9', '5', '9', '9', '9', '0.90', '9', '9');
+INSERT INTO `yunzhi_course_result` VALUES ('190', '1', '13', '10', '5', '5', '3', '2', '0.81', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('191', '1', '13', '11', '5', '6', '2', '1', '0.87', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('192', '1', '13', '12', '5', '3', '3', '1', '0.42', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('193', '1', '13', '13', '5', '2', '1', '3', '0.21', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('194', '1', '13', '14', '5', '4', '2', '2', '0.32', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('195', '1', '13', '15', '5', '6', '4', '2', '0.74', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('196', '1', '13', '16', '5', '6', '3', '3', '0.71', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('197', '1', '13', '17', '5', '2', '1', '5', '0.15', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('198', '1', '13', '18', '5', '2', '4', '6', '0.25', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('199', '1', '13', '19', '5', '1', '1', '5', '0.09', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('200', '1', '13', '20', '5', '2', '2', '1', '0.18', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('201', '1', '13', '21', '5', '4', '3', '1', '0.83', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('202', '1', '13', '22', '5', '2', '1', '10', '0.31', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('203', '1', '13', '23', '5', '2', '1', '10', '0.31', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('204', '1', '13', '24', '5', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('205', '1', '13', '25', '5', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('206', '1', '13', '26', '5', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('207', '1', '13', '27', '5', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('208', '1', '13', '28', '5', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('209', '1', '13', '29', '5', '9', '9', '9', '0.90', '9', '9');
+INSERT INTO `yunzhi_course_result` VALUES ('210', '1', '13', '30', '5', '5', '3', '2', '0.81', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('211', '1', '13', '31', '5', '6', '2', '1', '0.87', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('212', '1', '13', '32', '5', '3', '3', '1', '0.42', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('213', '1', '13', '33', '5', '2', '1', '3', '0.21', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('214', '1', '13', '34', '5', '4', '2', '2', '0.32', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('215', '1', '13', '35', '5', '6', '4', '2', '0.74', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('216', '1', '13', '36', '5', '6', '3', '3', '0.71', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('217', '1', '13', '37', '5', '2', '1', '5', '0.15', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('218', '1', '13', '38', '5', '2', '4', '6', '0.25', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('219', '1', '13', '39', '5', '1', '1', '5', '0.09', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('220', '1', '13', '40', '5', '2', '2', '1', '0.18', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('221', '1', '13', '41', '5', '2', '1', '5', '0.15', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('222', '1', '13', '42', '5', '2', '4', '6', '0.25', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('223', '1', '13', '43', '5', '1', '1', '5', '0.09', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('224', '1', '13', '44', '5', '2', '2', '1', '0.18', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('225', '1', '13', '45', '5', '2', '2', '1', '0.18', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('226', '1', '16', '1', '6', '4', '3', '1', '0.83', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('227', '1', '16', '2', '6', '2', '1', '10', '0.31', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('228', '1', '16', '3', '6', '2', '1', '10', '0.31', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('229', '1', '16', '4', '6', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('230', '1', '16', '5', '6', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('231', '1', '16', '6', '6', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('232', '1', '16', '7', '6', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('233', '1', '16', '8', '6', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('234', '1', '16', '9', '6', '9', '9', '9', '0.90', '9', '9');
+INSERT INTO `yunzhi_course_result` VALUES ('235', '1', '16', '10', '6', '5', '3', '2', '0.81', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('236', '1', '16', '11', '6', '6', '2', '1', '0.87', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('237', '1', '16', '12', '6', '3', '3', '1', '0.42', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('238', '1', '16', '13', '6', '2', '1', '3', '0.21', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('239', '1', '16', '14', '6', '4', '2', '2', '0.32', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('240', '1', '16', '15', '6', '6', '4', '2', '0.74', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('241', '1', '16', '16', '6', '6', '3', '3', '0.71', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('242', '1', '16', '17', '6', '2', '1', '5', '0.15', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('243', '1', '16', '18', '6', '2', '4', '6', '0.25', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('244', '1', '16', '19', '6', '1', '1', '5', '0.09', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('245', '1', '16', '20', '6', '2', '2', '1', '0.18', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('246', '1', '16', '21', '6', '4', '3', '1', '0.83', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('247', '1', '16', '22', '6', '2', '1', '10', '0.31', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('248', '1', '16', '23', '6', '2', '1', '10', '0.31', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('249', '1', '16', '24', '6', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('250', '1', '16', '25', '6', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('251', '1', '16', '26', '6', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('252', '1', '16', '27', '6', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('253', '1', '16', '28', '6', '3', '4', '5', '0.35', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('254', '1', '16', '29', '6', '9', '9', '9', '0.90', '9', '9');
+INSERT INTO `yunzhi_course_result` VALUES ('255', '1', '16', '30', '6', '5', '3', '2', '0.81', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('256', '1', '16', '31', '6', '6', '2', '1', '0.87', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('257', '1', '16', '32', '6', '3', '3', '1', '0.42', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('258', '1', '16', '33', '6', '2', '1', '3', '0.21', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('259', '1', '16', '34', '6', '4', '2', '2', '0.32', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('260', '1', '16', '35', '6', '6', '4', '2', '0.74', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('261', '1', '16', '36', '6', '6', '3', '3', '0.71', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('262', '1', '16', '37', '6', '2', '1', '5', '0.15', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('263', '1', '16', '38', '6', '2', '4', '6', '0.25', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('264', '1', '16', '39', '6', '1', '1', '5', '0.09', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('265', '1', '16', '40', '6', '2', '2', '1', '0.18', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('266', '1', '16', '41', '6', '2', '1', '5', '0.15', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('267', '1', '16', '42', '6', '2', '4', '6', '0.25', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('268', '1', '16', '43', '6', '1', '1', '5', '0.09', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('269', '1', '16', '44', '6', '2', '2', '1', '0.18', '0', '0');
+INSERT INTO `yunzhi_course_result` VALUES ('270', '1', '16', '45', '6', '2', '2', '1', '0.18', '0', '0');
 
 -- ----------------------------
 -- Table structure for yunzhi_course_schedule
@@ -223,8 +471,9 @@ CREATE TABLE `yunzhi_exam_result` (
   `stu_id` int(11) DEFAULT NULL,
   `exam_id` int(11) DEFAULT NULL,
   `accuracy` float(5,2) DEFAULT NULL,
-  `duration_total` int(11) DEFAULT NULL,
-  `duration_average` float(11,0) DEFAULT NULL,
+  `duration_total` int(8) DEFAULT NULL,
+  `duration_average` float(8,4) DEFAULT NULL,
+  `visit_average` float(8,4) DEFAULT NULL,
   `fastest_question` int(11) DEFAULT NULL,
   `slowest_question` int(11) DEFAULT NULL,
   `rank_accuracy` int(11) DEFAULT NULL,
@@ -232,101 +481,281 @@ CREATE TABLE `yunzhi_exam_result` (
   `create_time` int(11) DEFAULT NULL,
   `update_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=271 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yunzhi_exam_result
 -- ----------------------------
-INSERT INTO `yunzhi_exam_result` VALUES ('1', '1', '1', '0.80', '147', '29', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('2', '2', '1', '0.60', '105', '21', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('3', '3', '1', '0.80', '86', '17', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('4', '4', '1', '0.60', '128', '26', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('5', '5', '1', '1.00', '105', '21', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('6', '6', '1', '0.60', '119', '24', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('7', '7', '1', '0.20', '246', '49', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('8', '8', '1', '0.00', '0', '0', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('9', '9', '1', '0.80', '60', '12', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('10', '10', '1', '0.40', '114', '23', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('11', '11', '1', '1.00', '149', '30', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('12', '12', '1', '0.80', '95', '19', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('13', '13', '1', '0.60', '233', '47', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('14', '14', '1', '0.60', '82', '16', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('15', '15', '1', '0.80', '171', '34', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('16', '16', '1', '1.00', '113', '23', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('17', '17', '1', '0.80', '54', '11', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('18', '18', '1', '0.60', '96', '19', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('19', '19', '1', '0.80', '90', '18', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('20', '20', '1', '0.80', '187', '37', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('21', '21', '1', '0.80', '65', '13', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('22', '22', '1', '0.80', '111', '22', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('23', '23', '1', '1.00', '112', '22', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('24', '24', '1', '0.60', '93', '19', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('25', '25', '1', '0.60', '52', '10', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('26', '26', '1', '0.60', '146', '29', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('27', '27', '1', '0.80', '131', '26', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('28', '28', '1', '0.80', '367', '73', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('29', '29', '1', '0.80', '112', '22', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('30', '30', '1', '0.60', '76', '15', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('31', '31', '1', '0.80', '70', '14', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('32', '32', '1', '0.80', '88', '18', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('33', '33', '1', '0.80', '135', '27', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('34', '34', '1', '1.00', '91', '18', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('35', '35', '1', '1.00', '130', '26', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('36', '36', '1', '0.60', '98', '20', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('37', '37', '1', '0.80', '102', '20', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('38', '38', '1', '0.40', '87', '17', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('39', '39', '1', '0.60', '158', '32', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('40', '40', '1', '0.40', '104', '21', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('41', '41', '1', '0.40', '163', '33', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('42', '42', '1', '0.60', '94', '19', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('43', '43', '1', '0.80', '151', '30', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('44', '44', '1', '0.60', '119', '24', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('45', '45', '1', '0.80', '117', '23', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('46', '1', '2', '0.80', '112', '22', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('47', '2', '2', '0.60', '93', '19', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('48', '3', '2', '0.80', '247', '49', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('49', '4', '2', '0.80', '63', '13', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('50', '5', '2', '0.80', '119', '24', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('51', '6', '2', '0.60', '188', '38', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('52', '7', '2', '0.60', '167', '33', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('53', '8', '2', '0.80', '51', '10', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('54', '9', '2', '0.80', '54', '11', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('55', '10', '2', '0.60', '68', '14', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('56', '11', '2', '0.80', '73', '15', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('57', '12', '2', '0.80', '194', '39', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('58', '13', '2', '0.60', '151', '30', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('59', '14', '2', '0.60', '58', '12', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('60', '15', '2', '0.60', '62', '12', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('61', '16', '2', '0.80', '74', '15', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('62', '17', '2', '0.20', '76', '15', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('63', '18', '2', '0.60', '75', '15', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('64', '19', '2', '0.80', '106', '21', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('65', '20', '2', '0.80', '106', '21', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('66', '21', '2', '0.80', '104', '21', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('67', '22', '2', '0.60', '122', '24', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('68', '23', '2', '0.80', '106', '21', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('69', '24', '2', '0.60', '172', '34', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('70', '25', '2', '1.00', '110', '22', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('71', '26', '2', '0.80', '125', '25', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('72', '27', '2', '1.00', '71', '14', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('73', '28', '2', '0.80', '155', '31', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('74', '29', '2', '0.80', '164', '33', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('75', '30', '2', '0.80', '107', '21', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('76', '31', '2', '0.80', '24', '5', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('77', '32', '2', '0.80', '137', '27', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('78', '33', '2', '1.00', '109', '22', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('79', '34', '2', '0.60', '103', '21', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('80', '35', '2', '0.80', '77', '15', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('81', '36', '2', '0.80', '59', '12', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('82', '37', '2', '0.80', '112', '22', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('83', '38', '2', '0.80', '78', '16', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('84', '39', '2', '0.40', '198', '40', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('85', '40', '2', '1.00', '90', '18', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('86', '41', '2', '0.80', '110', '22', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('87', '42', '2', '0.60', '85', '17', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('88', '43', '2', '0.60', '262', '52', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('89', '44', '2', '0.80', '38', '8', null, null, null, null, null, null);
-INSERT INTO `yunzhi_exam_result` VALUES ('90', '45', '2', '0.80', '101', '20', null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('1', '1', '1', '0.80', '147', '29.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('2', '2', '1', '0.60', '105', '21.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('3', '3', '1', '0.80', '86', '17.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('4', '4', '1', '0.60', '128', '26.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('5', '5', '1', '1.00', '105', '21.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('6', '6', '1', '0.60', '119', '24.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('7', '7', '1', '0.20', '246', '49.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('8', '8', '1', '0.00', '0', '0.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('9', '9', '1', '0.80', '60', '12.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('10', '10', '1', '0.40', '114', '23.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('11', '11', '1', '1.00', '149', '30.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('12', '12', '1', '0.80', '95', '19.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('13', '13', '1', '0.60', '233', '47.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('14', '14', '1', '0.60', '82', '16.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('15', '15', '1', '0.80', '171', '34.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('16', '16', '1', '1.00', '113', '23.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('17', '17', '1', '0.80', '54', '11.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('18', '18', '1', '0.60', '96', '19.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('19', '19', '1', '0.80', '90', '18.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('20', '20', '1', '0.80', '187', '37.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('21', '21', '1', '0.80', '65', '13.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('22', '22', '1', '0.80', '111', '22.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('23', '23', '1', '1.00', '112', '22.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('24', '24', '1', '0.60', '93', '19.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('25', '25', '1', '0.60', '52', '10.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('26', '26', '1', '0.60', '146', '29.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('27', '27', '1', '0.80', '131', '26.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('28', '28', '1', '0.80', '367', '73.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('29', '29', '1', '0.80', '112', '22.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('30', '30', '1', '0.60', '76', '15.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('31', '31', '1', '0.80', '70', '14.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('32', '32', '1', '0.80', '88', '18.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('33', '33', '1', '0.80', '135', '27.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('34', '34', '1', '1.00', '91', '18.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('35', '35', '1', '1.00', '130', '26.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('36', '36', '1', '0.60', '98', '20.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('37', '37', '1', '0.80', '102', '20.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('38', '38', '1', '0.40', '87', '17.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('39', '39', '1', '0.60', '158', '32.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('40', '40', '1', '0.40', '104', '21.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('41', '41', '1', '0.40', '163', '33.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('42', '42', '1', '0.60', '94', '19.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('43', '43', '1', '0.80', '151', '30.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('44', '44', '1', '0.60', '119', '24.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('45', '45', '1', '0.80', '117', '23.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('46', '1', '2', '0.80', '112', '22.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('47', '2', '2', '0.60', '93', '19.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('48', '3', '2', '0.80', '247', '49.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('49', '4', '2', '0.80', '63', '13.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('50', '5', '2', '0.80', '119', '24.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('51', '6', '2', '0.60', '188', '38.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('52', '7', '2', '0.60', '167', '33.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('53', '8', '2', '0.80', '51', '10.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('54', '9', '2', '0.80', '54', '11.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('55', '10', '2', '0.60', '68', '14.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('56', '11', '2', '0.80', '73', '15.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('57', '12', '2', '0.80', '194', '39.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('58', '13', '2', '0.60', '151', '30.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('59', '14', '2', '0.60', '58', '12.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('60', '15', '2', '0.60', '62', '12.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('61', '16', '2', '0.80', '74', '15.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('62', '17', '2', '0.20', '76', '15.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('63', '18', '2', '0.60', '75', '15.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('64', '19', '2', '0.80', '106', '21.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('65', '20', '2', '0.80', '106', '21.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('66', '21', '2', '0.80', '104', '21.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('67', '22', '2', '0.60', '122', '24.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('68', '23', '2', '0.80', '106', '21.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('69', '24', '2', '0.60', '172', '34.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('70', '25', '2', '1.00', '110', '22.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('71', '26', '2', '0.80', '125', '25.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('72', '27', '2', '1.00', '71', '14.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('73', '28', '2', '0.80', '155', '31.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('74', '29', '2', '0.80', '164', '33.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('75', '30', '2', '0.80', '107', '21.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('76', '31', '2', '0.80', '24', '5.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('77', '32', '2', '0.80', '137', '27.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('78', '33', '2', '1.00', '109', '22.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('79', '34', '2', '0.60', '103', '21.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('80', '35', '2', '0.80', '77', '15.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('81', '36', '2', '0.80', '59', '12.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('82', '37', '2', '0.80', '112', '22.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('83', '38', '2', '0.80', '78', '16.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('84', '39', '2', '0.40', '198', '40.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('85', '40', '2', '1.00', '90', '18.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('86', '41', '2', '0.80', '110', '22.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('87', '42', '2', '0.60', '85', '17.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('88', '43', '2', '0.60', '262', '52.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('89', '44', '2', '0.80', '38', '8.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('90', '45', '2', '0.80', '101', '20.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('91', '1', '3', '0.80', '147', '29.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('92', '2', '3', '0.60', '105', '21.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('93', '3', '3', '0.80', '86', '17.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('94', '4', '3', '0.60', '128', '26.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('95', '5', '3', '1.00', '105', '21.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('96', '6', '3', '0.60', '119', '24.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('97', '7', '3', '0.20', '246', '49.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('98', '8', '3', '0.00', '0', '0.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('99', '9', '3', '0.80', '60', '12.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('100', '10', '3', '0.40', '114', '23.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('101', '11', '3', '1.00', '149', '30.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('102', '12', '3', '0.80', '95', '19.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('103', '13', '3', '0.60', '233', '47.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('104', '14', '3', '0.60', '82', '16.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('105', '15', '3', '0.80', '171', '34.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('106', '16', '3', '1.00', '113', '23.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('107', '17', '3', '0.80', '54', '11.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('108', '18', '3', '0.60', '96', '19.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('109', '19', '3', '0.80', '90', '18.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('110', '20', '3', '0.80', '187', '37.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('111', '21', '3', '0.80', '65', '13.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('112', '22', '3', '0.80', '111', '22.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('113', '23', '3', '1.00', '112', '22.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('114', '24', '3', '0.60', '93', '19.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('115', '25', '3', '0.60', '52', '10.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('116', '26', '3', '0.60', '146', '29.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('117', '27', '3', '0.80', '131', '26.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('118', '28', '3', '0.80', '367', '73.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('119', '29', '3', '0.80', '112', '22.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('120', '30', '3', '0.60', '76', '15.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('121', '31', '3', '0.80', '70', '14.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('122', '32', '3', '0.80', '88', '18.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('123', '33', '3', '0.80', '135', '27.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('124', '34', '3', '1.00', '91', '18.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('125', '35', '3', '1.00', '130', '26.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('126', '36', '3', '0.60', '98', '20.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('127', '37', '3', '0.80', '102', '20.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('128', '38', '3', '0.40', '87', '17.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('129', '39', '3', '0.60', '158', '32.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('130', '40', '3', '0.40', '104', '21.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('131', '41', '3', '0.40', '163', '33.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('132', '42', '3', '0.60', '94', '19.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('133', '43', '3', '0.80', '151', '30.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('134', '44', '3', '0.60', '119', '24.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('135', '45', '3', '0.80', '117', '23.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('136', '1', '4', '0.80', '147', '29.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('137', '2', '4', '0.60', '105', '21.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('138', '3', '4', '0.80', '86', '17.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('139', '4', '4', '0.60', '128', '26.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('140', '5', '4', '1.00', '105', '21.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('141', '6', '4', '0.60', '119', '24.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('142', '7', '4', '0.20', '246', '49.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('143', '8', '4', '0.00', '0', '0.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('144', '9', '4', '0.80', '60', '12.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('145', '10', '4', '0.40', '114', '23.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('146', '11', '4', '1.00', '149', '30.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('147', '12', '4', '0.80', '95', '19.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('148', '13', '4', '0.60', '233', '47.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('149', '14', '4', '0.60', '82', '16.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('150', '15', '4', '0.80', '171', '34.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('151', '16', '4', '1.00', '113', '23.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('152', '17', '4', '0.80', '54', '11.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('153', '18', '4', '0.60', '96', '19.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('154', '19', '4', '0.80', '90', '18.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('155', '20', '4', '0.80', '187', '37.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('156', '21', '4', '0.80', '65', '13.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('157', '22', '4', '0.80', '111', '22.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('158', '23', '4', '1.00', '112', '22.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('159', '24', '4', '0.60', '93', '19.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('160', '25', '4', '0.60', '52', '10.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('161', '26', '4', '0.60', '146', '29.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('162', '27', '4', '0.80', '131', '26.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('163', '28', '4', '0.80', '367', '73.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('164', '29', '4', '0.80', '112', '22.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('165', '30', '4', '0.60', '76', '15.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('166', '31', '4', '0.80', '70', '14.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('167', '32', '4', '0.80', '88', '18.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('168', '33', '4', '0.80', '135', '27.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('169', '34', '4', '1.00', '91', '18.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('170', '35', '4', '1.00', '130', '26.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('171', '36', '4', '0.60', '98', '20.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('172', '37', '4', '0.80', '102', '20.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('173', '38', '4', '0.40', '87', '17.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('174', '39', '4', '0.60', '158', '32.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('175', '40', '4', '0.40', '104', '21.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('176', '41', '4', '0.40', '163', '33.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('177', '42', '4', '0.60', '94', '19.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('178', '43', '4', '0.80', '151', '30.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('179', '44', '4', '0.60', '119', '24.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('180', '45', '4', '0.80', '117', '23.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('181', '1', '5', '0.80', '147', '29.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('182', '2', '5', '0.60', '105', '21.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('183', '3', '5', '0.80', '86', '17.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('184', '4', '5', '0.60', '128', '26.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('185', '5', '5', '1.00', '105', '21.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('186', '6', '5', '0.60', '119', '24.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('187', '7', '5', '0.20', '246', '49.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('188', '8', '5', '0.00', '0', '0.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('189', '9', '5', '0.80', '60', '12.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('190', '10', '5', '0.40', '114', '23.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('191', '11', '5', '1.00', '149', '30.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('192', '12', '5', '0.80', '95', '19.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('193', '13', '5', '0.60', '233', '47.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('194', '14', '5', '0.60', '82', '16.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('195', '15', '5', '0.80', '171', '34.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('196', '16', '5', '1.00', '113', '23.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('197', '17', '5', '0.80', '54', '11.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('198', '18', '5', '0.60', '96', '19.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('199', '19', '5', '0.80', '90', '18.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('200', '20', '5', '0.80', '187', '37.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('201', '21', '5', '0.80', '65', '13.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('202', '22', '5', '0.80', '111', '22.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('203', '23', '5', '1.00', '112', '22.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('204', '24', '5', '0.60', '93', '19.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('205', '25', '5', '0.60', '52', '10.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('206', '26', '5', '0.60', '146', '29.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('207', '27', '5', '0.80', '131', '26.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('208', '28', '5', '0.80', '367', '73.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('209', '29', '5', '0.80', '112', '22.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('210', '30', '5', '0.60', '76', '15.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('211', '31', '5', '0.80', '70', '14.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('212', '32', '5', '0.80', '88', '18.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('213', '33', '5', '0.80', '135', '27.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('214', '34', '5', '1.00', '91', '18.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('215', '35', '5', '1.00', '130', '26.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('216', '36', '5', '0.60', '98', '20.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('217', '37', '5', '0.80', '102', '20.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('218', '38', '5', '0.40', '87', '17.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('219', '39', '5', '0.60', '158', '32.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('220', '40', '5', '0.40', '104', '21.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('221', '41', '5', '0.40', '163', '33.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('222', '42', '5', '0.60', '94', '19.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('223', '43', '5', '0.80', '151', '30.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('224', '44', '5', '0.60', '119', '24.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('225', '45', '5', '0.80', '117', '23.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('226', '1', '6', '0.80', '147', '29.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('227', '2', '6', '0.60', '105', '21.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('228', '3', '6', '0.80', '86', '17.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('229', '4', '6', '0.60', '128', '26.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('230', '5', '6', '1.00', '105', '21.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('231', '6', '6', '0.60', '119', '24.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('232', '7', '6', '0.20', '246', '49.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('233', '8', '6', '0.00', '0', '0.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('234', '9', '6', '0.80', '60', '12.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('235', '10', '6', '0.40', '114', '23.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('236', '11', '6', '1.00', '149', '30.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('237', '12', '6', '0.80', '95', '19.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('238', '13', '6', '0.60', '233', '47.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('239', '14', '6', '0.60', '82', '16.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('240', '15', '6', '0.80', '171', '34.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('241', '16', '6', '1.00', '113', '23.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('242', '17', '6', '0.80', '54', '11.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('243', '18', '6', '0.60', '96', '19.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('244', '19', '6', '0.80', '90', '18.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('245', '20', '6', '0.80', '187', '37.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('246', '21', '6', '0.80', '65', '13.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('247', '22', '6', '0.80', '111', '22.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('248', '23', '6', '1.00', '112', '22.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('249', '24', '6', '0.60', '93', '19.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('250', '25', '6', '0.60', '52', '10.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('251', '26', '6', '0.60', '146', '29.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('252', '27', '6', '0.80', '131', '26.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('253', '28', '6', '0.80', '367', '73.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('254', '29', '6', '0.80', '112', '22.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('255', '30', '6', '0.60', '76', '15.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('256', '31', '6', '0.80', '70', '14.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('257', '32', '6', '0.80', '88', '18.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('258', '33', '6', '0.80', '135', '27.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('259', '34', '6', '1.00', '91', '18.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('260', '35', '6', '1.00', '130', '26.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('261', '36', '6', '0.60', '98', '20.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('262', '37', '6', '0.80', '102', '20.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('263', '38', '6', '0.40', '87', '17.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('264', '39', '6', '0.60', '158', '32.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('265', '40', '6', '0.40', '104', '21.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('266', '41', '6', '0.40', '163', '33.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('267', '42', '6', '0.60', '94', '19.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('268', '43', '6', '0.80', '151', '30.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('269', '44', '6', '0.60', '119', '24.0000', null, null, null, null, null, null, null);
+INSERT INTO `yunzhi_exam_result` VALUES ('270', '45', '6', '0.80', '117', '23.0000', null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for yunzhi_klass
@@ -354,29 +783,56 @@ DROP TABLE IF EXISTS `yunzhi_klass_course`;
 CREATE TABLE `yunzhi_klass_course` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `klass_id` int(11) unsigned NOT NULL,
-  `course_id` int(11) unsigned NOT NULL,
+  `course_schedule_id` int(11) unsigned NOT NULL,
   `create_time` int(11) unsigned NOT NULL,
   `update_time` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yunzhi_klass_course
 -- ----------------------------
 INSERT INTO `yunzhi_klass_course` VALUES ('1', '1', '1', '0', '0');
-INSERT INTO `yunzhi_klass_course` VALUES ('2', '1', '2', '0', '0');
-INSERT INTO `yunzhi_klass_course` VALUES ('3', '1', '3', '0', '0');
+INSERT INTO `yunzhi_klass_course` VALUES ('2', '2', '2', '0', '0');
+INSERT INTO `yunzhi_klass_course` VALUES ('3', '3', '3', '0', '0');
 INSERT INTO `yunzhi_klass_course` VALUES ('4', '1', '4', '0', '0');
-INSERT INTO `yunzhi_klass_course` VALUES ('5', '1', '5', '0', '0');
-INSERT INTO `yunzhi_klass_course` VALUES ('6', '2', '1', '0', '0');
-INSERT INTO `yunzhi_klass_course` VALUES ('7', '2', '2', '0', '0');
-INSERT INTO `yunzhi_klass_course` VALUES ('8', '2', '3', '0', '0');
-INSERT INTO `yunzhi_klass_course` VALUES ('9', '2', '5', '0', '0');
-INSERT INTO `yunzhi_klass_course` VALUES ('10', '2', '6', '0', '0');
-INSERT INTO `yunzhi_klass_course` VALUES ('11', '3', '1', '0', '0');
-INSERT INTO `yunzhi_klass_course` VALUES ('12', '3', '2', '1', '1');
-INSERT INTO `yunzhi_klass_course` VALUES ('13', '3', '3', '2', '2');
-INSERT INTO `yunzhi_klass_course` VALUES ('14', '3', '5', '3', '3');
+INSERT INTO `yunzhi_klass_course` VALUES ('5', '2', '5', '0', '0');
+INSERT INTO `yunzhi_klass_course` VALUES ('6', '3', '6', '0', '0');
+
+-- ----------------------------
+-- Table structure for yunzhi_klass_course_copy
+-- ----------------------------
+DROP TABLE IF EXISTS `yunzhi_klass_course_copy`;
+CREATE TABLE `yunzhi_klass_course_copy` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `klass_id` int(11) unsigned NOT NULL,
+  `course_schedule_id` int(11) unsigned NOT NULL,
+  `create_time` int(11) unsigned NOT NULL,
+  `update_time` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yunzhi_klass_course_copy
+-- ----------------------------
+INSERT INTO `yunzhi_klass_course_copy` VALUES ('1', '1', '1', '0', '0');
+INSERT INTO `yunzhi_klass_course_copy` VALUES ('2', '2', '2', '0', '0');
+INSERT INTO `yunzhi_klass_course_copy` VALUES ('3', '3', '3', '0', '0');
+INSERT INTO `yunzhi_klass_course_copy` VALUES ('4', '1', '4', '0', '0');
+INSERT INTO `yunzhi_klass_course_copy` VALUES ('5', '2', '5', '0', '0');
+INSERT INTO `yunzhi_klass_course_copy` VALUES ('6', '3', '6', '0', '0');
+INSERT INTO `yunzhi_klass_course_copy` VALUES ('7', '1', '7', '0', '0');
+INSERT INTO `yunzhi_klass_course_copy` VALUES ('8', '2', '8', '0', '0');
+INSERT INTO `yunzhi_klass_course_copy` VALUES ('9', '3', '9', '0', '0');
+INSERT INTO `yunzhi_klass_course_copy` VALUES ('10', '1', '10', '0', '0');
+INSERT INTO `yunzhi_klass_course_copy` VALUES ('11', '2', '11', '0', '0');
+INSERT INTO `yunzhi_klass_course_copy` VALUES ('12', '3', '12', '1', '1');
+INSERT INTO `yunzhi_klass_course_copy` VALUES ('13', '1', '13', '2', '2');
+INSERT INTO `yunzhi_klass_course_copy` VALUES ('14', '2', '14', '3', '3');
+INSERT INTO `yunzhi_klass_course_copy` VALUES ('15', '3', '15', '0', '0');
+INSERT INTO `yunzhi_klass_course_copy` VALUES ('16', '1', '16', '0', '0');
+INSERT INTO `yunzhi_klass_course_copy` VALUES ('17', '2', '17', '0', '0');
+INSERT INTO `yunzhi_klass_course_copy` VALUES ('18', '3', '18', '0', '0');
 
 -- ----------------------------
 -- Table structure for yunzhi_learn
@@ -499,6 +955,56 @@ INSERT INTO `yunzhi_learn_status` VALUES ('9', '11', '3', '3', '50', '20', '0', 
 INSERT INTO `yunzhi_learn_status` VALUES ('10', '24', '4', '1', '0', '10', '0', '0');
 INSERT INTO `yunzhi_learn_status` VALUES ('11', '24', '4', '2', '10', '20', '0', '0');
 INSERT INTO `yunzhi_learn_status` VALUES ('12', '24', '4', '3', '50', '20', '0', '0');
+
+-- ----------------------------
+-- Table structure for yunzhi_lesson_statistics
+-- ----------------------------
+DROP TABLE IF EXISTS `yunzhi_lesson_statistics`;
+CREATE TABLE `yunzhi_lesson_statistics` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `course_schedule_id` int(11) NOT NULL,
+  `stu_total` int(11) NOT NULL,
+  `stu_attendance` int(11) NOT NULL,
+  `attendance_rate` float(8,4) NOT NULL,
+  `hardest_question` int(11) NOT NULL,
+  `average_duration_hardest` float(8,4) NOT NULL,
+  `average_visit_hardest` float(8,4) NOT NULL,
+  `accuracy_hardest` float(8,4) NOT NULL,
+  `average_score` float(8,4) NOT NULL,
+  `top_score` float(8,4) NOT NULL,
+  `foot_score` float(8,4) NOT NULL,
+  `average_question_visit` float(8,4) NOT NULL,
+  `average_question_duration` float(8,4) NOT NULL,
+  `average_accuracy` float(8,4) NOT NULL,
+  `average_duration` float(8,4) NOT NULL,
+  `hand_up` int(11) NOT NULL,
+  `sleep_on_desk` int(11) NOT NULL,
+  `stand_up` int(11) NOT NULL,
+  `average_participation_degree` decimal(5,2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yunzhi_lesson_statistics
+-- ----------------------------
+INSERT INTO `yunzhi_lesson_statistics` VALUES ('1', '1', '15', '15', '100.0000', '1', '50.5000', '8.0000', '70.3000', '70.0000', '100.0000', '50.0000', '5.0000', '40.0000', '0.0000', '100.0000', '8', '8', '8', '3.67');
+INSERT INTO `yunzhi_lesson_statistics` VALUES ('2', '2', '15', '15', '100.0000', '1', '50.5000', '8.0000', '70.3000', '70.0000', '100.0000', '50.0000', '5.0000', '40.0000', '0.0000', '100.0000', '8', '8', '8', '3.67');
+INSERT INTO `yunzhi_lesson_statistics` VALUES ('3', '3', '0', '0', '0.0000', '0', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '100.0000', '0', '0', '0', '0.00');
+INSERT INTO `yunzhi_lesson_statistics` VALUES ('4', '4', '0', '0', '0.0000', '0', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '100.0000', '0', '0', '0', '0.00');
+INSERT INTO `yunzhi_lesson_statistics` VALUES ('5', '5', '15', '15', '100.0000', '1', '50.5000', '8.0000', '70.3000', '70.0000', '100.0000', '50.0000', '5.0000', '40.0000', '0.0000', '100.0000', '8', '8', '8', '3.67');
+INSERT INTO `yunzhi_lesson_statistics` VALUES ('6', '6', '15', '15', '100.0000', '1', '50.5000', '8.0000', '70.3000', '70.0000', '100.0000', '50.0000', '5.0000', '40.0000', '0.0000', '100.0000', '8', '8', '8', '3.67');
+INSERT INTO `yunzhi_lesson_statistics` VALUES ('7', '7', '0', '0', '0.0000', '0', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '100.0000', '0', '0', '0', '0.00');
+INSERT INTO `yunzhi_lesson_statistics` VALUES ('8', '8', '0', '0', '0.0000', '0', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '100.0000', '0', '0', '0', '0.00');
+INSERT INTO `yunzhi_lesson_statistics` VALUES ('9', '9', '15', '15', '100.0000', '1', '50.5000', '8.0000', '70.3000', '70.0000', '100.0000', '50.0000', '5.0000', '40.0000', '0.0000', '100.0000', '8', '8', '8', '3.67');
+INSERT INTO `yunzhi_lesson_statistics` VALUES ('10', '10', '15', '15', '100.0000', '1', '50.5000', '8.0000', '70.3000', '70.0000', '100.0000', '50.0000', '5.0000', '40.0000', '0.0000', '100.0000', '8', '8', '8', '3.67');
+INSERT INTO `yunzhi_lesson_statistics` VALUES ('11', '11', '0', '0', '0.0000', '0', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '100.0000', '0', '0', '0', '0.00');
+INSERT INTO `yunzhi_lesson_statistics` VALUES ('12', '12', '0', '0', '0.0000', '0', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '100.0000', '0', '0', '0', '0.00');
+INSERT INTO `yunzhi_lesson_statistics` VALUES ('13', '13', '15', '15', '100.0000', '1', '50.5000', '8.0000', '70.3000', '70.0000', '100.0000', '50.0000', '5.0000', '40.0000', '0.0000', '100.0000', '8', '8', '8', '3.67');
+INSERT INTO `yunzhi_lesson_statistics` VALUES ('14', '14', '15', '15', '100.0000', '1', '50.5000', '8.0000', '70.3000', '70.0000', '100.0000', '50.0000', '5.0000', '40.0000', '0.0000', '100.0000', '8', '8', '8', '3.67');
+INSERT INTO `yunzhi_lesson_statistics` VALUES ('15', '15', '0', '0', '0.0000', '0', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '100.0000', '0', '0', '0', '0.00');
+INSERT INTO `yunzhi_lesson_statistics` VALUES ('16', '16', '0', '0', '0.0000', '0', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '100.0000', '0', '0', '0', '0.00');
+INSERT INTO `yunzhi_lesson_statistics` VALUES ('17', '17', '15', '15', '100.0000', '1', '50.5000', '8.0000', '70.3000', '70.0000', '100.0000', '50.0000', '5.0000', '40.0000', '0.0000', '100.0000', '8', '8', '8', '3.67');
+INSERT INTO `yunzhi_lesson_statistics` VALUES ('18', '18', '15', '15', '100.0000', '1', '50.5000', '8.0000', '70.3000', '70.0000', '100.0000', '50.0000', '5.0000', '40.0000', '0.0000', '100.0000', '8', '8', '8', '3.67');
 
 -- ----------------------------
 -- Table structure for yunzhi_manager
@@ -917,6 +1423,24 @@ INSERT INTO `yunzhi_question_result` VALUES ('219', '15', '1', '4', null, '1', '
 INSERT INTO `yunzhi_question_result` VALUES ('220', '15', '1', '5', null, '1', '11', '10.91', '12.73', '13.64', '18.86', '43.64', null, null, null, null, '', null, null);
 
 -- ----------------------------
+-- Table structure for yunzhi_resource
+-- ----------------------------
+DROP TABLE IF EXISTS `yunzhi_resource`;
+CREATE TABLE `yunzhi_resource` (
+  `id` int(11) NOT NULL,
+  `course_schedule_id` int(11) NOT NULL,
+  `stu_id` int(11) NOT NULL,
+  `type` int(4) NOT NULL,
+  `url` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yunzhi_resource
+-- ----------------------------
+INSERT INTO `yunzhi_resource` VALUES ('1', '1', '1', '1', '\\thinkphp5\\public\\resource\\photo\\manager\\tobii.doc');
+
+-- ----------------------------
 -- Table structure for yunzhi_student
 -- ----------------------------
 DROP TABLE IF EXISTS `yunzhi_student`;
@@ -938,7 +1462,7 @@ CREATE TABLE `yunzhi_student` (
 -- ----------------------------
 -- Records of yunzhi_student
 -- ----------------------------
-INSERT INTO `yunzhi_student` VALUES ('1', '程垦', 'M201601', '123456', '0', '华中科技大学', 'M201601.jpg', '1', '13164673497@163.com', '2016', '1478259826');
+INSERT INTO `yunzhi_student` VALUES ('1', '程垦', 'M201601', '123456', '0', '华中科技大学', 'M201601.jpg', '1', '13164673497@163.com', '2016', '1480296126');
 INSERT INTO `yunzhi_student` VALUES ('2', '陈雨露', 'M201602', '123456', '1', '华中师范大学', 'M201602.jpg', '1', '1158534904@qq.com', '0', '1478752427');
 INSERT INTO `yunzhi_student` VALUES ('3', '崔耀燊', 'M201603', '123456', '0', '华中科技大学', 'M201603.jpg', '1', '13164673497@163.com', '0', '1478179359');
 INSERT INTO `yunzhi_student` VALUES ('4', '杜艳芬', 'M201604', '123456', '1', '华中师范大学', 'M201604.jpg', '1', '13164673497@163.com', '0', '1478179359');
@@ -952,7 +1476,7 @@ INSERT INTO `yunzhi_student` VALUES ('11', '朱胜', 'M201611', '123456', '0', '
 INSERT INTO `yunzhi_student` VALUES ('12', '黄沛', 'M201612', '123456', '1', '华中师范大学', 'M201612.jpg', '1', '', '0', '0');
 INSERT INTO `yunzhi_student` VALUES ('13', '王何令', 'M201613', '123456', '0', '华中科技大学', 'M201613.jpg', '1', '', '0', '0');
 INSERT INTO `yunzhi_student` VALUES ('14', '姜川霞', 'M201614', '123456', '1', '华中师范大学', 'M201614.jpg', '1', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('15', '梁敏凤', 'M201615', '123456', '1', '华中师范大学', 'M201615.jpg', '2', '', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('15', '梁敏凤', 'M201615', '123456', '1', '华中师范大学', 'M201615.jpg', '1', '', '0', '0');
 INSERT INTO `yunzhi_student` VALUES ('16', '郭鹏', 'M201616', '123456', '0', '华中科技大学', 'M201616.jpg', '2', '', '0', '0');
 INSERT INTO `yunzhi_student` VALUES ('17', '李维颖', 'M201617', '123456', '1', '华中师范大学', '', '2', '', '0', '0');
 INSERT INTO `yunzhi_student` VALUES ('18', '刘开彦', 'M201618', '123456', '0', '华中科技大学', 'M201618.jpg', '2', '', '0', '0');

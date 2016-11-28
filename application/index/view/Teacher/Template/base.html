@@ -60,6 +60,43 @@
 					            </ul>
                             </li>
                             <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                   课堂学习过程分析 
+                                   <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{:url('#')}">指标配置</a></li>
+                                    <li class="divider"></li>
+                                   <li><a href="{:url('showLessonAnalysisList')}">课程列表</a></li>
+                                   <li class="divider"></li>
+                                   <li><a href="{:url('showStuAnalysisList')}">学生列表</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                   考试过程分析 
+                                   <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{:url('#')}">指标配置</a></li>
+                                    <li class="divider"></li>
+                                   <li><a href="{:url('#')}">试卷列表</a></li>
+                                   <li class="divider"></li>
+                                   <li><a href="{:url('#')}">试题列表</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                   自习过程分析 
+                                   <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{:url('#')}">指标配置</a></li>
+                                   <li class="divider"></li>
+                                   <li><a href="{:url('#')}">学生自习列表</a></li>
+                                </ul>
+                            </li>
+<!--                             <li class="dropdown">
 					            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					               考试管理 
 					               <b class="caret"></b>
@@ -78,7 +115,7 @@
                                    <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">指标一</a></li>
+                                    <li><a href="{:url('Teacher/showSelfLearningList')}">指标一</a></li>
                                     <li class="divider"></li>
                                     <li><a href="#">指标二</a></li>
                                 </ul>
@@ -103,10 +140,10 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="{:url('Teacher/showExamAnalysis') . '?type=0'}">准确率</a></li>
                                     <li><a href="{:url('Teacher/showExamAnalysis') . '?type=1'}">平均答题时长</a></li>
-                                    <!-- <li class="divider"></li>
-                                    <li><a href="{:url('Teacher/showExamAnalysis') . '?type=2'}">各个选项关注占比</a></li> -->
+                                    <li class="divider"></li>
+                                    <li><a href="{:url('Teacher/showExamAnalysis') . '?type=2'}">各个选项关注占比</a></li> 
                                 </ul>
-                            </li>
+                            </li> -->
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="{:url('Login/logout')}">安全退出</a></li>

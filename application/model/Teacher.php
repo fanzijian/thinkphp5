@@ -135,7 +135,7 @@ class Teacher extends Model
 
             $klasses = array();
             foreach ($courses as $key => $course) {
-                $klasses = array_merge($klasses, $course->Klasses);
+                $klasses = array_merge($klasses, $course->Klasses());
             }
             if(false != $klasses){
                 $students = array();

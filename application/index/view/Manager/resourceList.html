@@ -1,0 +1,53 @@
+{extend name="Manager/Template/base"/}
+{block name="title"}
+资源管理
+{/block}
+{block name="search"}
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form class="form-inline">
+            <div class="form-group">
+                <select class="form-control" name="search_type">
+                  <option value="0" {if condition="input('get.search_type') == 0"} selected {/if}>教师</option>
+                </select>
+                <input name="search_content" type="text" class="form-control" placeholder="请输入搜索内容..." value={:input( 'get.search_content')}>
+            </div>
+            <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i>&nbsp;查询</button>
+        </form>
+    </div>
+<!--     <div class="col-md-4 text-right">
+        <a href="{:url('managerAddStudent')}" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>&nbsp;增加</a>
+    </div> -->
+</div>
+<hr />
+{/block}
+{block name="content"}
+<table class="table table-hover table-bordered">
+    <tr class="info">
+        <th>序号</th>
+        <th>课程</th>
+        <th>节次</th>
+        <th>教师</th>
+        <th>班级</th>
+        <th>教学模式</th>
+        <th>数据源</th>
+        <th>操作</th>
+    </tr>
+    {volist name="resources" id="resource" key="key"}
+    <tr>
+        <td>{$key}</td>
+        <td>{$resource->Course->name}</td>
+        <td>{$resource->CourseSchedule->num}</td>
+        <td>{$resource->Course->Teacher->name}</td>
+        <td>{$resource->Student->Klass->name}</td>
+        <td>{$resource->CourseSchedule->type}</td>
+        <td>{$resource->type}</td>
+        <td><a class="btn btn-sm btn-primary" href="{$resource->url}"><i class="glyphicon  glyphicon-download"></i>&nbsp;下载</a></td>
+    </tr>
+    {/volist}
+</table>
+{$resources->render()}
+{/block}
+
+

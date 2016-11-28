@@ -146,7 +146,37 @@ class Student extends Model
 	{
         return $this->belongsTo('klass');	
     }
-
+    /**
+     * [getCourseResult 获取学生某次课堂行为记录]
+     * @param  [int] $id [课堂id]
+     * @return [object] $CourseResult [课堂行为记录对象]
+     */
+    public function getCourseResult($id)
+    {
+        $CourseResult = CourseResult::where('course_schedule_id',$id)->where('stu_id',$this->id)->limit(1)->find();
+        return $CourseResult;
+    }
+    /**
+     * [getExamResult 获取学生某次测试统计结果记录]
+     * @param  [int] $id [测试id,即exam_id]
+     * @return [object] $ExamResult [测试统计结果记录对象]
+     */
+    public function getExamResult($id)
+    {
+        $ExamResult = ExamResult::where('exam_id',$id)->where('stu_id',$this->id)->limit(1)->find();
+        return $ExamResult;
+    }
+    /**
+     * [getCourseSchedules 获取学生参与的课堂列表]
+     * @return [array] [课堂object列表数组]
+     */
+    public function getCourseSchedules()
+    {
+        $klass_id = $this->Klass->id;
+        $courseScheduleIdLIst = KlassCourse::where('klass_id',$klass_id)->column('course_schedule_id');
+        $courseSchedules = CourseSchedule::where('id','in',$courseScheduleIdLIst)->select();
+        return $courseSchedules;
+    }
 }
 
 ?>

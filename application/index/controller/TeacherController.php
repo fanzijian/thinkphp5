@@ -688,16 +688,134 @@ class TeacherController extends IndexController
 
         return $htmls;    
     }
+    /**
+     * [showLessonAnalysisList 展示课堂列表]
+     * @return [type] [description]
+     */
+    public function showLessonAnalysisList()
+    {
+        //获取查询条件
+        $search_type = $this->request->param('search_type');
+        $search_content = $this->request->param('search_content');
+        //根据查询条件生成不同数据
+        $CourseSchedule = new CourseSchedule;
+        $courseSchedules = array();
+        switch ($search_type) {
+            case '0':
+                //课程名称搜索
+                //根据根据搜索条件获取课程id
+                $courseIdList = Course::where('name','like','%' . $search_content . '%')->column('id');
+                //判断是否为空
+                if(empty($courseIdList)){
+                    break;
+                }
+                //获取lesson的id
+                $courseSchedules = $CourseSchedule->where('course_id','in', $courseIdList)->select();
+                break;
+            case '1':
+                //根据教学模式搜索
+                //搜索条件翻译
+                $lesson_type = array('1'=>'传统课堂','2'=>'视频学习','3'=>'翻转课堂');
+                //判断搜索条件是否为空
+                //当搜索内容为空的时候，显示所有结果
+                if(empty($search_content)){
+                    $courseSchedules = $CourseSchedule->all();
+                    break;
+                }
+                //当搜索内容为空的时候，搜索条件翻译，显示相应结果
+                foreach ($lesson_type as $key => $value) {
+                    //var_dump(strpos($value,$search_content));
+                    if(!(false === strpos($value,$search_content))){
+                        $courseSchedules = $CourseSchedule->where('type', $key)->select();
+                    }
+                }
+                //根据搜索条件获取课堂id
+                break;
+            default:
+                $courseSchedules = $CourseSchedule->all();
+                break;
+        }
+        $this->assign('courseSchedules',$courseSchedules);
+
+        return $this->fetch('Teacher/Analysis/lessonAnalysis');
+    }
+    /**
+     * [showLessonStuAnalysis 展示课堂分析，该课堂所有学生列表]
+     * @return [type] [description]
+     */
+    public function showLessonStuAnalysis()
+    {
+        //获取课堂id
+        $courseSchedule_id = $this->request->param('id');
+
+        //获取课堂对象
+        $courseSchedule = CourseSchedule::get(['id'=>$courseSchedule_id]);
+        //获取上课班级
+        $Klasses = $courseSchedule->Klasses;
+
+        //获取上课学生list
+        $Students = array();
+        foreach ($Klasses as $key => $Klass) {
+            $Students = array_merge($Students,$Klass->Students);
+        }
+
+        //传递数据到V层
+        $this->assign('courseSchedule',$courseSchedule);
+        $this->assign('Students',$Students);
+        $htmls = $this->fetch('Teacher/Analysis/lessonStuAnalysis');
+
+        //返回数据
+        return $htmls;
+    }
+    /**
+     * [showStuAnalysisList 展示学生分析，所有学生列表]
+     * @return [type] [description]
+     */
+    public function showStuAnalysisList()
+    {
+        $pageSize = 10;
+
+        $search_type = $this->request->param('search_type');
+        $search_content = $this->request->param('search_content');
+        switch ($search_type) {
+            case '0':
+                $Students = Student::where('name','like','%' . $search_content . '%')->paginate($pageSize);
+                break;
+            default:
+                $Students = Student::paginate($pageSize);
+                break;
+        }
+        $this->assign('Students',$Students);
+        return $this->fetch('Teacher/Analysis/stuAnalysis');
+    }
+    /**
+     * [showStuLessonAnalysis 展示某学生，所有课堂列表]
+     * @return [type] [description]
+     */
+    public function showStuLessonAnalysis()
+    {
+        //获取学生id
+        $id = $this->request->param('id');
+        //获取测试列表
+        $Student = Student::get($id);
+        $courseSchedules = $Student->getCourseSchedules();
+        //返回数据到V层
+        $this->assign('Student',$Student);
+        $this->assign('courseSchedules',$courseSchedules);
+        //返回结果
+        $htmls = $this->fetch('Teacher/Analysis/stuLessonAnalysis');
+        return $htmls;
+    }
     public function test()
     {
-        $teacher = Teacher::get(['id'=>session('id')]);
-        $learnList = $teacher->getStuSelfLearningListByStuName('');
-
-        $this->assign('learnList', $learnList);
-
-        return $this->fetch('Teacher/selfLearningList');
-
-
+        $Student = Student::get(1);
+        $courseSchedules = $Student->getCourseSchedules();
+        foreach ($courseSchedules as $key => $courseSchedule) {
+            var_dump($courseSchedule->Exam->id);
+            $CourseResult = $Student->getCourseResult($courseSchedule->id);
+            $ExamResult = $Student->getExamResult($courseSchedule->Exam->id);
+        }
+        var_dump($ExamResult);
 
     }
 }
