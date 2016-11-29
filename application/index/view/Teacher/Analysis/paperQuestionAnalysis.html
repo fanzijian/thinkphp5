@@ -1,0 +1,51 @@
+{extend name="Teacher/Template/base"/}
+{block name="title"}
+考试过程分析
+{/block}
+{block name="search"}
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        试卷名称：{$paper->name}&nbsp;&nbsp;&nbsp;&nbsp;
+        课程名称：{$paper->getCourseName()}&nbsp;&nbsp;&nbsp;&nbsp;
+        节次：{$paper->getLessonNum()}
+    </div>
+    <div class="col-md-4 text-right">
+<!--         <div class="col-md-4 text-right">
+            <a href="{:url('teacherAddCourse')}" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>&nbsp;增加</a>
+        </div> -->
+    </div>
+</div>
+<hr />
+{/block}
+{block name="content"}
+<table class="table table-hover table-bordered">
+    <tr class="info">
+        <th>序号</th>
+        <th>题目编号</th>
+        <th>平均考试时长</th>
+        <th>题目难度系数</th>
+        <th>各选项平均关注时长</th>
+        <th>各选项平均关注次数</th>
+        <th>选项间区分度</th>
+        <th>操作</th>
+    </tr>
+    {volist name="questionAnalysises" id="questionAnalysis" key="key"}
+    <tr>
+        <td>{$key}</td>
+        <td>{$questionAnalysis->question_id}</td>
+        <td>{$questionAnalysis->average_duration}</td>
+        <td>{$questionAnalysis->difficulty}</td>
+        <td>{$questionAnalysis->average_duration_a}/{$questionAnalysis->average_duration_b}/{$questionAnalysis->average_duration_c}/{$questionAnalysis->average_duration_d}</td>
+        <td>{$questionAnalysis->average_visit_a}/{$questionAnalysis->average_visit_b}/{$questionAnalysis->average_visit_c}/{$questionAnalysis->average_visit_d}</td>
+        <td>{$questionAnalysis->option_discrimination}</td>
+        <td>
+            <a class="btn btn-sm btn-primary" href="{:url('#?paper_id=' . $paper->id)}" disabled="true"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;查看详情</a>
+        </td>
+    </tr>
+    {/volist}
+</table>
+
+{/block}
+
+

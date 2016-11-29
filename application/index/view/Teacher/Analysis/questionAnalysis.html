@@ -1,0 +1,60 @@
+{extend name="Teacher/Template/base"/}
+{block name="title"}
+考试过程分析
+{/block}
+{block name="search"}
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form class="form-inline">
+            <div class="form-group">
+                <select class="form-control" name="search_type">
+                  <option value="0" {if condition="input('get.search_type') == 0"} selected {/if}>题目编号</option>
+                  <option value="1" {if condition="input('get.search_type') == 1"} selected {/if}>测试编号</option>
+                </select>
+                <input name="search_content" type="text" class="form-control" placeholder="请输入查询内容..." value={:input( 'get.search_content')}>
+            </div>
+            <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i>&nbsp;查询</button>
+        </form>
+    </div>
+    <div class="col-md-4 text-right">
+<!--         <div class="col-md-4 text-right">
+            <a href="{:url('teacherAddCourse')}" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>&nbsp;增加</a>
+        </div> -->
+    </div>
+<hr />
+{/block}
+{block name="content"}
+<table class="table table-hover table-bordered">
+    <tr class="info">
+        <th>序号</th>
+        <th>题目编号</th>
+        <th>试卷编号</th>
+        <th>平均考试时长</th>
+        <th>题目难度系数</th>
+        <th>各选项平均关注时长</th>
+        <th>各选项平均关注次数</th>
+        <th>选项间区分度</th>
+        <th>操作</th>
+    </tr>
+    {volist name="questionAnalysises" id="questionAnalysis" key="key"}
+    <tr>
+        <td>{$key}</td>
+        <td>{$questionAnalysis->question_id}</td>
+        <td>{$questionAnalysis->paper_id}</td>
+        <td>{$questionAnalysis->average_duration}</td>
+        <td>{$questionAnalysis->difficulty}</td>
+        <td>{$questionAnalysis->average_duration_a}/{$questionAnalysis->average_duration_b}/{$questionAnalysis->average_duration_c}/{$questionAnalysis->average_duration_d}</td>
+        <td>{$questionAnalysis->average_visit_a}/{$questionAnalysis->average_visit_b}/{$questionAnalysis->average_visit_c}/{$questionAnalysis->average_visit_d}</td>
+        <td>{$questionAnalysis->option_discrimination}</td>
+        <td>
+            <a class="btn btn-sm btn-primary" href="{:url('#?id=' . $questionAnalysis->question_id)}" disbaled="true"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;查看详情</a>
+            <a class="btn btn-sm btn-primary" href="{:url('showQuestion?id=' . $questionAnalysis->question_id)}"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;查看原题</a>
+        </td>
+    </tr>
+    {/volist}
+</table>
+
+{/block}
+
+

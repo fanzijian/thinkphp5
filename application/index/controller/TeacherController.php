@@ -11,6 +11,8 @@ use app\model\ExamResult;
 use app\model\CourseSchedule;
 use app\model\CourseResult;
 use app\model\Learn;
+use app\model\Paper;
+use app\model\QuestionAnalysis;
 /**
 *教师管理，继承think\Controller后，就可以利用V层对数据进行打包。
 */
@@ -806,16 +808,69 @@ class TeacherController extends IndexController
         $htmls = $this->fetch('Teacher/Analysis/stuLessonAnalysis');
         return $htmls;
     }
+    /**
+     * [showPaperAnalysisList 展示试卷列表]
+     * @return [type] [description]
+     */
+    public function showPaperAnalysisList()
+    {
+        $papers = Paper::all();
+        $this->assign('papers',$papers);
+        return $this->fetch('Teacher/Analysis/paperAnalysis');
+    }
+    /**
+     * [showPaperQuestionAnalysis 展示某张试卷试题列表]
+     * @return [type] [description]
+     */
+    public function showPaperQuestionAnalysis()
+    {
+        //获取试卷id
+        $id = $this->request->param('id');
+        $paper = Paper::get($id);
+        if(false === $paper){
+            return $this->error('未找到id为' . $id . '的题目记录！');
+        }
+        $questionAnalysises = $paper->QuestionAnalysises;
+        $this->assign('paper',$paper);
+        $this->assign('questionAnalysises',$questionAnalysises);
+        return $this->fetch('Teacher/Analysis/paperQuestionAnalysis');
+    }
+    /**
+     * [showQuestionAnalysisList 展示所有试题列表]
+     * @return [type] [description]
+     */
+    public function showQuestionAnalysisList()
+    {
+        $questionAnalysises = QuestionAnalysis::all();
+        $this->assign('questionAnalysises',$questionAnalysises);
+        return $this->fetch('Teacher/Analysis/questionAnalysis');
+    }
+    /**
+     * [showQuestion 获取展示题目信息]
+     * @return [html] [包含Question对象的htmls]
+     */
+    public function showQuestion()
+    {
+        //获取查询question_id
+        $id = $this->request->param('question_id');
+        //查看是否存在question记录
+        $Question = Question::get($id);
+        if(false === $Question){
+            return $this->error('未找到id为' . $id . '的题目记录！');
+        }
+        //返回数据到V层
+        $this->assign('Question',$Question);
+        $htmls = $this->fetch('Teacher/question');
+
+        return $htmls;
+    }
     public function test()
     {
-        $Student = Student::get(1);
-        $courseSchedules = $Student->getCourseSchedules();
-        foreach ($courseSchedules as $key => $courseSchedule) {
-            var_dump($courseSchedule->Exam->id);
-            $CourseResult = $Student->getCourseResult($courseSchedule->id);
-            $ExamResult = $Student->getExamResult($courseSchedule->Exam->id);
-        }
-        var_dump($ExamResult);
+        $paper = Paper::get(1);
+        $questionAnalysises = $paper->QuestionAnalysises;
+        $this->assign('paper',$paper);
+        $this->assign('questionAnalysises',$questionAnalysises);
+        return $this->fetch('Teacher/Analysis/questionAnalysis');
 
     }
 }

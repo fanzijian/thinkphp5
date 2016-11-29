@@ -52,7 +52,7 @@ class CourseSchedule extends Model
     {
         $Students = array();
         foreach ($this->Klasses as $key => $Klass) {
-            array_merge($Students,$Klass->Students);
+            $Students = array_merge($Students,$Klass->Students);
         }
         return $Students;
     }

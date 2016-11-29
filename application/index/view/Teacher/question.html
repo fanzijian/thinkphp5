@@ -1,0 +1,27 @@
+{extend name="Student/Template/base"/}
+{block name="title"}
+考试过程分析
+{/block}
+
+{block name="search"}
+{/block}
+{block name="content"}
+<table class="table ">
+	<tr>
+		<td colspan=2 style="text-align:center;"><img src="\thinkphp5\public\resource\questions\{$Question->title_url}" style="height: 88px;"></td>
+	</tr>
+	<tr>
+		<td style="text-align:center;"><img src="\thinkphp5\public\resource\questions\{$Question->a_url}" style="width:400px;height:300px;"></td>
+		<td style="text-align:center;"><img src="\thinkphp5\public\resource\questions\{$Question->b_url}" style="width:400px;height:300px;"></td>
+	</tr>
+	<tr>
+		<td style="text-align:center;"><img src="\thinkphp5\public\resource\questions\{$Question->c_url}" style="width:400px;height:300px;"></td>
+		<td style="text-align:center;"><img src="\thinkphp5\public\resource\questions\{$Question->d_url}" style="width:400px;height:300px;"></td>
+	</tr>
+</table>
+<div style="text-align:right">
+    <input type="button" class="formButton" onclick="window.history.back(); return false;" value="返  回" hidefocus />
+</div>
+{/block}
+
+

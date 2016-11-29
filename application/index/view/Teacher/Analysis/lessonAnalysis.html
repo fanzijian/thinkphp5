@@ -33,6 +33,7 @@
         <th rowspan='2'>教师名称</th>
         <th rowspan='2'>节次</th>
         <th rowspan='2'>教学模式</th>
+        <th rowspan='2'>出勤率</th>
         <th colspan='4'>行为分析指标</th>
         <th colspan='4'>试题分析指标</th>
         <th rowspan='2'>操作</th>
@@ -54,6 +55,7 @@
         <td>{$courseSchedule->Course->Teacher->name}</td>
         <td>{$courseSchedule->num}</td>
         <td>{$courseSchedule->type}</td>
+        <td>{$courseSchedule->LessonStatistics->stu_attendance}</td>
         <td>{$courseSchedule->LessonStatistics->hand_up}</td>
         <td>{$courseSchedule->LessonStatistics->sleep_on_desk}</td>
         <td>{$courseSchedule->LessonStatistics->stand_up}</td>
