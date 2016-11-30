@@ -864,14 +864,30 @@ class TeacherController extends IndexController
 
         return $htmls;
     }
+    public function showLearnAnalysisList()
+    {
+        $learns = Learn::all();
+        $this->assign('learns',$learns);
+        return $this->fetch('Teacher/Analysis/learnAnalysis');
+    }
+    public function showLearnStuAnalysis()
+    {
+        $id = $this->request->param('id');
+        if(false == $id){
+            return $this->error('未找到id为' . $id .'的记录');
+        }
+        $learn = Learn::get($id);
+        $LearnStatisticses = $learn->LearnStatisticses;
+        $this->assign('learn',$learn);
+        $this->assign('LearnStatisticses',$LearnStatisticses);
+        return $this->fetch('Teacher/Analysis/learnStuAnalysis');
+    }
     public function test()
     {
-        $paper = Paper::get(1);
-        $questionAnalysises = $paper->QuestionAnalysises;
-        $this->assign('paper',$paper);
-        $this->assign('questionAnalysises',$questionAnalysises);
-        return $this->fetch('Teacher/Analysis/questionAnalysis');
-
+        $learns = Learn::get(2);
+        //var_dump($learns);
+        $LearnStatisticses = $learns->LearnStatisticses;
+        var_dump($LearnStatisticses);
     }
 }
 ?>

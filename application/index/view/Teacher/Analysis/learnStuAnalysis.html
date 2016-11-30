@@ -1,0 +1,56 @@
+{extend name="Teacher/Template/base"/}
+{block name="title"}
+课堂学习过程分析
+{/block}
+{block name="search"}
+<hr />
+<div class="row">
+    <div class="col-md-8">
+
+    </div>
+    <div class="col-md-4 text-right">
+
+
+    </div>
+</div>
+<hr />
+{/block}
+{block name="content"}
+<table class="table table-hover table-bordered">
+    <tr class="info">
+        <th rowspan='2'>序号</th>
+        <th rowspan='2'>学生名称</th>
+        <th colspan='2'>学习过程分析指标</th>
+        <th colspan='3'>学习效果分析指标</th>
+        <th rowspan='2'>操作</th>
+    </tr>
+    <tr>
+        <th>清醒/疲劳/非常疲劳比例</th>
+        <th>课件关键内容注视时长占比</th>
+        <th>测试成绩</th>
+        <th>响应速度</th>
+        <th>自习效果</th>
+    </tr>
+    {volist name="LearnStatisticses" id="LearnStatistics" key="key"}
+    {php}
+        $Student = $LearnStatistics->Student;
+		$ExamResult = $Student->getExamResult($learn->CourseSchedule->Exam->id);
+    {/php}
+    <tr>
+        <td>{$key}</td>
+        <td>{$Student->name}</td>
+        <td>{$LearnStatistics->status_not_tired}/{$LearnStatistics->status_tired}/{$LearnStatistics->status_very_tired}</td>
+        <td>{$LearnStatistics->key_content_1_duration}/{$LearnStatistics->key_content_2_duration}/{$LearnStatistics->key_content_3_duration}/{$LearnStatistics->key_content_4_duration}/{$LearnStatistics->key_content_5_duration}</td>
+        <td>{$ExamResult->accuracy * 100}</td>
+        <td>{$ExamResult->duration_average}</td>
+        <td>{$ExamResult->accuracy/$ExamResult->duration_total * 100}</td>
+        <td>
+            <a class="btn btn-sm btn-primary" href="{:url('#?courseSchedule_id=' . $learn->courseSchedule->id . '&stu_id=' . $Student->id)}" disabled="true"><i class="glyphicon glyphicon-detail"></i>&nbsp;测试细节</a>
+        </td>
+    </tr>
+    {/volist}
+</table>
+
+{/block}
+
+

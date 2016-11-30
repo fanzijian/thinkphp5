@@ -7,11 +7,16 @@ use think\Model;
 */
 class Learn extends Model
 {
-	public function Student()
+	public function CourseSchedule()
 	{
-		return $this->belongsTo('Student','stu_id');
+		return $this->belongsTo('CourseSchedule');
 	}
 
+	public function LearnStatisticses()
+	{
+		//return LearnStatistics::where('learn_id',$this->id)->select();
+		return $this->hasMany('LearnStatistics');
+	}
 	public function getLearnBehaviorResultList()
 	{
 		$learn_id = $this->id;
@@ -34,6 +39,11 @@ class Learn extends Model
 		$learnPatternList = LearnPattern::where('learn_id', $learn_id)->select();
 
 		return $learnPatternList;
+	}
+
+	public function getStudents()
+	{
+		return $this->CourseSchedule->getStudents();
 	}
 }
 
