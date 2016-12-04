@@ -13,8 +13,13 @@ class UserController extends Controller
 	public function index()
 	{
 
-		$htmls = $this->fetch('');
+		$htmls = $this->fetch('lessonAnalysis');
 		return $htmls;
+	}
+
+	public function showLessonDetail()
+	{
+		return $this->fetch('lessonDetail');
 	}
 }
 

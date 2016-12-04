@@ -537,10 +537,10 @@ class ManagerController extends IndexController
      * [editCourseSchedule 获取信息，进入某节课信息修改页面]
      * @return [html] [返回包含courseSchedule对象的页面]
      */
-    public function editCourseSchedule()
+http://img.mukewang.com/52da4f2a000150b714280550.jpg    public function editCourseSchedule()
     {
         //获取courseSchedule的id
-        $id = $this->request->param('id');
+        $id = $this->request->param('id');http://img.mukewang.com/52da4f2a000150b714280550.jpg
         //获取对象并判断是否存在
         $courseSchedule = CourseSchedule::get($id);
         if(false == $courseSchedule){
