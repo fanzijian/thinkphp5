@@ -1,0 +1,81 @@
+{extend name="User/base"/}
+{block name="title"}
+课堂学习过程分析
+{/block}
+{block name="search"}
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form class="form-inline">
+            <div class="form-group">
+                <select class="form-control" name="search_type">
+                  <option value="0" {if condition="input('get.search_type') == 0"} selected {/if}>课程名称</option>
+                  <option value="1" {if condition="input('get.search_type') == 1"} selected {/if}>教学模式</option>
+                </select>
+                <input name="search_content" type="text" class="form-control" placeholder="请输入查询内容..." value={:input( 'get.search_content')}>
+            </div>
+            <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i>&nbsp;查询</button>
+        </form>
+    </div>
+    <div class="col-md-4 text-right">
+    </div>
+</div>
+<hr />
+{/block}
+{block name="content"}
+<table class="table table-hover table-bordered">
+    <tr class="info">
+        <th rowspan="2">序号</th>
+        <th rowspan="2">课程</th>
+        <th rowspan="2">章节</th>
+        <th rowspan="2">知识点</th>
+        <th rowspan="2">教师评估</th>
+        <th colspan="4">课堂表现</th>
+        <th colspan="2">随堂测试</th>
+        <th rowspan="2">详情</th>
+    </tr>
+    <tr>
+    	<th>举手次数</th>
+    	<th>站立次数</th>
+    	<th>趴桌次数</th>
+    	<th>参与度</th>
+    	<th>相关试题</th>
+    	<th>教学效果</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>心理学讲座</td>
+        <td>实验一班</td>
+        <td>知识点1-强化</td>
+        <td>难</td>
+        <td>1次</td>
+        <td>1次</td>
+        <td>2次</td>
+        <td>84%</td>
+        <td>1,2</td>
+        <td>优</td>
+        <td>
+            <a class="btn btn-sm btn-primary" href="{:url('User/showLessonDetail')}"><i class="glyphicon glyphicon-detail"></i>&nbsp;详情</a>
+        </td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>心理学讲座</td>
+        <td>实验一班</td>
+        <td>知识点2-记忆</td>
+        <td>难</td>
+        <td>1次</td>
+        <td>1次</td>
+        <td>2次</td>
+        <td>84%</td>
+        <td>2,3</td>
+        <td>优</td>
+        <td>
+            <a class="btn btn-sm btn-primary" href="{:url('User/showLessonDetail')}"><i class="glyphicon glyphicon-detail"></i>&nbsp;详情</a>
+        </td>
+    </tr>
+</table>
+
+{/block}
+
+
