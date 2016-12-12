@@ -56,6 +56,47 @@ class CourseSchedule extends Model
         }
         return $Students;
     }
+    /**
+     * [getTeacherName 获取教师名称]
+     * @return [string] name [教师名称]
+     */
+    public function getTeacherName()
+    {
+        $name = null;
+        $Teacher = Teacher::get($this->teacher_id);
+        if(false !== $Teacher){
+            $name = $Teacher->name;
+        }
+        return $name;
+    }
+    /**
+     * [getAttendanceRate 获取本节课的出勤率]
+     * @return [int] [百分比数值]
+     */
+    public function getAttendanceRate()
+    {
+        return 100;
+    }
+    /**
+     * [getEngagement 获取本节课的参与度]
+     * @return [int] [百分比数值]
+     */
+    public function getEngagement()
+    {
+        return 100;
+    }
+    /**
+     * [getProcessList 获取本节课教学过程数据列表]
+     * @return [array] [description]
+     */
+    public function getLessonProcessList()
+    {
+        $lessonProcessList = LessonProcess::where('course_schedule_id',$this->id)->select();
+        if(false === $lessonProcessList){
+            return false;
+        }
+        return $lessonProcessList;
+    }
 }
 
 ?>

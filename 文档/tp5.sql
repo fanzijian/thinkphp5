@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2016-12-11 17:35:50
+Date: 2016-12-12 18:54:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -407,24 +407,24 @@ CREATE TABLE `yunzhi_course_schedule` (
 -- ----------------------------
 -- Records of yunzhi_course_schedule
 -- ----------------------------
-INSERT INTO `yunzhi_course_schedule` VALUES ('1', '1', '1', '1', '', '0', '200', '0', '0', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('2', '1', '1', '2', '', '0', '0', '0', '0', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('3', '1', '1', '3', '', '0', '0', '0', '0', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('4', '1', '2', '1', '', '0', '0', '0', '0', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('5', '1', '2', '2', '', '0', '0', '0', '0', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('6', '1', '2', '3', '', '0', '0', '0', '0', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('7', '1', '3', '1', '', '0', '0', '0', '0', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('8', '1', '3', '2', '', '0', '0', '0', '0', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('9', '1', '3', '3', '', '0', '0', '0', '0', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('10', '2', '1', '1', '', '0', '0', '0', '0', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('11', '2', '1', '2', '', '0', '0', '0', '0', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('12', '2', '1', '3', '', '0', '0', '0', '0', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('13', '2', '2', '1', '', '0', '0', '0', '0', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('14', '2', '2', '2', '', '0', '0', '0', '0', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('15', '2', '2', '3', '', '0', '0', '0', '0', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('16', '2', '3', '1', '', '0', '0', '0', '0', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('17', '2', '3', '2', '', '0', '0', '0', '0', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('18', '2', '3', '3', '', '0', '0', '0', '0', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('1', '1', '1', '1', '', '0', '200', '1', '0', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('2', '1', '1', '2', '', '0', '0', '1', '0', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('3', '1', '1', '3', '', '0', '0', '1', '0', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('4', '1', '2', '1', '', '0', '0', '1', '0', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('5', '1', '2', '2', '', '0', '0', '1', '0', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('6', '1', '2', '3', '', '0', '0', '1', '0', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('7', '1', '3', '1', '', '0', '0', '1', '0', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('8', '1', '3', '2', '', '0', '0', '1', '0', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('9', '1', '3', '3', '', '0', '0', '1', '0', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('10', '2', '1', '1', '', '0', '0', '1', '0', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('11', '2', '1', '2', '', '0', '0', '1', '0', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('12', '2', '1', '3', '', '0', '0', '1', '0', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('13', '2', '2', '1', '', '0', '0', '1', '0', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('14', '2', '2', '2', '', '0', '0', '1', '0', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('15', '2', '2', '3', '', '0', '0', '1', '0', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('16', '2', '3', '1', '', '0', '0', '1', '0', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('17', '2', '3', '2', '', '0', '0', '1', '0', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('18', '2', '3', '3', '', '0', '0', '1', '0', '0');
 
 -- ----------------------------
 -- Table structure for yunzhi_exam
@@ -869,6 +869,7 @@ CREATE TABLE `yunzhi_knowledge_point` (
 -- ----------------------------
 -- Records of yunzhi_knowledge_point
 -- ----------------------------
+INSERT INTO `yunzhi_knowledge_point` VALUES ('1', '强化', '1', '1', '1', '3', '1');
 
 -- ----------------------------
 -- Table structure for yunzhi_learn
@@ -1058,15 +1059,15 @@ CREATE TABLE `yunzhi_lesson_process` (
 -- ----------------------------
 -- Records of yunzhi_lesson_process
 -- ----------------------------
-INSERT INTO `yunzhi_lesson_process` VALUES ('1', '1', '15', '8', '8', '8', '0', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('2', '2', '15', '8', '8', '8', '0', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('3', '3', '0', '0', '0', '0', '0', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('4', '4', '0', '0', '0', '0', '0', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('5', '5', '15', '8', '8', '8', '0', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('6', '6', '15', '8', '8', '8', '0', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('7', '7', '0', '0', '0', '0', '0', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('8', '8', '0', '0', '0', '0', '0', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('9', '9', '15', '8', '8', '8', '0', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('1', '1', '1', '8', '8', '8', '0', '1.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('2', '1', '2', '8', '8', '8', '0', '2.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('3', '1', '3', '0', '0', '0', '0', '31.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('4', '1', '4', '0', '0', '0', '0', '4.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('5', '1', '5', '8', '8', '8', '0', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('6', '1', '6', '8', '8', '8', '0', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('7', '1', '7', '0', '0', '0', '0', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('8', '1', '8', '0', '0', '0', '0', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('9', '1', '9', '8', '8', '8', '0', '0.00');
 INSERT INTO `yunzhi_lesson_process` VALUES ('10', '10', '15', '8', '8', '8', '0', '0.00');
 INSERT INTO `yunzhi_lesson_process` VALUES ('11', '11', '0', '0', '0', '0', '0', '0.00');
 INSERT INTO `yunzhi_lesson_process` VALUES ('12', '12', '0', '0', '0', '0', '0', '0.00');
@@ -1128,6 +1129,44 @@ INSERT INTO `yunzhi_lesson_statistics` VALUES ('17', '17', '15', '15', '100.0000
 INSERT INTO `yunzhi_lesson_statistics` VALUES ('18', '18', '15', '15', '100.0000', '1', '50.5000', '8.0000', '70.3000', '70.0000', '100.0000', '50.0000', '5.0000', '40.0000', '0.0000', '100.0000', '8', '8', '8', '3.67');
 
 -- ----------------------------
+-- Table structure for yunzhi_lesson_stu_process
+-- ----------------------------
+DROP TABLE IF EXISTS `yunzhi_lesson_stu_process`;
+CREATE TABLE `yunzhi_lesson_stu_process` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `course_schedule_id` int(11) NOT NULL,
+  `stu_id` int(11) NOT NULL,
+  `minute` int(11) NOT NULL,
+  `hand_up` int(11) NOT NULL,
+  `sleep_on_desk` int(11) NOT NULL,
+  `stand_up` int(11) NOT NULL,
+  `activeness` float(5,2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yunzhi_lesson_stu_process
+-- ----------------------------
+INSERT INTO `yunzhi_lesson_stu_process` VALUES ('1', '1', '1', '1', '8', '8', '8', '1.00');
+INSERT INTO `yunzhi_lesson_stu_process` VALUES ('2', '1', '1', '2', '8', '8', '8', '2.00');
+INSERT INTO `yunzhi_lesson_stu_process` VALUES ('3', '1', '2', '1', '0', '0', '0', '31.00');
+INSERT INTO `yunzhi_lesson_stu_process` VALUES ('4', '1', '2', '2', '0', '0', '0', '4.00');
+INSERT INTO `yunzhi_lesson_stu_process` VALUES ('5', '1', '3', '1', '8', '8', '8', '0.00');
+INSERT INTO `yunzhi_lesson_stu_process` VALUES ('6', '1', '3', '2', '8', '8', '8', '0.00');
+INSERT INTO `yunzhi_lesson_stu_process` VALUES ('7', '1', '1', '3', '0', '0', '0', '0.00');
+INSERT INTO `yunzhi_lesson_stu_process` VALUES ('8', '1', '2', '3', '0', '0', '0', '0.00');
+INSERT INTO `yunzhi_lesson_stu_process` VALUES ('9', '1', '3', '3', '8', '8', '8', '0.00');
+INSERT INTO `yunzhi_lesson_stu_process` VALUES ('10', '1', '0', '15', '8', '8', '8', '0.00');
+INSERT INTO `yunzhi_lesson_stu_process` VALUES ('11', '1', '0', '0', '0', '0', '0', '0.00');
+INSERT INTO `yunzhi_lesson_stu_process` VALUES ('12', '1', '0', '0', '0', '0', '0', '0.00');
+INSERT INTO `yunzhi_lesson_stu_process` VALUES ('13', '1', '0', '15', '8', '8', '8', '0.00');
+INSERT INTO `yunzhi_lesson_stu_process` VALUES ('14', '1', '0', '15', '8', '8', '8', '0.00');
+INSERT INTO `yunzhi_lesson_stu_process` VALUES ('15', '1', '0', '0', '0', '0', '0', '0.00');
+INSERT INTO `yunzhi_lesson_stu_process` VALUES ('16', '1', '0', '0', '0', '0', '0', '0.00');
+INSERT INTO `yunzhi_lesson_stu_process` VALUES ('17', '1', '0', '15', '8', '8', '8', '0.00');
+INSERT INTO `yunzhi_lesson_stu_process` VALUES ('18', '1', '0', '15', '8', '8', '8', '0.00');
+
+-- ----------------------------
 -- Table structure for yunzhi_manager
 -- ----------------------------
 DROP TABLE IF EXISTS `yunzhi_manager`;
@@ -1157,7 +1196,7 @@ DROP TABLE IF EXISTS `yunzhi_paper`;
 CREATE TABLE `yunzhi_paper` (
   `id` int(40) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(40) DEFAULT NULL,
-  `teacher` varchar(40) DEFAULT NULL,
+  `teacher` int(11) DEFAULT NULL,
   `content` varchar(40) DEFAULT NULL,
   `difficulty` int(11) DEFAULT NULL,
   `create_time` int(11) DEFAULT NULL,
@@ -1280,7 +1319,7 @@ CREATE TABLE `yunzhi_question` (
   `b_url` varchar(40) DEFAULT NULL,
   `c_url` varchar(40) DEFAULT NULL,
   `d_url` varchar(40) DEFAULT NULL,
-  `knowledge_id` int(11) DEFAULT NULL,
+  `knowledge_point_id` int(11) DEFAULT NULL,
   `difficulty` int(11) DEFAULT NULL,
   `answer` varchar(11) DEFAULT NULL,
   `create_time` int(11) DEFAULT NULL,
@@ -1291,9 +1330,9 @@ CREATE TABLE `yunzhi_question` (
 -- ----------------------------
 -- Records of yunzhi_question
 -- ----------------------------
-INSERT INTO `yunzhi_question` VALUES ('1', '1-Title.jpg', '1-A.jpg', '1-B.jpg', '1-C.jpg', '1-D.jpg', null, null, 'A', null, null);
-INSERT INTO `yunzhi_question` VALUES ('2', '2-Title.jpg', '2-A.jpg', '2-B.jpg', '2-C.jpg', '2-D.jpg', null, null, 'B', null, null);
-INSERT INTO `yunzhi_question` VALUES ('3', '3-Title.jpg', '3-A.jpg', '3-B.jpg', '3-C.jpg', '3-D.jpg', null, null, '2', null, null);
+INSERT INTO `yunzhi_question` VALUES ('1', '1-Title.jpg', '1-A.jpg', '1-B.jpg', '1-C.jpg', '1-D.jpg', '1', null, 'A', null, null);
+INSERT INTO `yunzhi_question` VALUES ('2', '2-Title.jpg', '2-A.jpg', '2-B.jpg', '2-C.jpg', '2-D.jpg', '1', null, 'B', null, null);
+INSERT INTO `yunzhi_question` VALUES ('3', '3-Title.jpg', '3-A.jpg', '3-B.jpg', '3-C.jpg', '3-D.jpg', '1', null, '2', null, null);
 INSERT INTO `yunzhi_question` VALUES ('4', '4-Title.jpg', '4-A.jpg', '4-B.jpg', '4-C.jpg', '4-D.jpg', null, null, '1', null, null);
 INSERT INTO `yunzhi_question` VALUES ('5', '5-Title.jpg', '5-A.jpg', '5-B.jpg', '5-C.jpg', '5-D.jpg', null, null, '2', null, null);
 INSERT INTO `yunzhi_question` VALUES ('6', '6-Title.jpg', '6-A.jpg', '6-B.jpg', '6-C.jpg', '6-D.jpg', null, null, '3', null, null);

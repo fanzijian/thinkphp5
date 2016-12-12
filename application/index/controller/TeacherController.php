@@ -13,6 +13,7 @@ use app\model\CourseResult;
 use app\model\Learn;
 use app\model\Paper;
 use app\model\QuestionAnalysis;
+use app\model\KnowledgePoint;
 /**
 *教师管理，继承think\Controller后，就可以利用V层对数据进行打包。
 */
@@ -694,53 +695,53 @@ class TeacherController extends IndexController
      * [showLessonAnalysisList 展示课堂列表]
      * @return [type] [description]
      */
-    public function showLessonAnalysisList()
-    {
-        //获取查询条件
-        $search_type = $this->request->param('search_type');
-        $search_content = $this->request->param('search_content');
-        //根据查询条件生成不同数据
-        $CourseSchedule = new CourseSchedule;
-        $courseSchedules = array();
-        switch ($search_type) {
-            case '0':
-                //课程名称搜索
-                //根据根据搜索条件获取课程id
-                $courseIdList = Course::where('name','like','%' . $search_content . '%')->column('id');
-                //判断是否为空
-                if(empty($courseIdList)){
-                    break;
-                }
-                //获取lesson的id
-                $courseSchedules = $CourseSchedule->where('course_id','in', $courseIdList)->select();
-                break;
-            case '1':
-                //根据教学模式搜索
-                //搜索条件翻译
-                $lesson_type = array('1'=>'传统课堂','2'=>'视频学习','3'=>'翻转课堂');
-                //判断搜索条件是否为空
-                //当搜索内容为空的时候，显示所有结果
-                if(empty($search_content)){
-                    $courseSchedules = $CourseSchedule->all();
-                    break;
-                }
-                //当搜索内容为空的时候，搜索条件翻译，显示相应结果
-                foreach ($lesson_type as $key => $value) {
-                    //var_dump(strpos($value,$search_content));
-                    if(!(false === strpos($value,$search_content))){
-                        $courseSchedules = $CourseSchedule->where('type', $key)->select();
-                    }
-                }
-                //根据搜索条件获取课堂id
-                break;
-            default:
-                $courseSchedules = $CourseSchedule->all();
-                break;
-        }
-        $this->assign('courseSchedules',$courseSchedules);
+    // public function showLessonAnalysisList()
+    // {
+    //     //获取查询条件
+    //     $search_type = $this->request->param('search_type');
+    //     $search_content = $this->request->param('search_content');
+    //     //根据查询条件生成不同数据
+    //     $CourseSchedule = new CourseSchedule;
+    //     $courseSchedules = array();
+    //     switch ($search_type) {
+    //         case '0':
+    //             //课程名称搜索
+    //             //根据根据搜索条件获取课程id
+    //             $courseIdList = Course::where('name','like','%' . $search_content . '%')->column('id');
+    //             //判断是否为空
+    //             if(empty($courseIdList)){
+    //                 break;
+    //             }
+    //             //获取lesson的id
+    //             $courseSchedules = $CourseSchedule->where('course_id','in', $courseIdList)->select();
+    //             break;
+    //         case '1':
+    //             //根据教学模式搜索
+    //             //搜索条件翻译
+    //             $lesson_type = array('1'=>'传统课堂','2'=>'视频学习','3'=>'翻转课堂');
+    //             //判断搜索条件是否为空
+    //             //当搜索内容为空的时候，显示所有结果
+    //             if(empty($search_content)){
+    //                 $courseSchedules = $CourseSchedule->all();
+    //                 break;
+    //             }
+    //             //当搜索内容为空的时候，搜索条件翻译，显示相应结果
+    //             foreach ($lesson_type as $key => $value) {
+    //                 //var_dump(strpos($value,$search_content));
+    //                 if(!(false === strpos($value,$search_content))){
+    //                     $courseSchedules = $CourseSchedule->where('type', $key)->select();
+    //                 }
+    //             }
+    //             //根据搜索条件获取课堂id
+    //             break;
+    //         default:
+    //             $courseSchedules = $CourseSchedule->all();
+    //             break;
+    //     }
+    //     $this->assign('courseSchedules',$courseSchedules);
 
-        return $this->fetch('Teacher/Analysis/lessonAnalysis');
-    }
+    //     return $this->fetch('Teacher/Analysis/lessonAnalysis');
+    // }
     /**
      * [showLessonStuAnalysis 展示课堂分析，该课堂所有学生列表]
      * @return [type] [description]
@@ -882,12 +883,110 @@ class TeacherController extends IndexController
         $this->assign('LearnStatisticses',$LearnStatisticses);
         return $this->fetch('Teacher/Analysis/learnStuAnalysis');
     }
+    /**
+     * [showLessonList 展示课堂列表]
+     * @return [type] [description]
+     */
+    public function showLessonList()
+    {
+        $pageSize = 6;
+        $CourseSchedules = CourseSchedule::where('type',1)->paginate($pageSize);
+        $this->assign('CourseSchedules',$CourseSchedules);
+
+        $htmls = $this->fetch('Teacher/Analyzation/lessonList');
+        return $htmls;
+    }
+    /**
+     * [showLessonDetail 展示课堂教学过程]
+     * @return [type] [description]
+     */
+    public function showLessonDetail()
+    {
+        $id = $this->request->param('id');
+        $CourseSchedule = CourseSchedule::get($id);
+        $lessonProcessList = $CourseSchedule->getLessonProcessList();
+        //var_dump($lessonProcessList);
+        $this->assign('lessonProcessList',$lessonProcessList);
+
+        return $this->fetch('Teacher/Analyzation/lessonDetail');
+    }
+    /**
+     * [showLessonAnalysisList 展示课堂教学分知识点分析数据]
+     * @return [type] [description]
+     */
+    public function showLessonAnalysisList()
+    {
+        $pageSize = 6;
+        $knowledgePointList = KnowledgePoint::paginate($pageSize);
+        $this->assign('knowledgePointList', $knowledgePointList);
+
+        return $this->fetch('Teacher/Analyzation/lessonAnalysisList');
+    }
+    /**
+     * [showLessonAnalysisDetail 查看课堂某个知识点详细答题数据]
+     * @return [type] [description]
+     */
+    public function showLessonAnalysisDetail()
+    {
+        //获取KnowledgePoint_id
+        $id = $this->request->param('id');
+        //获取知识点对象
+        $knowledgePoint = KnowledgePoint::get($id);
+
+        //获取参与学习的学生
+        $students = $knowledgePoint->CourseSchedule->getStudents();
+
+        //绑定参数到html
+        $this->assign('knowledgePoint',$knowledgePoint);
+        $this->assign('students',$students);
+        //返回结果
+        return $this->fetch('Teacher/Analyzation/lessonAnalysisDetail');
+    }
+
+    public function showPaperList()
+    {
+        return $this->fetch('Analyzation/paperList');
+    }
+
+    public function showPaperProcessDetail()
+    {
+        return $this->fetch('Analyzation/paperProcessDetail');
+    }
+
+    public function showPaperQuestionAnalysisList()
+    {
+        return $this->fetch('Analyzation/paperQuestionAnalysisList');
+    }
+
+    public function showPaperQuestionAnalysisDetail()
+    {
+        return $this->fetch('Analyzation/paperQuestionAnalysisDetail');
+    }
+
+    public function showSelfLearningLists()
+    {
+        return $this->fetch('Analyzation/selfLearningLists');
+    }
+
+    public function showSelfLearningDetail()
+    {
+        return $this->fetch('Analyzation/selfLearningDetail');
+    }
+
+    public function showSelfLearningAnalysisList()
+    {
+        return $this->fetch('Analyzation/selfLearningAnalysisList');
+    }
+
+    public function showSelfLearningAnalysisDetail()
+    {
+        return $this->fetch('Analyzation/selfLearningAnalysisDetail');
+    }
+
     public function test()
     {
-        $learns = Learn::get(2);
-        //var_dump($learns);
-        $LearnStatisticses = $learns->LearnStatisticses;
-        var_dump($LearnStatisticses);
+        var_dump(KnowledgePoint::get(1)->getStuPerformance(1));
     }
+
 }
 ?>

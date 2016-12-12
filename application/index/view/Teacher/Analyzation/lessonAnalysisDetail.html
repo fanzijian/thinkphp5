@@ -1,0 +1,54 @@
+{extend name="User/base"/}
+{block name="title"}
+课堂学习过程分析
+{/block}
+{block name="search"}
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form class="form-inline">
+            <div class="form-group">
+                <select class="form-control" name="search_type">
+                  <option value="0" {if condition="input('get.search_type') == 0"} selected {/if}>课程名称</option>
+                  <option value="1" {if condition="input('get.search_type') == 1"} selected {/if}>教学模式</option>
+                </select>
+                <input name="search_content" type="text" class="form-control" placeholder="请输入查询内容..." value={:input( 'get.search_content')}>
+            </div>
+            <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i>&nbsp;查询</button>
+        </form>
+    </div>
+    <div class="col-md-4 text-right">
+    </div>
+</div>
+<hr />
+{/block}
+{block name="content"}
+<table class="table table-hover table-bordered">
+    <tr class="info">
+        <th>序号</th>
+        <th>学生</th>
+        <th>知识点</th>
+        <th>正确率</th>
+        <th>参与度</th>
+        <th>平均解题速度</th>
+        <th>平均关注度</th>
+        <th>掌握程度</th>
+    </tr>
+    {volist name="students" id="student" key="key"}
+    {php}$performance = $knowledgePoint->getStuPerformance($student->id);{/php}
+    <tr>
+        <td>{$key}</td>
+        <td>{$student->name}</td>
+        <td>{$knowledgePoint->knowledge_name}</td>
+        <td>{$performance['accuracy']}</td>
+        <td>{$performance['engagement']}%</td>
+        <td>{$performance['average_speed']}s</td>
+        <td>{$performance['average_attention']}%</td>
+        <td>{$performance['mastery']}%</td>
+    </tr>
+    {/volist}
+</table>
+
+{/block}
+
+

@@ -1,4 +1,4 @@
-{extend name="User/base"/}
+{extend name="Teacher/Template/base"/}
 {block name="title"}
 课堂学习过程分析
 {/block}
@@ -24,7 +24,7 @@
                     </tr>
                     {volist name="lessonProcessList" id="lessonProcess" key="key"}
                     <tr>
-                        <td>{$lessonProcess->minute}min~{$lessonProcess->minute + 1}min</td>
+                        <td>{$lessonProcess->minute - 1}min~{$lessonProcess->minute}min</td>
                         <td>{$lessonProcess->hand_up}</td>
                         <td>{$lessonProcess->sleep_on_desk}</td>
                         <td>{$lessonProcess->stand_up}</td>

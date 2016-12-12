@@ -177,6 +177,7 @@ class Student extends Model
         $courseSchedules = CourseSchedule::where('id','in',$courseScheduleIdLIst)->select();
         return $courseSchedules;
     }
+
 }
 
 ?>
