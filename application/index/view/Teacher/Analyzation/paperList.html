@@ -1,6 +1,6 @@
 {extend name="Teacher/Template/base"/}
 {block name="title"}
-考试管理
+考试过程分析
 {/block}
 {block name="search"}
 <hr />
@@ -35,15 +35,17 @@
         <th>总人数</th>
         <th>操作</th>
     </tr>
+    {volist name="papers" id="paper" key="key"}
     <tr>
-    	<td>1</td>
-    	<td>1</td>
-    	<td>黄璐</td>
-    	<td>心理学第一讲</td>
-    	<td>全体学生</td>
-    	<td>45人</td>
-    	<td><a href="#1">查看原题</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#2">查看考试过程</a></td>
+    	<td>{$key}</td>
+    	<td>{$paper->id}</td>
+    	<td>{$paper->getTeacherName()}</td>
+    	<td>{$paper->name}</td>
+    	<td>{$paper->getAggregation()}</td>
+    	<td>{$paper->getTotalStuNum()}人</td>
+    	<td><a href="{:url('Teacher/showExamQuestionList?exam_id=' . $paper->Exams[0]->id)}">查看原题</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{:url('Teacher/showPaperProcessDetail?id=' . $paper->id)}">查看考试过程</a></td>
     </tr>
+    {/volist}
 </table>
 
 {/block}

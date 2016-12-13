@@ -1,6 +1,6 @@
-{extend name="User/base"/}
+{extend name="Teacher/Template/base"/}
 {block name="title"}
-课堂学习过程分析
+考试过程分析
 {/block}
 
 {block name="search"}
@@ -19,59 +19,22 @@
                         	<b>题号</b>
                         	<em>时间</em>
                         </div></th>
-                        <th>第一题</th>
-                        <th>第二题</th>
-                        <th>第三题</th>
-                        <th>第四题</th>
-                        <th>第五题</th>
-                        <th>第六题</th>
-                        <th>第七题</th>
-                        <th>第八题</th>
+                        {php}
+                        $step = 2;
+                        $status = ['第一题','第二题','第三题','第四题','第五题','第六题','第七题','第八题','第九题','第十题','第十一题','第十二题','第十三题','第十四题'];
+                        for($i = 0; $i < $total; $i++){
+                            echo "<th>$status[$i]</th>";
+                        }
+                        {/php}
                     </tr>
+                    {for start="0" end="count($stuFinishRatePerMinute)" step="$step" name="i"}
                     <tr>
-                        <td>0min~2min</td>
-                        <td>100%</td>
-                        <td>80%</td>
-                        <td>20%</td>
-                        <td>0%</td>
-                        <td>0%</td>
-                        <td>0%</td>
-                        <td>0%</td>
-                        <td>0%</td>
+                        <td>{$i . "min~" . (($i + $step)>= count($stuFinishRatePerMinute)? count($stuFinishRatePerMinute): ($i + $step))."min"}</td>
+                        {for start="0" end="$total" name="j"}
+                            <th>{$stuFinishRatePerMinute[$i][$j]}</th>
+                        {/for}
                     </tr>
-                    <tr>
-                        <td>2min~4min</td>
-                        <td>100%</td>
-                        <td>100%</td>
-                        <td>100%</td>
-                        <td>60%</td>
-                        <td>0%</td>
-                        <td>0%</td>
-                        <td>0%</td>
-                        <td>0%</td>
-                    </tr>
-                    <tr>
-                        <td>4min~6min</td>
-                        <td>100%</td>
-                        <td>100%</td>
-                        <td>100%</td>
-                        <td>100%</td>
-                        <td>100%</td>
-                        <td>80%</td>
-                        <td>50%</td>
-                        <td>0%</td>
-                    </tr>
-                    <tr>
-                        <td>6min~8min</td>
-                        <td>100%</td>
-                        <td>100%</td>
-                        <td>100%</td>
-                        <td>100%</td>
-                        <td>100%</td>
-                        <td>100%</td>
-                        <td>100%</td>
-                        <td>100%</td>
-                    </tr>
+                    {/for}
                 </table>
             </td>
         </tr>

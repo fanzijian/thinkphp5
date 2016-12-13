@@ -37,29 +37,19 @@
         <th>平均犹疑度</th>
         <th>操作</th>
     </tr>
+    {volist name="questions" id="question" key="key"}
     <tr>
-    	<td>1</td>
-    	<td>心理学第一讲测试</td>
-    	<td>1</td>
-    	<td>0.8</td>
-    	<td>15人</td>
-    	<td>100%</td>
-    	<td>50s</td>
-    	<td>0.21</td>
-    	<td><a href="#1">查看详情</a></a></td>
+    	<td>{$key}</td>
+    	<td>{$question->getPaperName()}</td>
+    	<td>{$question->id}</td>
+    	<td>{$question->difficulty}</td>
+    	<td>{$question->getTotalStuNum()}人</td>
+    	<td>{$question->getAccuracy()}%</td>
+    	<td>{$question->getAverageDuration()}s</td>
+    	<td>{$question->getAverageHesitation()}</td>
+    	<td><a href="{:url('Teacher/showPaperQuestionAnalysisDetail?id=' . $question->id)}">查看详情</a></td>
     </tr>
-    <tr>
-    	<td>2</td>
-    	<td>心理学第一讲测试</td>
-    	<td>2</td>
-    	<td>0.8</td>
-    	<td>15人</td>
-    	<td>100%</td>
-    	<td>50s</td>
-    	<td>0.21</td>
-    	<td><a href="#1">查看详情</a></a></td>
-    </tr>
-    
+    {/volist}
 </table>
 
 {/block}

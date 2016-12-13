@@ -34,28 +34,21 @@
         <th>正确答案</th>
         <th>犹疑度</th>
     </tr>
+    {volist name="students" id="student" key="key"}
+    {php}
+        $questionResult = $question->getStuQuestionResult($student->id);
+    {/php}
     <tr>
-        <td>1</td>
-        <td>张三</td>
-        <td>50s</td>
-        <td>4/7/8/2</td>
-        <td>11/13/8/2
-</td>
-        <td>B</td>
-        <td>B</td>
-        <td>0.33</td>
+        <td>{$key}</td>
+        <td>{$student->name}</td>
+        <td>{$questionResult->duration}s</td>
+        <td>{$questionResult->visit_count_a}/{$questionResult->visit_count_b}/{$questionResult->visit_count_c}/{$questionResult->visit_count_d}</td>
+        <td>{$questionResult->duration_a}s/{$questionResult->duration_b}s/{$questionResult->duration_c}s/{$questionResult->duration_d}s</td>
+        <td>{$questionResult->answer}</td>
+        <td>{$question->answer}</td>
+        <td>{$questionResult->getHesitation()}</td>
     </tr>
-    <tr>
-        <td>2</td>
-        <td>李四</td>
-        <td>50s</td>
-        <td>4/7/8/2</td>
-        <td>11/13/8/2
-</td>
-        <td>B</td>
-        <td>B</td>
-        <td>0.33</td>
-    </tr>
+    {/volist}
 </table>
 
 {/block}

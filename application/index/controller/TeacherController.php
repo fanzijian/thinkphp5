@@ -942,25 +942,52 @@ class TeacherController extends IndexController
         //返回结果
         return $this->fetch('Teacher/Analyzation/lessonAnalysisDetail');
     }
-
+    /**
+     * [showPaperList 展示试卷列表]
+     * @return [type] [description]
+     */
     public function showPaperList()
     {
-        return $this->fetch('Analyzation/paperList');
+        $papers = Paper::all();
+        $this->assign('papers',$papers);
+        return $this->fetch('Teacher/Analyzation/paperList');
     }
-
+    /**
+     * [showPaperProcessDetail 展示试卷过程详细信息]
+     * @return [type] [description]
+     */
     public function showPaperProcessDetail()
     {
-        return $this->fetch('Analyzation/paperProcessDetail');
-    }
+        $id = $this->request->param('id');
+        $paper = Paper::get($id);
 
+        $total = $paper->getQuestionTotalNum();
+        $stuFinishRatePerMinute = $paper->getProcessData();
+
+        $this->assign('total',$total);
+        $this->assign('stuFinishRatePerMinute',$stuFinishRatePerMinute);
+
+        return $this->fetch('Teacher/Analyzation/paperProcessDetail');
+    }
+    /**
+     * [showPaperQuestionAnalysisList 查看试题列表]
+     * @return [type] [description]
+     */
     public function showPaperQuestionAnalysisList()
     {
-        return $this->fetch('Analyzation/paperQuestionAnalysisList');
+        $questions = Question::all();
+        $this->assign('questions',$questions);
+        return $this->fetch('Teacher/Analyzation/paperQuestionAnalysisList');
     }
 
     public function showPaperQuestionAnalysisDetail()
     {
-        return $this->fetch('Analyzation/paperQuestionAnalysisDetail');
+        $id = $this->request->param('id');
+        $question = Question::get($id);
+        $students = $question->getStudents();
+        $this->assign('question',$question);
+        $this->assign('students',$students);
+        return $this->fetch('Teacher/Analyzation/paperQuestionAnalysisDetail');
     }
 
     public function showSelfLearningLists()
@@ -985,7 +1012,7 @@ class TeacherController extends IndexController
 
     public function test()
     {
-        var_dump(KnowledgePoint::get(1)->getStuPerformance(1));
+        var_dump(Question::get(1)->getStudents());
     }
 
 }

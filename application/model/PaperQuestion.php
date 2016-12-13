@@ -7,7 +7,7 @@ use think\Model;
 */
 class PaperQuestion extends Model
 {
-	
+
 
 }
 

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2016-12-12 18:54:47
+Date: 2016-12-13 19:09:02
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -467,17 +467,52 @@ INSERT INTO `yunzhi_exam` VALUES ('18', '6', '18', '2016-10-30 00:00:00', null, 
 -- ----------------------------
 DROP TABLE IF EXISTS `yunzhi_exam_process`;
 CREATE TABLE `yunzhi_exam_process` (
-  `id` int(11) NOT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `exam_id` int(11) NOT NULL,
   `minute` int(11) NOT NULL,
   `question_num` int(11) NOT NULL,
-  `question_finish_rate` int(11) NOT NULL,
+  `stu_num_finished` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yunzhi_exam_process
 -- ----------------------------
+INSERT INTO `yunzhi_exam_process` VALUES ('1', '1', '1', '1', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('2', '1', '1', '2', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('3', '1', '1', '3', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('4', '1', '1', '4', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('5', '1', '1', '5', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('6', '1', '2', '1', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('7', '1', '2', '2', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('8', '1', '2', '3', '0');
+INSERT INTO `yunzhi_exam_process` VALUES ('9', '1', '2', '4', '0');
+INSERT INTO `yunzhi_exam_process` VALUES ('10', '1', '2', '5', '0');
+INSERT INTO `yunzhi_exam_process` VALUES ('11', '2', '1', '1', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('12', '2', '1', '2', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('13', '2', '1', '3', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('14', '2', '1', '4', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('15', '2', '1', '5', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('16', '2', '2', '1', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('17', '2', '2', '2', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('18', '2', '2', '3', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('19', '2', '2', '4', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('20', '2', '2', '5', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('21', '2', '3', '1', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('22', '2', '3', '2', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('23', '2', '3', '3', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('24', '2', '3', '4', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('25', '2', '3', '5', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('26', '2', '4', '1', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('27', '2', '4', '2', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('28', '2', '4', '3', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('29', '2', '4', '4', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('30', '2', '4', '5', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('31', '2', '5', '1', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('32', '2', '5', '2', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('33', '2', '5', '3', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('34', '2', '5', '4', '15');
+INSERT INTO `yunzhi_exam_process` VALUES ('35', '2', '5', '5', '15');
 
 -- ----------------------------
 -- Table structure for yunzhi_exam_result
@@ -1196,7 +1231,6 @@ DROP TABLE IF EXISTS `yunzhi_paper`;
 CREATE TABLE `yunzhi_paper` (
   `id` int(40) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(40) DEFAULT NULL,
-  `teacher` int(11) DEFAULT NULL,
   `content` varchar(40) DEFAULT NULL,
   `difficulty` int(11) DEFAULT NULL,
   `create_time` int(11) DEFAULT NULL,
@@ -1207,12 +1241,12 @@ CREATE TABLE `yunzhi_paper` (
 -- ----------------------------
 -- Records of yunzhi_paper
 -- ----------------------------
-INSERT INTO `yunzhi_paper` VALUES ('1', '心理学第一次测试', null, null, null, null, null);
-INSERT INTO `yunzhi_paper` VALUES ('2', '心理学第二次测试', null, null, null, null, null);
-INSERT INTO `yunzhi_paper` VALUES ('3', '心理学第三次测试', null, null, null, null, null);
-INSERT INTO `yunzhi_paper` VALUES ('4', '心理学第四次测试', null, null, null, null, null);
-INSERT INTO `yunzhi_paper` VALUES ('5', '心理学第五次测试', null, null, null, null, null);
-INSERT INTO `yunzhi_paper` VALUES ('6', '心理学第六次测试', null, null, null, null, null);
+INSERT INTO `yunzhi_paper` VALUES ('1', '心理学第一次测试', null, null, null, null);
+INSERT INTO `yunzhi_paper` VALUES ('2', '心理学第二次测试', null, null, null, null);
+INSERT INTO `yunzhi_paper` VALUES ('3', '心理学第三次测试', null, null, null, null);
+INSERT INTO `yunzhi_paper` VALUES ('4', '心理学第四次测试', null, null, null, null);
+INSERT INTO `yunzhi_paper` VALUES ('5', '心理学第五次测试', null, null, null, null);
+INSERT INTO `yunzhi_paper` VALUES ('6', '心理学第六次测试', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for yunzhi_paper_question
