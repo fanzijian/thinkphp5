@@ -25,6 +25,25 @@ class QuestionResult extends Model
         $hesitation = 0.21;
         return $hesitation;
     }
+    /**
+     * [getRightAnswer 获取正确答案]
+     * @return [string] $answer [正确答案]
+     */
+    public function getRightAnswer()
+    {
+        $id = $this->question_id;
+        $answer = Question::get($id)->answer;
+        return $answer;
+    }
+    /**
+     * [getMastery 获取本题的掌握程度]
+     * @return [float] $mastery [掌握程度]
+     */
+    public function getMastery()
+    {
+        $mastery = 0.88;
+        return $mastery;
+    }
 	// /**
 	//  * [getAnswerAttr 输出答案属性]
 	//  * @param  [int] $value [答案int数据]

@@ -24,28 +24,27 @@
 {/block}
 {block name="content"}
 <table class="table table-hover table-bordered">
-    <tr class="info">
-        <th>序号</th>
-        <th>时间</th>
-        <th>地点</th>
-        <th>学生</th>
-        <th>性别</th>
-        <th>主题</th>
-        <th>关注程度</th>
-        <th>操作</th>
-    </tr>
     <tr>
-        <td>1</td>
-        <td>2016年10月15日</td>
-        <td>205智能教室</td>
-        <td>张三</td>
-        <td>男</td>
-        <td>心理学讲座第一节</td>
-        <td>83%</td>
-        <td>
-            <a class="btn btn-sm btn-primary" href="{:url('User/showLessonDetail')}"><i class="glyphicon glyphicon-detail"></i>&nbsp;查看详情</a>
-        </td>
+        <th><div class="out">
+            <b>内容</b>
+            <em>时间</em>
+        </div></th>
+        {php}
+        $step = 2;
+        $status = ['关键区域一','关键区域二','关键区域三','关键区域四','关键区域五'];
+        for($i = 0; $i < $contentNum; $i++){
+            echo "<th>$status[$i]</th>";
+        }
+        {/php}
     </tr>
+    {for start="0" end="count($processData)" step="$step" name="i"}
+    <tr>
+        <td>{$i . "min~" . (($i + $step)>= count($processData)? count($processData): ($i + $step))."min"}</td>
+        {for start="0" end="$contentNum" name="j"}
+            <th>{$processData[$i][$j]}</th>
+        {/for}
+    </tr>
+    {/for}
 </table>
 
 {/block}

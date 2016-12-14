@@ -979,7 +979,10 @@ class TeacherController extends IndexController
         $this->assign('questions',$questions);
         return $this->fetch('Teacher/Analyzation/paperQuestionAnalysisList');
     }
-
+    /**
+     * [showPaperQuestionAnalysisDetail 获取某试题所有学生答题结果分析]
+     * @return [type] [description]
+     */
     public function showPaperQuestionAnalysisDetail()
     {
         $id = $this->request->param('id');
@@ -989,30 +992,63 @@ class TeacherController extends IndexController
         $this->assign('students',$students);
         return $this->fetch('Teacher/Analyzation/paperQuestionAnalysisDetail');
     }
-
+    /**
+     * [showSelfLearningLists description]
+     * @return [type] [description]
+     */
     public function showSelfLearningLists()
     {
-        return $this->fetch('Analyzation/selfLearningLists');
-    }
+        $learns = Learn::all();
+        $this->assign('learns',$learns);
 
+        return $this->fetch('Teacher/Analyzation/selfLearningLists');
+    }
+    /**
+     * [showSelfLearningDetail 自习过程细节数据]
+     * @return [type] [description]
+     */
     public function showSelfLearningDetail()
     {
-        return $this->fetch('Analyzation/selfLearningDetail');
-    }
+        $id = $this->request->param('id');
+        $learn = Learn::get($id);
 
+        $contentNum = count($learn->getKeyContent());
+        $processData = $learn->getProcessData();
+
+        $this->assign('contentNum',$contentNum);
+        $this->assign('processData',$processData);
+
+        return $this->fetch('Teacher/Analyzation/selfLearningDetail');
+    }
+    /**
+     * [showSelfLearningAnalysisList 自习分析列表]
+     * @return [type] [description]
+     */
     public function showSelfLearningAnalysisList()
     {
-        return $this->fetch('Analyzation/selfLearningAnalysisList');
+        $learns = Learn::all();
+        $this->assign('learns',$learns);
+        return $this->fetch('Teacher/Analyzation/selfLearningAnalysisList');
     }
-
+    /**
+     * [showSelfLearningAnalysisDetail 获取自习答题结果分析数据]
+     * @return [type] [description]
+     */
     public function showSelfLearningAnalysisDetail()
     {
-        return $this->fetch('Analyzation/selfLearningAnalysisDetail');
+        $id = $this->request->param('id');
+        $learn = Learn::get($id);
+
+        $questionResults = $learn->getExamResult();
+
+        $this->assign('questionResults',$questionResults);
+
+        return $this->fetch('Teacher/Analyzation/selfLearningAnalysisDetail');
     }
 
     public function test()
     {
-        var_dump(Question::get(1)->getStudents());
+        return $this->fetch('test');
     }
 
 }
