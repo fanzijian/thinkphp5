@@ -123,15 +123,25 @@ class Paper extends Model
         $stuNum = $this->getTotalStuNum();
         //以时间为最外层循环，轮询各个题目所有测试完成的学生人数
         $stuFinishRatePerMinute = array();
-        for ($i=0; $i < $maxMinute; $i++) { 
-            $stuNumFinish = array();
+        for ($i=0; $i < $maxMinute; $i = $i+60) { 
+            $stuRateFinish = array();
             foreach ($questionIdList as $key => $id) {
                 //计算每分钟，每个问题完成的学生数目百分比
-                $stuRateFinish[]= round(ExamProcess::where('exam_id','in',$examIdList)
-                ->where('minute',$i + 1)->where('question_num',$id)->Sum('stu_num_finished') / $stuNum * 100, 2);
+                $stuFinishTmp = 0;
+                for ($j=0; $j < count($examIdList); $j++) {
+                    $examProcess = ExamProcess::get(['exam_id'=>$examIdList[$j],'minute'=>$i + 60,'question_num'=>$id]);
+                    if(empty($examProcess)){
+                        $stuFinishTmp += 15;
+                    }else{
+                        $stuFinishTmp += $examProcess->getData('stu_num_finished');
+                    }
+                }
+                //var_dump($stuNum);
+                $stuRateFinish[]= round($stuFinishTmp / $stuNum * 100, 2);
             }
             $stuFinishRatePerMinute[] = $stuRateFinish;
         }
+        //var_dump($stuFinishRatePerMinute);
         //根据时间间隔对结果进行处理
         return $stuFinishRatePerMinute;
         

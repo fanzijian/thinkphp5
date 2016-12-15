@@ -1048,7 +1048,7 @@ class TeacherController extends IndexController
 
     public function test()
     {
-        return $this->fetch('test');
+        Paper::get(1)->test();
     }
 
 }

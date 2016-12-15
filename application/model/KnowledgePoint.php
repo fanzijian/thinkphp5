@@ -30,7 +30,7 @@ class KnowledgePoint extends Model
 	{
 		$CourseSchedule = CourseSchedule::get(['id'=>$this->course_schedule_id]);
 		if(false !== $CourseSchedule){
-			return $CourseSchedule->Course->name;
+			return $CourseSchedule->Course->getData('name');
 		}
 		return null;
 	}
@@ -61,7 +61,7 @@ class KnowledgePoint extends Model
 				$performance['sleep_on_desk'] += $lessonProcess->sleep_on_desk;
 				$performance['engagement'] += $lessonProcess->activeness;
 			}
-			$performance['engagement'] = round($performance['engagement']/count($lessonProcesses),2);
+			$performance['engagement'] = count($lessonProcesses)>0?round($performance['engagement']/count($lessonProcesses),2):0;
 		}
 		return $performance;
 	}
@@ -113,7 +113,7 @@ class KnowledgePoint extends Model
 				$performance['sleep_on_desk'] += $lessonProcess->sleep_on_desk;
 				$performance['engagement'] += $lessonProcess->activeness;
 			}
-			$performance['engagement'] = round($performance['engagement']/count($lessonProcesses),2);
+			$performance['engagement'] = count($lessonProcesses)>0?round($performance['engagement']/count($lessonProcesses),2):0;
 		}
 		//获取答题结果等分析信息
 		$questionIdList = $this->getRelateQuestion();
@@ -129,10 +129,17 @@ class KnowledgePoint extends Model
 		}
 
 		$questionNum = count($questionResults);
-		$performance['accuracy'] = round($performance['accuracy']/$questionNum,2);
-		$performance['average_speed'] = round($performance['average_speed'] / $questionNum, 2);
-		$performance['average_attention'] = round($performance['average_attention'] / $questionNum, 2);
-		$performance['mastery'] = round($performance['mastery'] / $questionNum,2);
+		if($questionNum != 0){
+			$performance['accuracy'] = round($performance['accuracy']/$questionNum,2);
+			$performance['average_speed'] = round($performance['average_speed'] / $questionNum, 2);
+			$performance['average_attention'] = round($performance['average_attention'] / $questionNum, 2);
+			$performance['mastery'] = round($performance['mastery'] / $questionNum,2);
+		}else{
+			$performance['accuracy'] = 0;
+			$performance['average_speed'] = 0;
+			$performance['average_attention'] = 0;
+			$performance['mastery'] = 0;
+		}
 
 		return $performance;
 	}

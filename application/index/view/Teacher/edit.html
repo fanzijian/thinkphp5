@@ -1,20 +1,61 @@
-
 {extend name="Teacher/Template/base"/}
 {block name="title"}
 个人管理
 {/block}
-
+{block name="css"}
+.demo{width:260px; margin:10px auto 0 auto; min-height:320px;}
+.preview{width:200px;border:solid 1px #dedede; margin:10px;padding:10px;}
+.demo p{line-height:26px}
+.btn{position: relative;overflow: hidden;margin-right: 4px;display:inline-block;*display:inline;padding:4px 10px 4px;font-size:14px;line-height:18px;*line-height:20px;color:#fff;text-align:center;vertical-align:middle;cursor:pointer;background-color:#5bb75b;border:1px solid #cccccc;border-color:#e6e6e6 #e6e6e6 #bfbfbf;border-bottom-color:#b3b3b3;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;}
+.btn input {position: absolute;top: 0; right: 0;margin: 0;border: solid transparent;opacity: 0;filter:alpha(opacity=0); cursor: pointer;}
+{/block}
+{block name="script"}
+$(function(){
+    $('#photoimg').off('click').on('change', function(){
+        var preview = $("#preview").children().remove();
+        var status = $("#up_status");
+        var btn = $("#up_btn");
+        $("#imageform").ajaxForm({
+            target: '#preview',
+            data:{'path':'resource/photo/teacher/'},
+            beforeSubmit:function(){
+                status.show();
+                btn.hide();
+            }, 
+            success:function(){
+                status.hide();
+                btn.show();
+            }, 
+            error:function(){
+                status.hide();
+                btn.show();
+        } }).submit();
+    });
+    $('#btn_submit').click(function(){
+        $('#photo_url').val($('#photo').val());
+    });
+});
+{/block}
 {block name="search"}
 {/block}
 {block name="content"}
-<form action="{:url('update')}" method="post">
 <table style="margin:auto">
     <tbody valign="middle">
         <tr class="row">
             <td class="col-md-4">
-                <img src="\thinkphp5\public\resource\photo\student\{$Teacher->photo_url}" style="width:260px;height:320px;">
+                <form id="imageform" method="post" enctype="multipart/form-data" action="{:url('Upload/upload')}">
+                    <div id="up_status" style="display:none"><img src="/thinkphp5/public/static/common/images/loader.gif" alt="uploading"/></div>
+                    <div id="up_btn" class="btn">
+                        <span>添加图片</span>
+                        <input id="photoimg" type="file" name="photoimg">
+                    </div>
+                </form>
+                <div id="preview">
+                    <img src="\thinkphp5\public\resource\photo\teacher\{$Teacher->photo_url}" style="width:260px;height:320px;">
+                </div>
             </td>
             <td class="col-md-8">
+                <form id="infoForm" action="{:url('update')}" method="post">
                 <table class="table table-hover table-bordered">
                     <tr>
                         <td style="text-align: center;"><label>姓名:</label></td>
@@ -44,7 +85,7 @@
                     <tr>
                         <td style="text-align: center;"><label>头像:</label></td>
                         <td style="text-align: center;">
-                            <input type="text" name="photo_url" value="{$Teacher->getData('photo_url')}" />
+                            <input type="text" name="photo_url" id="photo_url" value="{$Teacher->getData('photo_url')}" />
                         </td>
                     </tr>
                     <tr>
@@ -56,11 +97,12 @@
                     </tr>
                     <tr>
                         <td style="text-align: center;" colspan="2">
-                            <input type="submit" class="formButton" value="确  定" hidefocus />&nbsp;&nbsp;
+                            <input id="btn_submit" type="submit" class="formButton" value="确  定" hidefocus />&nbsp;&nbsp;
                             <input type="button" class="formButton" onclick="window.history.back(); return false;" value="返  回" hidefocus />
                         </td>
                     </tr>
                 </table>
+            </form>
             </td>
         </tr>
     </tbody>
