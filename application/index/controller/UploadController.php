@@ -33,7 +33,7 @@ class UploadController extends IndexController
 			$image_name = time().rand(100,999).".".$ext;
 			$tmp = $_FILES['photoimg']['tmp_name'];
 			if(move_uploaded_file($tmp, $path.$image_name)){
-				$message = '<img src="http://localhost/thinkphp5/public/'.$path.$image_name.'"  style="width:260px;height:320px;">' . '<input id="photo" type="hidden" value="' . $image_name . '">';
+				$message = '<img src="/thinkphp5/public/'.$path.$image_name.'"  style="width:260px;height:320px;">' . '<input id="photo" type="hidden" value="' . $image_name . '">';
 				//$message = json_encode($image_name);
 				return $message;
 			}else{

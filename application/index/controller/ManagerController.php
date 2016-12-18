@@ -100,7 +100,7 @@ class ManagerController extends IndexController
         $Manager->school = $this->request->param('school');
         $Manager->email = $this->request->param('email');
         $Manager->photo_url = $this->request->param('photo_url');
-        return $Manager->validate(true)->save();
+        return $Manager->save();
     }
 
 //-------------------------------学生信息管理-------------------------------

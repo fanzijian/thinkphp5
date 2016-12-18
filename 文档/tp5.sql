@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2016-12-16 10:58:19
+Date: 2016-12-18 10:31:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -397,7 +397,7 @@ CREATE TABLE `yunzhi_course_schedule` (
   `type` tinyint(4) NOT NULL,
   `name` varchar(20) NOT NULL,
   `start_time` date NOT NULL,
-  `end_time` int(11) NOT NULL,
+  `end_time` date NOT NULL,
   `teacher_id` int(11) NOT NULL,
   `create_time` date NOT NULL,
   `update_time` int(11) NOT NULL,
@@ -407,24 +407,24 @@ CREATE TABLE `yunzhi_course_schedule` (
 -- ----------------------------
 -- Records of yunzhi_course_schedule
 -- ----------------------------
-INSERT INTO `yunzhi_course_schedule` VALUES ('1', '1', '1', '1', '黄老师心理学讲座第一讲', '2016-10-15', '200', '1', '1899-12-30', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('2', '1', '1', '2', '黄老师心理学讲座第一讲', '2016-10-15', '0', '1', '1899-12-30', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('3', '1', '1', '3', '黄老师心理学讲座第一讲', '2016-10-15', '0', '1', '1899-12-30', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('4', '1', '2', '1', '黄老师心理学讲座第二讲', '2016-10-16', '0', '1', '1899-12-30', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('5', '1', '2', '2', '黄老师心理学讲座第二讲', '2016-10-16', '0', '1', '1899-12-30', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('6', '1', '2', '3', '黄老师心理学讲座第二讲', '2016-10-16', '0', '1', '1899-12-30', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('7', '1', '3', '1', '黄老师心理学讲座第三讲', '2016-10-22', '0', '1', '1899-12-30', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('8', '1', '3', '2', '黄老师心理学讲座第三讲', '2016-10-22', '0', '1', '1899-12-30', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('9', '1', '3', '3', '黄老师心理学讲座第三讲', '2016-10-22', '0', '1', '1899-12-30', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('10', '2', '1', '1', '田老师心理学讲座第一讲', '2016-10-23', '0', '1', '1899-12-30', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('11', '2', '1', '2', '田老师心理学讲座第一讲', '2016-10-23', '0', '1', '1899-12-30', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('12', '2', '1', '3', '田老师心理学讲座第一讲', '2016-10-23', '0', '1', '1899-12-30', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('13', '2', '2', '1', '田老师心理学讲座第二讲', '2016-10-29', '0', '1', '1899-12-30', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('14', '2', '2', '2', '田老师心理学讲座第二讲', '2016-10-29', '0', '1', '1899-12-30', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('15', '2', '2', '3', '田老师心理学讲座第二讲', '2016-10-29', '0', '1', '1899-12-30', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('16', '2', '3', '1', '田老师心理学讲座第三讲', '2016-10-30', '0', '1', '1899-12-30', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('17', '2', '3', '2', '田老师心理学讲座第三讲', '2016-10-30', '0', '1', '1899-12-30', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('18', '2', '3', '3', '田老师心理学讲座第三讲', '2016-10-30', '0', '1', '1899-12-30', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('1', '1', '1', '1', '黄老师心理学讲座第一讲', '2016-10-15', '2016-10-15', '1', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('2', '1', '1', '2', '黄老师心理学讲座第一讲', '2016-10-15', '2016-10-15', '1', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('3', '1', '1', '3', '黄老师心理学讲座第一讲', '2016-10-15', '2016-10-15', '1', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('4', '1', '2', '1', '黄老师心理学讲座第二讲', '2016-10-16', '2016-10-16', '1', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('5', '1', '2', '2', '黄老师心理学讲座第二讲', '2016-10-16', '2016-10-16', '1', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('6', '1', '2', '3', '黄老师心理学讲座第二讲', '2016-10-16', '2016-10-16', '1', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('7', '1', '3', '1', '黄老师心理学讲座第三讲', '2016-10-22', '2016-10-22', '1', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('8', '1', '3', '2', '黄老师心理学讲座第三讲', '2016-10-22', '2016-10-22', '1', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('9', '1', '3', '3', '黄老师心理学讲座第三讲', '2016-10-22', '2016-10-22', '1', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('10', '2', '1', '1', '田老师心理学讲座第一讲', '2016-10-23', '2016-10-23', '1', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('11', '2', '1', '2', '田老师心理学讲座第一讲', '2016-10-23', '2016-10-23', '1', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('12', '2', '1', '3', '田老师心理学讲座第一讲', '2016-10-23', '2016-10-23', '1', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('13', '2', '2', '1', '田老师心理学讲座第二讲', '2016-10-29', '2016-10-29', '1', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('14', '2', '2', '2', '田老师心理学讲座第二讲', '2016-10-29', '2016-10-29', '1', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('15', '2', '2', '3', '田老师心理学讲座第二讲', '2016-10-29', '2016-10-29', '1', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('16', '2', '3', '1', '田老师心理学讲座第三讲', '2016-10-30', '2016-10-30', '1', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('17', '2', '3', '2', '田老师心理学讲座第三讲', '2016-10-30', '2016-10-30', '1', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('18', '2', '3', '3', '田老师心理学讲座第三讲', '2016-10-30', '2016-10-30', '1', '0000-00-00', '0');
 
 -- ----------------------------
 -- Table structure for yunzhi_exam
@@ -473,7 +473,7 @@ CREATE TABLE `yunzhi_exam_process` (
   `question_num` int(11) NOT NULL,
   `stu_num_finished` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2403 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2402 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yunzhi_exam_process
@@ -3213,21 +3213,21 @@ CREATE TABLE `yunzhi_klass_course` (
 INSERT INTO `yunzhi_klass_course` VALUES ('1', '1', '1', '0', '0');
 INSERT INTO `yunzhi_klass_course` VALUES ('2', '2', '2', '0', '0');
 INSERT INTO `yunzhi_klass_course` VALUES ('3', '3', '3', '0', '0');
-INSERT INTO `yunzhi_klass_course` VALUES ('4', '1', '4', '0', '0');
-INSERT INTO `yunzhi_klass_course` VALUES ('5', '2', '5', '0', '0');
-INSERT INTO `yunzhi_klass_course` VALUES ('6', '3', '6', '0', '0');
-INSERT INTO `yunzhi_klass_course` VALUES ('31', '2', '8', '0', '0');
-INSERT INTO `yunzhi_klass_course` VALUES ('32', '3', '9', '0', '0');
+INSERT INTO `yunzhi_klass_course` VALUES ('4', '3', '4', '0', '0');
+INSERT INTO `yunzhi_klass_course` VALUES ('5', '1', '5', '0', '0');
+INSERT INTO `yunzhi_klass_course` VALUES ('6', '2', '6', '0', '0');
+INSERT INTO `yunzhi_klass_course` VALUES ('31', '3', '8', '0', '0');
+INSERT INTO `yunzhi_klass_course` VALUES ('32', '1', '9', '0', '0');
 INSERT INTO `yunzhi_klass_course` VALUES ('33', '1', '10', '0', '0');
-INSERT INTO `yunzhi_klass_course` VALUES ('34', '2', '11', '0', '0');
-INSERT INTO `yunzhi_klass_course` VALUES ('35', '3', '12', '0', '0');
-INSERT INTO `yunzhi_klass_course` VALUES ('36', '1', '13', '0', '0');
+INSERT INTO `yunzhi_klass_course` VALUES ('34', '3', '11', '0', '0');
+INSERT INTO `yunzhi_klass_course` VALUES ('35', '2', '12', '0', '0');
+INSERT INTO `yunzhi_klass_course` VALUES ('36', '3', '13', '0', '0');
 INSERT INTO `yunzhi_klass_course` VALUES ('37', '2', '14', '0', '0');
-INSERT INTO `yunzhi_klass_course` VALUES ('38', '3', '15', '0', '0');
-INSERT INTO `yunzhi_klass_course` VALUES ('39', '1', '16', '0', '0');
-INSERT INTO `yunzhi_klass_course` VALUES ('40', '2', '17', '0', '0');
+INSERT INTO `yunzhi_klass_course` VALUES ('38', '1', '15', '0', '0');
+INSERT INTO `yunzhi_klass_course` VALUES ('39', '2', '16', '0', '0');
+INSERT INTO `yunzhi_klass_course` VALUES ('40', '1', '17', '0', '0');
 INSERT INTO `yunzhi_klass_course` VALUES ('41', '3', '18', '0', '0');
-INSERT INTO `yunzhi_klass_course` VALUES ('30', '1', '7', '0', '0');
+INSERT INTO `yunzhi_klass_course` VALUES ('30', '2', '7', '0', '0');
 
 -- ----------------------------
 -- Table structure for yunzhi_klass_course_copy
@@ -3284,24 +3284,24 @@ CREATE TABLE `yunzhi_knowledge_point` (
 -- ----------------------------
 INSERT INTO `yunzhi_knowledge_point` VALUES ('1', '经典条件反射', '1', '1', '1', '5', '1');
 INSERT INTO `yunzhi_knowledge_point` VALUES ('2', '强化', '2', '2', '6', '16', '1');
-INSERT INTO `yunzhi_knowledge_point` VALUES ('3', '操作条件反射', '1', '1', '1', '5', '2');
-INSERT INTO `yunzhi_knowledge_point` VALUES ('4', '经典条件反射', '2', '0', '6', '10', '2');
-INSERT INTO `yunzhi_knowledge_point` VALUES ('5', '强化', '3', '1', '11', '18', '2');
-INSERT INTO `yunzhi_knowledge_point` VALUES ('6', '感觉概念', '1', '0', '1', '9', '3');
-INSERT INTO `yunzhi_knowledge_point` VALUES ('7', '感觉现象', '2', '0', '10', '18', '3');
-INSERT INTO `yunzhi_knowledge_point` VALUES ('8', '陈述性记忆', '1', '1', '1', '5', '4');
-INSERT INTO `yunzhi_knowledge_point` VALUES ('9', '短时记忆', '2', '1', '6', '11', '4');
-INSERT INTO `yunzhi_knowledge_point` VALUES ('10', '记忆的编码方式', '3', '1', '12', '17', '4');
-INSERT INTO `yunzhi_knowledge_point` VALUES ('11', '记忆的迁移', '4', '0', '18', '21', '4');
-INSERT INTO `yunzhi_knowledge_point` VALUES ('12', '记忆的过程', '5', '1', '22', '27', '4');
-INSERT INTO `yunzhi_knowledge_point` VALUES ('13', '情绪的概念', '1', '1', '1', '4', '5');
-INSERT INTO `yunzhi_knowledge_point` VALUES ('14', '情绪的性质', '2', '1', '5', '12', '5');
-INSERT INTO `yunzhi_knowledge_point` VALUES ('15', '情绪体验', '3', '1', '13', '16', '5');
-INSERT INTO `yunzhi_knowledge_point` VALUES ('16', '情绪唤醒', '4', '1', '16', '22', '5');
-INSERT INTO `yunzhi_knowledge_point` VALUES ('17', '智力年龄', '1', '1', '1', '6', '6');
-INSERT INTO `yunzhi_knowledge_point` VALUES ('18', '智力的分类', '2', '0', '7', '10', '6');
-INSERT INTO `yunzhi_knowledge_point` VALUES ('19', '智商', '3', '0', '11', '16', '6');
-INSERT INTO `yunzhi_knowledge_point` VALUES ('20', '智力的形态', '4', '1', '17', '20', '6');
+INSERT INTO `yunzhi_knowledge_point` VALUES ('3', '操作条件反射', '1', '1', '1', '5', '4');
+INSERT INTO `yunzhi_knowledge_point` VALUES ('4', '经典条件反射', '2', '0', '6', '10', '4');
+INSERT INTO `yunzhi_knowledge_point` VALUES ('5', '强化', '3', '1', '11', '18', '4');
+INSERT INTO `yunzhi_knowledge_point` VALUES ('6', '感觉概念', '1', '0', '1', '9', '7');
+INSERT INTO `yunzhi_knowledge_point` VALUES ('7', '感觉现象', '2', '0', '10', '18', '7');
+INSERT INTO `yunzhi_knowledge_point` VALUES ('8', '陈述性记忆', '1', '1', '1', '5', '10');
+INSERT INTO `yunzhi_knowledge_point` VALUES ('9', '短时记忆', '2', '1', '6', '11', '10');
+INSERT INTO `yunzhi_knowledge_point` VALUES ('10', '记忆的编码方式', '3', '1', '12', '17', '10');
+INSERT INTO `yunzhi_knowledge_point` VALUES ('11', '记忆的迁移', '4', '0', '18', '21', '10');
+INSERT INTO `yunzhi_knowledge_point` VALUES ('12', '记忆的过程', '5', '1', '22', '27', '10');
+INSERT INTO `yunzhi_knowledge_point` VALUES ('13', '情绪的概念', '1', '1', '1', '4', '13');
+INSERT INTO `yunzhi_knowledge_point` VALUES ('14', '情绪的性质', '2', '1', '5', '12', '13');
+INSERT INTO `yunzhi_knowledge_point` VALUES ('15', '情绪体验', '3', '1', '13', '16', '13');
+INSERT INTO `yunzhi_knowledge_point` VALUES ('16', '情绪唤醒', '4', '1', '16', '22', '13');
+INSERT INTO `yunzhi_knowledge_point` VALUES ('17', '智力年龄', '1', '1', '1', '6', '16');
+INSERT INTO `yunzhi_knowledge_point` VALUES ('18', '智力的分类', '2', '0', '7', '10', '16');
+INSERT INTO `yunzhi_knowledge_point` VALUES ('19', '智商', '3', '0', '11', '16', '16');
+INSERT INTO `yunzhi_knowledge_point` VALUES ('20', '智力的形态', '4', '1', '17', '20', '16');
 
 -- ----------------------------
 -- Table structure for yunzhi_learn
@@ -4619,7 +4619,7 @@ CREATE TABLE `yunzhi_lesson_process` (
   `stu_valid` int(11) NOT NULL,
   `activeness` float(5,2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=125 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yunzhi_lesson_process
@@ -4640,113 +4640,113 @@ INSERT INTO `yunzhi_lesson_process` VALUES ('13', '1', '13', '0', '0', '0', '15'
 INSERT INTO `yunzhi_lesson_process` VALUES ('14', '1', '14', '0', '0', '0', '14', '0.00');
 INSERT INTO `yunzhi_lesson_process` VALUES ('15', '1', '15', '0', '0', '1', '15', '10.00');
 INSERT INTO `yunzhi_lesson_process` VALUES ('16', '1', '16', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('17', '2', '1', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('18', '2', '2', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('19', '2', '3', '0', '0', '0', '13', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('20', '2', '4', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('21', '2', '5', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('22', '2', '6', '0', '0', '0', '14', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('23', '2', '7', '0', '0', '1', '15', '10.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('24', '2', '8', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('25', '2', '9', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('26', '2', '10', '0', '0', '0', '14', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('27', '2', '11', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('28', '2', '12', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('29', '2', '13', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('30', '2', '14', '0', '0', '0', '14', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('31', '2', '15', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('32', '2', '16', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('33', '2', '17', '1', '0', '2', '14', '40.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('34', '2', '18', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('35', '3', '1', '0', '0', '1', '14', '10.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('36', '3', '2', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('37', '3', '3', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('38', '3', '4', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('39', '3', '5', '0', '0', '0', '14', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('40', '3', '6', '0', '0', '1', '15', '10.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('41', '3', '7', '0', '0', '1', '15', '10.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('42', '3', '8', '0', '0', '1', '15', '10.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('43', '3', '9', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('44', '3', '10', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('45', '3', '11', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('46', '3', '12', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('47', '3', '13', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('48', '3', '14', '0', '0', '0', '13', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('49', '3', '15', '0', '0', '1', '14', '10.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('50', '3', '16', '0', '0', '1', '15', '10.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('51', '3', '17', '0', '0', '0', '14', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('52', '3', '18', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('53', '4', '1', '0', '0', '1', '15', '10.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('54', '4', '2', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('55', '4', '3', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('56', '4', '4', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('57', '4', '5', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('58', '4', '6', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('59', '4', '7', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('60', '4', '8', '0', '0', '0', '14', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('61', '4', '9', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('62', '4', '10', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('63', '4', '11', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('64', '4', '12', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('65', '4', '13', '0', '0', '0', '14', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('66', '4', '14', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('67', '4', '15', '0', '0', '1', '15', '10.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('68', '4', '16', '0', '0', '0', '14', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('69', '4', '17', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('70', '4', '18', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('71', '4', '19', '0', '0', '0', '13', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('72', '4', '20', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('73', '4', '21', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('74', '4', '22', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('75', '4', '23', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('76', '4', '24', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('77', '4', '25', '0', '0', '0', '14', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('78', '4', '26', '0', '0', '0', '14', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('79', '4', '27', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('80', '5', '1', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('81', '5', '2', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('82', '5', '3', '0', '0', '2', '15', '20.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('83', '5', '4', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('84', '5', '5', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('85', '5', '6', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('86', '5', '7', '0', '0', '0', '13', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('87', '5', '8', '0', '0', '0', '14', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('88', '5', '9', '0', '0', '0', '14', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('89', '5', '10', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('90', '5', '11', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('91', '5', '12', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('92', '5', '13', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('93', '5', '14', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('94', '5', '15', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('95', '5', '16', '0', '0', '0', '14', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('96', '5', '17', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('97', '5', '18', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('98', '5', '19', '0', '0', '0', '14', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('99', '5', '20', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('100', '5', '21', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('101', '5', '22', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('102', '6', '1', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('103', '6', '2', '0', '0', '1', '13', '10.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('104', '6', '3', '1', '0', '1', '15', '30.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('105', '6', '4', '1', '0', '1', '15', '30.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('106', '6', '5', '0', '0', '0', '14', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('107', '6', '6', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('108', '6', '7', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('109', '6', '8', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('110', '6', '9', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('111', '6', '10', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('112', '6', '11', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('113', '6', '12', '0', '0', '0', '14', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('114', '6', '13', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('115', '6', '14', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('116', '6', '15', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('117', '6', '16', '0', '0', '0', '14', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('118', '6', '17', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('119', '6', '18', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('120', '6', '19', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('121', '6', '20', '0', '0', '0', '12', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('122', '6', '21', '0', '0', '0', '15', '0.00');
-INSERT INTO `yunzhi_lesson_process` VALUES ('123', '6', '22', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('17', '4', '1', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('18', '4', '2', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('19', '4', '3', '0', '0', '0', '13', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('20', '4', '4', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('21', '4', '5', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('22', '4', '6', '0', '0', '0', '14', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('23', '4', '7', '0', '0', '1', '15', '10.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('24', '4', '8', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('25', '4', '9', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('26', '4', '10', '0', '0', '0', '14', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('27', '4', '11', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('28', '4', '12', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('29', '4', '13', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('30', '4', '14', '0', '0', '0', '14', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('31', '4', '15', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('32', '4', '16', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('33', '4', '17', '1', '0', '2', '14', '40.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('34', '4', '18', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('35', '7', '1', '0', '0', '1', '14', '10.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('36', '7', '2', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('37', '7', '3', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('38', '7', '4', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('39', '7', '5', '0', '0', '0', '14', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('40', '7', '6', '0', '0', '1', '15', '10.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('41', '7', '7', '0', '0', '1', '15', '10.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('42', '7', '8', '0', '0', '1', '15', '10.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('43', '7', '9', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('44', '7', '10', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('45', '7', '11', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('46', '7', '12', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('47', '7', '13', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('48', '7', '14', '0', '0', '0', '13', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('49', '7', '15', '0', '0', '1', '14', '10.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('50', '7', '16', '0', '0', '1', '15', '10.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('51', '7', '17', '0', '0', '0', '14', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('52', '7', '18', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('53', '10', '1', '0', '0', '1', '15', '10.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('54', '10', '2', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('55', '10', '3', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('56', '10', '4', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('57', '10', '5', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('58', '10', '6', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('59', '10', '7', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('60', '10', '8', '0', '0', '0', '14', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('61', '10', '9', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('62', '10', '10', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('63', '10', '11', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('64', '10', '12', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('65', '10', '13', '0', '0', '0', '14', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('66', '10', '14', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('67', '10', '15', '0', '0', '1', '15', '10.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('68', '10', '16', '0', '0', '0', '14', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('69', '10', '17', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('70', '10', '18', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('71', '10', '19', '0', '0', '0', '13', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('72', '10', '20', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('73', '10', '21', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('74', '10', '22', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('75', '10', '23', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('76', '10', '24', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('77', '10', '25', '0', '0', '0', '14', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('78', '10', '26', '0', '0', '0', '14', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('79', '10', '27', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('80', '13', '1', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('81', '13', '2', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('82', '13', '3', '0', '0', '2', '15', '20.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('83', '13', '4', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('84', '13', '5', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('85', '13', '6', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('86', '13', '7', '0', '0', '0', '13', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('87', '13', '8', '0', '0', '0', '14', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('88', '13', '9', '0', '0', '0', '14', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('89', '13', '10', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('90', '13', '11', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('91', '13', '12', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('92', '13', '13', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('93', '13', '14', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('94', '13', '15', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('95', '13', '16', '0', '0', '0', '14', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('96', '13', '17', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('97', '13', '18', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('98', '13', '19', '0', '0', '0', '14', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('99', '13', '20', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('100', '13', '21', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('101', '13', '22', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('102', '16', '1', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('103', '16', '2', '0', '0', '1', '13', '10.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('104', '16', '3', '1', '0', '1', '15', '30.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('105', '16', '4', '1', '0', '1', '15', '30.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('106', '16', '5', '0', '0', '0', '14', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('107', '16', '6', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('108', '16', '7', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('109', '16', '8', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('110', '16', '9', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('111', '16', '10', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('112', '16', '11', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('113', '16', '12', '0', '0', '0', '14', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('114', '16', '13', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('115', '16', '14', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('116', '16', '15', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('117', '16', '16', '0', '0', '0', '14', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('118', '16', '17', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('119', '16', '18', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('120', '16', '19', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('121', '16', '20', '0', '0', '0', '12', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('122', '16', '21', '0', '0', '0', '15', '0.00');
+INSERT INTO `yunzhi_lesson_process` VALUES ('123', '16', '22', '0', '0', '0', '15', '0.00');
 
 -- ----------------------------
 -- Table structure for yunzhi_lesson_statistics
@@ -5097,7 +5097,7 @@ CREATE TABLE `yunzhi_question_result` (
   `create_time` int(11) DEFAULT NULL,
   `update_time` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1832 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1831 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yunzhi_question_result
@@ -6959,7 +6959,7 @@ CREATE TABLE `yunzhi_question_result_copy` (
   `create_time` int(11) DEFAULT NULL,
   `update_time` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1832 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1831 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yunzhi_question_result_copy
@@ -8800,18 +8800,35 @@ INSERT INTO `yunzhi_question_result_copy` VALUES ('1830', '45', '6', '41', 'A,C,
 -- ----------------------------
 DROP TABLE IF EXISTS `yunzhi_resource`;
 CREATE TABLE `yunzhi_resource` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `course_schedule_id` int(11) NOT NULL,
-  `stu_id` int(11) NOT NULL,
-  `type` int(4) NOT NULL,
+  `data_type` int(4) NOT NULL,
+  `date` date NOT NULL,
   `url` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yunzhi_resource
 -- ----------------------------
-INSERT INTO `yunzhi_resource` VALUES ('1', '1', '1', '1', '\\thinkphp5\\public\\resource\\photo\\manager\\tobii.doc');
+INSERT INTO `yunzhi_resource` VALUES ('1', '1', '0', '2016-10-15', '\\thinkphp5\\public\\resource\\data\\20161015kinect.zip');
+INSERT INTO `yunzhi_resource` VALUES ('2', '1', '1', '2016-10-15', '\\thinkphp5\\public\\resource\\data\\20161015tobii.zip');
+INSERT INTO `yunzhi_resource` VALUES ('3', '1', '2', '2016-10-15', '\\thinkphp5\\public\\resource\\data\\20161015.jpg');
+INSERT INTO `yunzhi_resource` VALUES ('4', '4', '0', '2016-10-16', '\\thinkphp5\\public\\resource\\data\\20161016kinect.zip');
+INSERT INTO `yunzhi_resource` VALUES ('5', '4', '1', '2016-10-16', '\\thinkphp5\\public\\resource\\data\\20161016tobii.zip');
+INSERT INTO `yunzhi_resource` VALUES ('6', '4', '2', '2016-10-16', '\\thinkphp5\\public\\resource\\data\\20161016.jpg');
+INSERT INTO `yunzhi_resource` VALUES ('7', '7', '0', '2016-10-22', '\\thinkphp5\\public\\resource\\data\\20161022kinect.zip');
+INSERT INTO `yunzhi_resource` VALUES ('8', '7', '1', '2016-10-22', '\\thinkphp5\\public\\resource\\data\\20161022tobii.zip');
+INSERT INTO `yunzhi_resource` VALUES ('9', '7', '2', '2016-10-22', '\\thinkphp5\\public\\resource\\data\\20161022.jpg');
+INSERT INTO `yunzhi_resource` VALUES ('10', '10', '0', '2016-10-23', '\\thinkphp5\\public\\resource\\data\\20161023kinect.zip');
+INSERT INTO `yunzhi_resource` VALUES ('11', '10', '1', '2016-10-23', '\\thinkphp5\\public\\resource\\data\\20161023tobii.zip');
+INSERT INTO `yunzhi_resource` VALUES ('12', '10', '2', '2016-10-23', '\\thinkphp5\\public\\resource\\data\\20161023.jpg');
+INSERT INTO `yunzhi_resource` VALUES ('13', '13', '0', '2016-10-29', '\\thinkphp5\\public\\resource\\data\\20161029kinect.zip');
+INSERT INTO `yunzhi_resource` VALUES ('14', '13', '1', '2016-10-29', '\\thinkphp5\\public\\resource\\data\\20161029tobii.zip');
+INSERT INTO `yunzhi_resource` VALUES ('15', '13', '2', '2016-10-29', '\\thinkphp5\\public\\resource\\data\\20161029.jpg');
+INSERT INTO `yunzhi_resource` VALUES ('16', '16', '0', '2016-10-30', '\\thinkphp5\\public\\resource\\data\\20161030kinect.zip');
+INSERT INTO `yunzhi_resource` VALUES ('17', '16', '1', '2016-10-30', '\\thinkphp5\\public\\resource\\data\\20161030tobii.zip');
+INSERT INTO `yunzhi_resource` VALUES ('18', '16', '2', '2016-10-30', '\\thinkphp5\\public\\resource\\data\\20161030.jpg');
 
 -- ----------------------------
 -- Table structure for yunzhi_student

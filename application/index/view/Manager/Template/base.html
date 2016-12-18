@@ -5,11 +5,28 @@
     <meta charset="UTF-8">
     <title>{block name="title"}管理员模板{/block}</title>
     <link rel="stylesheet" type="text/css" href="/thinkphp5/public/static/bootstrap-3.3.5-dist/css/bootstrap.min.css">
-	<script type="text/javascript" src="/thinkphp5/public/static/common/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/thinkphp5/public/static/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/thinkphp5/public/static/common/js/highcharts.js"></script>
-	<script type="text/javascript" src="/thinkphp5/public/static/common/js/exporting.js"></script>
+    <script type="text/javascript" src="/thinkphp5/public/static/common/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/thinkphp5/public/static/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
 
+    <script type="text/javascript" src="/thinkphp5/public/static/common/js/jquery.wallform.js"></script>
+    <script type="text/javascript" src="/thinkphp5/public/static/common/js/highcharts.js"></script>
+    <script type="text/javascript" src="/thinkphp5/public/static/common/js/exporting.js"></script>
+<style type="text/css">
+/*模拟对角线*/ 
+.out{ 
+border-top:40px #D6D3D6 solid;/*上边框宽度等于表格第一行行高*/ 
+width:0px;/*让容器宽度为0*/ 
+height:0px;/*让容器高度为0*/ 
+border-left:80px #BDBABD solid;/*左边框宽度等于表格第一行第一格宽度*/ 
+position:relative;/*让里面的两个子容器绝对定位*/ 
+} 
+b{font-style:normal;display:block;position:absolute;top:-40px;left:-40px;width:35px;} 
+em{font-style:normal;display:block;position:absolute;top:-25px;left:-70px;width:55x;} 
+.t1{background:#BDBABD;}
+{block name="css"}
+
+{/block}
+</style>
 <script type="text/javascript">
 {block name="script"}
 

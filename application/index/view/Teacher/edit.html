@@ -32,7 +32,11 @@ $(function(){
         } }).submit();
     });
     $('#btn_submit').click(function(){
-        $('#photo_url').val($('#photo').val());
+        //alert($('#photo').val());
+        var photoIsSet = $('#photo').length > 0? true:false;
+        if(photoIsSet){
+            $('#photo_url').val($('#photo').val());
+        }
     });
 });
 {/block}
@@ -82,7 +86,7 @@ $(function(){
                             <input type="email" name="email" value="{$Teacher->getData('email')}" />
                         </td>
                     </tr>
-                    <tr>
+                    <tr style="display:none">
                         <td style="text-align: center;"><label>头像:</label></td>
                         <td style="text-align: center;">
                             <input type="text" name="photo_url" id="photo_url" value="{$Teacher->getData('photo_url')}" />

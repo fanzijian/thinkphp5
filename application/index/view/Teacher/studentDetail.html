@@ -33,7 +33,10 @@ $(function(){
     });
     $('#btn_submit').click(function(){
         //alert($('#photo').val());
-        $('#photo_url').val($('#photo').val());
+        var photoIsSet = $('#photo').length > 0? true:false;
+        if(photoIsSet){
+            $('#photo_url').val($('#photo').val());
+        }
     });
 });
 {/block}
