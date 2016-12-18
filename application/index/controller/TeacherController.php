@@ -130,7 +130,7 @@ class TeacherController extends IndexController
         
 
         //查询是否有相应学生对象
-        $students = $Student->where('id','in',$Teacher->getStudentsIdList())->where($search_attribute[$search_type], 'like', '%' . $search_content . '%')->paginate($pageSize);
+        $students = $Student->where('is_block',0)->where('id','in',$Teacher->getStudentsIdList())->where($search_attribute[$search_type], 'like', '%' . $search_content . '%')->paginate($pageSize);
         
         //传递到V层
         $this->assign('students',$students);
@@ -520,7 +520,7 @@ class TeacherController extends IndexController
         $course_id = $this->request->param('id');
 
         //获取时间安排表
-        $courseSchedules = CourseSchedule::where('course_id',$course_id)->select();
+        $courseSchedules = CourseSchedule::where('course_id',$course_id)->where('is_block',0)->select();
 
         $this->assign('courseSchedules',$courseSchedules);
 
@@ -890,7 +890,7 @@ class TeacherController extends IndexController
     public function showLessonList()
     {
         $pageSize = 6;
-        $CourseSchedules = CourseSchedule::where('type',1)->paginate($pageSize);
+        $CourseSchedules = CourseSchedule::where('type',1)->where('is_block',0)->paginate($pageSize);
         $this->assign('CourseSchedules',$CourseSchedules);
 
         $htmls = $this->fetch('Teacher/Analyzation/lessonList');

@@ -32,6 +32,18 @@ class CourseSchedule extends Model
     {
         return $this->hasOne('Exam');
     }
+    /**
+     * [delete 重写模型delete方法，delete即将is_block字段置1]
+     * @return [bool] [false则表示失败，true表示成功]
+     */
+    public function delete()
+    {
+        $this->is_block = 1;
+        if(false === $this->save()){
+            return false;
+        }
+        return true;
+    }
     public function getTypeAttr($value)
     {
         $status = array('1'=>'传统课堂', '2'=>'视频学习', '3'=>'翻转课堂');

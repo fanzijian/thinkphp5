@@ -111,6 +111,10 @@ class User extends Model
             return $status[1];
         }
     }
-
+    public function delete()
+    {
+        $this->is_block = 1;
+        $this->save();
+    }
 
 }

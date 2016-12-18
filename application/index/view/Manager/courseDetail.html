@@ -34,10 +34,10 @@
         <td>{$courseSchedule->start_time}</td>
         <td>{$courseSchedule->end_time}</td>
         <td>{php}
-            $exams = $courseSchedule->Exam;
-            foreach($exams as $key => $exam){
+            $exam = $courseSchedule->Exam;
+           // foreach($exams as $key => $exam){
                 echo $exam->Paper->name . '  ';
-            }
+           // }
         {/php}</td>
         <td><a class="btn btn-sm btn-primary" href="{:url('editCourseSchedule?id=' . $courseSchedule->id)}"><i class="glyphicon glyphicon-pencil"></i>&nbsp;编辑</a>&nbsp;<a class="btn btn-danger btn-sm" href="{:url('deleteCourseSchedule?id=' . $courseSchedule->id)}"><i class="glyphicon glyphicon-trash"></i>&nbsp;删除</a></td>
     </tr>

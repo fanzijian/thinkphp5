@@ -12,8 +12,16 @@ class UserController extends Controller
 	//根据用户权限登录不同页面
 	public function index()
 	{
+		User::get(1)->delete();
 		$htmls = $this->fetch('lessonList');
 		return $htmls;
+	}
+
+	public function delete()
+	{
+	}
+	public function test(){
+
 	}
 
 	public function showLessonDetail()

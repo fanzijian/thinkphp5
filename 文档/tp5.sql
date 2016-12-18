@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2016-12-18 10:31:54
+Date: 2016-12-18 20:02:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -399,6 +399,7 @@ CREATE TABLE `yunzhi_course_schedule` (
   `start_time` date NOT NULL,
   `end_time` date NOT NULL,
   `teacher_id` int(11) NOT NULL,
+  `is_block` int(2) NOT NULL,
   `create_time` date NOT NULL,
   `update_time` int(11) NOT NULL,
   PRIMARY KEY (`id`)
@@ -407,24 +408,24 @@ CREATE TABLE `yunzhi_course_schedule` (
 -- ----------------------------
 -- Records of yunzhi_course_schedule
 -- ----------------------------
-INSERT INTO `yunzhi_course_schedule` VALUES ('1', '1', '1', '1', '黄老师心理学讲座第一讲', '2016-10-15', '2016-10-15', '1', '0000-00-00', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('2', '1', '1', '2', '黄老师心理学讲座第一讲', '2016-10-15', '2016-10-15', '1', '0000-00-00', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('3', '1', '1', '3', '黄老师心理学讲座第一讲', '2016-10-15', '2016-10-15', '1', '0000-00-00', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('4', '1', '2', '1', '黄老师心理学讲座第二讲', '2016-10-16', '2016-10-16', '1', '0000-00-00', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('5', '1', '2', '2', '黄老师心理学讲座第二讲', '2016-10-16', '2016-10-16', '1', '0000-00-00', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('6', '1', '2', '3', '黄老师心理学讲座第二讲', '2016-10-16', '2016-10-16', '1', '0000-00-00', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('7', '1', '3', '1', '黄老师心理学讲座第三讲', '2016-10-22', '2016-10-22', '1', '0000-00-00', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('8', '1', '3', '2', '黄老师心理学讲座第三讲', '2016-10-22', '2016-10-22', '1', '0000-00-00', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('9', '1', '3', '3', '黄老师心理学讲座第三讲', '2016-10-22', '2016-10-22', '1', '0000-00-00', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('10', '2', '1', '1', '田老师心理学讲座第一讲', '2016-10-23', '2016-10-23', '1', '0000-00-00', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('11', '2', '1', '2', '田老师心理学讲座第一讲', '2016-10-23', '2016-10-23', '1', '0000-00-00', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('12', '2', '1', '3', '田老师心理学讲座第一讲', '2016-10-23', '2016-10-23', '1', '0000-00-00', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('13', '2', '2', '1', '田老师心理学讲座第二讲', '2016-10-29', '2016-10-29', '1', '0000-00-00', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('14', '2', '2', '2', '田老师心理学讲座第二讲', '2016-10-29', '2016-10-29', '1', '0000-00-00', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('15', '2', '2', '3', '田老师心理学讲座第二讲', '2016-10-29', '2016-10-29', '1', '0000-00-00', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('16', '2', '3', '1', '田老师心理学讲座第三讲', '2016-10-30', '2016-10-30', '1', '0000-00-00', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('17', '2', '3', '2', '田老师心理学讲座第三讲', '2016-10-30', '2016-10-30', '1', '0000-00-00', '0');
-INSERT INTO `yunzhi_course_schedule` VALUES ('18', '2', '3', '3', '田老师心理学讲座第三讲', '2016-10-30', '2016-10-30', '1', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('1', '1', '1', '1', '黄老师心理学讲座第一讲', '2016-10-15', '2016-10-15', '1', '0', '0000-00-00', '1482051479');
+INSERT INTO `yunzhi_course_schedule` VALUES ('2', '1', '1', '2', '黄老师心理学讲座第一讲', '2016-10-15', '2016-10-15', '1', '0', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('3', '1', '1', '3', '黄老师心理学讲座第一讲', '2016-10-15', '2016-10-15', '1', '0', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('4', '1', '2', '1', '黄老师心理学讲座第二讲', '2016-10-16', '2016-10-16', '1', '0', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('5', '1', '2', '2', '黄老师心理学讲座第二讲', '2016-10-16', '2016-10-16', '1', '0', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('6', '1', '2', '3', '黄老师心理学讲座第二讲', '2016-10-16', '2016-10-16', '1', '0', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('7', '1', '3', '1', '黄老师心理学讲座第三讲', '2016-10-22', '2016-10-22', '1', '0', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('8', '1', '3', '2', '黄老师心理学讲座第三讲', '2016-10-22', '2016-10-22', '1', '0', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('9', '1', '3', '3', '黄老师心理学讲座第三讲', '2016-10-22', '2016-10-22', '1', '0', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('10', '2', '1', '1', '田老师心理学讲座第一讲', '2016-10-23', '2016-10-23', '1', '0', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('11', '2', '1', '2', '田老师心理学讲座第一讲', '2016-10-23', '2016-10-23', '1', '0', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('12', '2', '1', '3', '田老师心理学讲座第一讲', '2016-10-23', '2016-10-23', '1', '0', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('13', '2', '2', '1', '田老师心理学讲座第二讲', '2016-10-29', '2016-10-29', '1', '0', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('14', '2', '2', '2', '田老师心理学讲座第二讲', '2016-10-29', '2016-10-29', '1', '0', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('15', '2', '2', '3', '田老师心理学讲座第二讲', '2016-10-29', '2016-10-29', '1', '0', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('16', '2', '3', '1', '田老师心理学讲座第三讲', '2016-10-30', '2016-10-30', '1', '0', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('17', '2', '3', '2', '田老师心理学讲座第三讲', '2016-10-30', '2016-10-30', '1', '0', '0000-00-00', '0');
+INSERT INTO `yunzhi_course_schedule` VALUES ('18', '2', '3', '3', '田老师心理学讲座第三讲', '2016-10-30', '2016-10-30', '1', '0', '0000-00-00', '0');
 
 -- ----------------------------
 -- Table structure for yunzhi_exam
@@ -4857,7 +4858,7 @@ CREATE TABLE `yunzhi_manager` (
 -- ----------------------------
 -- Records of yunzhi_manager
 -- ----------------------------
-INSERT INTO `yunzhi_manager` VALUES ('1', '小李', '123456', '华中师范大学', '1.png', '1', 'M201571695', '1158534904@qq.com', '0', '0');
+INSERT INTO `yunzhi_manager` VALUES ('1', '范子健', '123456', '华中科技大学', '1482046724120.jpg', '0', 'M201571695', '1158534904@qq.com', '0', '1482046727');
 
 -- ----------------------------
 -- Table structure for yunzhi_paper
@@ -8844,59 +8845,62 @@ CREATE TABLE `yunzhi_student` (
   `photo_url` varchar(40) NOT NULL,
   `klass_id` int(11) NOT NULL DEFAULT '0',
   `email` varchar(40) NOT NULL DEFAULT '',
+  `is_block` int(2) NOT NULL,
   `create_time` int(11) NOT NULL DEFAULT '0',
   `update_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yunzhi_student
 -- ----------------------------
-INSERT INTO `yunzhi_student` VALUES ('1', '程垦', 'M201601', '123456', '0', '华中科技大学', 'M201601.jpg', '1', '13164673497@163.com', '2016', '1481789401');
-INSERT INTO `yunzhi_student` VALUES ('2', '陈雨露', 'M201602', '123456', '1', '华中师范大学', 'M201602.jpg', '1', '1158534904@qq.com', '0', '1478752427');
-INSERT INTO `yunzhi_student` VALUES ('3', '崔耀燊', 'M201603', '123456', '0', '华中科技大学', 'M201603.jpg', '1', '13164673497@163.com', '0', '1478179359');
-INSERT INTO `yunzhi_student` VALUES ('4', '杜艳芬', 'M201604', '123456', '1', '华中师范大学', 'M201604.jpg', '1', '13164673497@163.com', '0', '1478179359');
-INSERT INTO `yunzhi_student` VALUES ('5', '赵錦涛', 'M201605', '123456', '0', '华中科技大学', 'M201605.jpg', '1', '13164673497@163.com', '0', '1478179359');
-INSERT INTO `yunzhi_student` VALUES ('6', '贺丽灵', 'M201606', '123456', '1', '华中师范大学', 'M201606.jpg', '1', '13164673497@163.com', '0', '1478179359');
-INSERT INTO `yunzhi_student` VALUES ('7', '徐建', 'M201607', '123456', '0', '华中科技大学', 'M201607.jpg', '1', '4', '0', '1478179359');
-INSERT INTO `yunzhi_student` VALUES ('8', '胡妙', 'M201608', '123456', '1', '华中师范大学', 'M201608.jpg', '1', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('9', '刘旭东', 'M201609', '123456', '0', '华中科技大学', 'M201609.jpg', '1', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('10', '胡敏仪', 'M201610', '123456', '1', '华中师范大学', 'M201610.jpg', '1', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('11', '朱胜', 'M201611', '123456', '0', '华中科技大学', 'M201611.jpg', '1', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('12', '黄沛', 'M201612', '123456', '1', '华中师范大学', 'M201612.jpg', '1', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('13', '王何令', 'M201613', '123456', '0', '华中科技大学', 'M201613.jpg', '1', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('14', '姜川霞', 'M201614', '123456', '1', '华中师范大学', 'M201614.jpg', '1', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('15', '梁敏凤', 'M201615', '123456', '1', '华中师范大学', 'M201615.jpg', '1', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('16', '郭鹏', 'M201616', '123456', '0', '华中科技大学', 'M201616.jpg', '2', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('17', '李维颖', 'M201617', '123456', '1', '华中师范大学', 'M2016017.jpg', '2', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('18', '刘开彦', 'M201618', '123456', '0', '华中科技大学', 'M201618.jpg', '2', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('19', '李颖祺', 'M201619', '123456', '1', '华中师范大学', 'M201619.jpg', '2', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('20', '刘鹏', 'M201620', '123456', '0', '华中科技大学', 'M201620.jpg', '2', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('21', '王翠翠', 'M201621', '123456', '1', '华中师范大学', 'M201621.jpg', '2', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('22', '刘双凌', 'M201622', '123456', '0', '华中科技大学', 'M201622.jpg', '2', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('23', '聂林蓉', 'M201623', '123456', '1', '华中师范大学', 'M201623.jpg', '2', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('24', '吴昊学', 'M201624', '123456', '0', '华中科技大学', 'M201624.jpg', '2', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('25', '潘思蓓', 'M201625', '123456', '1', '华中师范大学', 'M201625.jpg', '2', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('26', '彭仁金', 'M201626', '123456', '0', '华中科技大学', 'M201626.jpg', '2', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('27', '彭艳', 'M201627', '123456', '1', '华中师范大学', 'M201627.jpg', '2', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('28', '郭金城', 'M201628', '123456', '0', '华中科技大学', 'M201628.jpg', '2', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('29', '王慧慧', 'M201629', '123456', '1', '华中师范大学', 'M201629.jpg', '2', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('30', '王月', 'M201630', '123456', '1', '华中师范大学', 'M201630.jpg', '3', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('31', '王刘军', 'M201631', '123456', '0', '华中科技大学', 'M201631.jpg', '3', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('32', '肖灿', 'M201632', '123456', '1', '华中师范大学', 'M201632.jpg', '3', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('33', '伍圣晖', 'M201633', '123456', '0', '华中科技大学', 'M201633.jpg', '3', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('34', '肖蕊', 'M201634', '123456', '1', '华中师范大学', 'M201634.jpg', '3', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('35', '周克坚', 'M201635', '123456', '0', '华中科技大学', 'M201635.jpg', '3', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('36', '应静', 'M201636', '123456', '1', '华中师范大学', 'M201636.jpg', '3', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('37', '张琦牧', 'M201637', '123456', '0', '华中科技大学', 'M201637.jpg', '3', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('38', '杨世英', 'M201638', '123456', '1', '华中师范大学', 'M201638.jpg', '3', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('39', '朱士辉', 'M201639', '123456', '0', '华中科技大学', 'M201639.jpg', '3', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('40', '张恺', 'M201640', '123456', '1', '华中师范大学', 'M201640.jpg', '3', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('41', '赵伟航', 'M201641', '123456', '0', '华中科技大学', 'M201641.jpg', '3', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('42', '王晨', 'M201642', '123456', '1', '华中师范大学', 'M201642.jpg', '3', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('43', '曾昭翔', 'M201643', '123456', '0', '华中科技大学', 'M201643.jpg', '3', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('44', '次德吉', 'M201644', '123456', '1', '华中师范大学', 'M201644.jpg', '3', '', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('45', '李卓茹', 'M201645', '123456', '1', '华中师范大学', 'M201645.jpg', '3', '', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('1', '程垦', 'M201601', '123456', '0', '华中科技大学', 'M201601.jpg', '1', '13164673497@163.com', '0', '2016', '1482062093');
+INSERT INTO `yunzhi_student` VALUES ('2', '陈雨露', 'M201602', '123456', '1', '华中师范大学', 'M201602.jpg', '1', '1158534904@qq.com', '0', '0', '1482062093');
+INSERT INTO `yunzhi_student` VALUES ('3', '崔耀燊', 'M201603', '123456', '0', '华中科技大学', 'M201603.jpg', '1', '13164673497@163.com', '0', '0', '1478179359');
+INSERT INTO `yunzhi_student` VALUES ('4', '杜艳芬', 'M201604', '123456', '1', '华中师范大学', 'M201604.jpg', '1', '13164673497@163.com', '0', '0', '1478179359');
+INSERT INTO `yunzhi_student` VALUES ('5', '赵錦涛', 'M201605', '123456', '0', '华中科技大学', 'M201605.jpg', '1', '13164673497@163.com', '0', '0', '1478179359');
+INSERT INTO `yunzhi_student` VALUES ('6', '贺丽灵', 'M201606', '123456', '1', '华中师范大学', 'M201606.jpg', '1', '13164673497@163.com', '0', '0', '1478179359');
+INSERT INTO `yunzhi_student` VALUES ('7', '徐建', 'M201607', '123456', '0', '华中科技大学', 'M201607.jpg', '1', '13164673497@163.com', '0', '0', '1478179359');
+INSERT INTO `yunzhi_student` VALUES ('8', '胡妙', 'M201608', '123456', '1', '华中师范大学', 'M201608.jpg', '1', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('9', '刘旭东', 'M201609', '123456', '0', '华中科技大学', 'M201609.jpg', '1', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('10', '胡敏仪', 'M201610', '123456', '1', '华中师范大学', 'M201610.jpg', '1', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('11', '朱胜', 'M201611', '123456', '0', '华中科技大学', 'M201611.jpg', '1', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('12', '黄沛', 'M201612', '123456', '1', '华中师范大学', 'M201612.jpg', '1', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('13', '王何令', 'M201613', '123456', '0', '华中科技大学', 'M201613.jpg', '1', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('14', '姜川霞', 'M201614', '123456', '1', '华中师范大学', 'M201614.jpg', '1', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('15', '梁敏凤', 'M201615', '123456', '1', '华中师范大学', 'M201615.jpg', '1', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('16', '郭鹏', 'M201616', '123456', '0', '华中科技大学', 'M201616.jpg', '2', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('17', '李维颖', 'M201617', '123456', '1', '华中师范大学', 'M2016017.jpg', '2', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('18', '刘开彦', 'M201618', '123456', '0', '华中科技大学', 'M201618.jpg', '2', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('19', '李颖祺', 'M201619', '123456', '1', '华中师范大学', 'M201619.jpg', '2', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('20', '刘鹏', 'M201620', '123456', '0', '华中科技大学', 'M201620.jpg', '2', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('21', '王翠翠', 'M201621', '123456', '1', '华中师范大学', 'M201621.jpg', '2', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('22', '刘双凌', 'M201622', '123456', '0', '华中科技大学', 'M201622.jpg', '2', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('23', '聂林蓉', 'M201623', '123456', '1', '华中师范大学', 'M201623.jpg', '2', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('24', '吴昊学', 'M201624', '123456', '0', '华中科技大学', 'M201624.jpg', '2', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('25', '潘思蓓', 'M201625', '123456', '1', '华中师范大学', 'M201625.jpg', '2', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('26', '彭仁金', 'M201626', '123456', '0', '华中科技大学', 'M201626.jpg', '2', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('27', '彭艳', 'M201627', '123456', '1', '华中师范大学', 'M201627.jpg', '2', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('28', '郭金城', 'M201628', '123456', '0', '华中科技大学', 'M201628.jpg', '2', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('29', '王慧慧', 'M201629', '123456', '1', '华中师范大学', 'M201629.jpg', '2', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('30', '王月', 'M201630', '123456', '1', '华中师范大学', 'M201630.jpg', '3', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('31', '王刘军', 'M201631', '123456', '0', '华中科技大学', 'M201631.jpg', '3', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('32', '肖灿', 'M201632', '123456', '1', '华中师范大学', 'M201632.jpg', '3', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('33', '伍圣晖', 'M201633', '123456', '0', '华中科技大学', 'M201633.jpg', '3', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('34', '肖蕊', 'M201634', '123456', '1', '华中师范大学', 'M201634.jpg', '3', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('35', '周克坚', 'M201635', '123456', '0', '华中科技大学', 'M201635.jpg', '3', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('36', '应静', 'M201636', '123456', '1', '华中师范大学', 'M201636.jpg', '3', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('37', '张琦牧', 'M201637', '123456', '0', '华中科技大学', 'M201637.jpg', '3', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('38', '杨世英', 'M201638', '123456', '1', '华中师范大学', 'M201638.jpg', '3', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('39', '朱士辉', 'M201639', '123456', '0', '华中科技大学', 'M201639.jpg', '3', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('40', '张恺', 'M201640', '123456', '1', '华中师范大学', 'M201640.jpg', '3', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('41', '赵伟航', 'M201641', '123456', '0', '华中科技大学', 'M201641.jpg', '3', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('42', '王晨', 'M201642', '123456', '1', '华中师范大学', 'M201642.jpg', '3', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('43', '曾昭翔', 'M201643', '123456', '0', '华中科技大学', 'M201643.jpg', '3', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('44', '次德吉', 'M201644', '123456', '1', '华中师范大学', 'M201644.jpg', '3', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('45', '李卓茹', 'M201645', '123456', '1', '华中师范大学', 'M201645.jpg', '3', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('50', '', '', '', '0', '', '', '0', '', '1', '0', '1482061400');
+INSERT INTO `yunzhi_student` VALUES ('49', '', '', '', '0', '', '', '0', '', '1', '0', '1482061400');
 
 -- ----------------------------
 -- Table structure for yunzhi_teacher
@@ -8910,17 +8914,18 @@ CREATE TABLE `yunzhi_teacher` (
   `school` varchar(40) NOT NULL,
   `photo_url` varchar(40) NOT NULL,
   `sex` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '0男，1女',
-  `email` varchar(30) DEFAULT '' COMMENT '邮箱',
+  `email` varchar(30) NOT NULL DEFAULT '' COMMENT '邮箱',
+  `is_block` int(2) NOT NULL,
   `create_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
   `update_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yunzhi_teacher
 -- ----------------------------
-INSERT INTO `yunzhi_teacher` VALUES ('1', '黄璐', 'T201571695', '123456', '华中科技大学', '1.jpg', '1', '2222222@qqq.com', '1477486401', '1481786526');
-INSERT INTO `yunzhi_teacher` VALUES ('2', '田媛', 'T201571667', '123456', '华中科技大学', '1.jpg', '1', '1158534904@qq.com', '0', '1478260992');
+INSERT INTO `yunzhi_teacher` VALUES ('1', '黄璐', 'T201571695', '123456', '华中科技大学', '1482046364432.jpg', '1', '281149715@qq.com', '0', '1477486401', '1482049601');
+INSERT INTO `yunzhi_teacher` VALUES ('2', '田媛', 'T201571667', '123456', '华中科技大学', '1482062509315.jpg', '1', '27488220@qq.com', '0', '0', '1482062513');
 
 -- ----------------------------
 -- Table structure for yunzhi_user
@@ -8936,12 +8941,13 @@ CREATE TABLE `yunzhi_user` (
   `email` varchar(40) DEFAULT NULL,
   `create_time` int(11) unsigned DEFAULT NULL,
   `update_time` int(11) DEFAULT NULL,
+  `is_block` int(2) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yunzhi_user
 -- ----------------------------
-INSERT INTO `yunzhi_user` VALUES ('1', '范子健', 'M201571695', '0', '123456', '0', '1158534904@qq.com', null, null);
-INSERT INTO `yunzhi_user` VALUES ('3', '范子健', 'M201571666', '1', '123456', '0', '13164673497@163.com', null, null);
-INSERT INTO `yunzhi_user` VALUES ('4', '范子健', 'M201571667', '2', '123456', '0', '13164673497', null, null);
+INSERT INTO `yunzhi_user` VALUES ('1', '范子健', 'M201571695', '0', '123456', '0', '1158534904@qq.com', null, '1482049107', '1');
+INSERT INTO `yunzhi_user` VALUES ('3', '范子健', 'M201571666', '1', '123456', '0', '13164673497@163.com', null, null, null);
+INSERT INTO `yunzhi_user` VALUES ('4', '范子健', 'M201571667', '2', '123456', '0', '13164673497', null, null, null);

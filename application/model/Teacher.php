@@ -24,6 +24,18 @@ class Teacher extends Model
         }
     }    
     /**
+     * [delete 重写模型delete方法，delete即将is_block字段置1]
+     * @return [bool] [false则表示失败，true表示成功]
+     */
+    public function delete()
+    {
+        $this->is_block = 1;
+        if(false === $this->save()){
+            return false;
+        }
+        return true;
+    }
+    /**
      * 用户登录
      * @param  string $username 用户名
      * @param  string $password 密码

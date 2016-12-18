@@ -126,7 +126,7 @@ class ManagerController extends IndexController
         
 
         //查询是否有相应学生对象
-        $students = $Student->where($search_attribute[$search_type], 'like', '%' . $search_content . '%')->paginate($pageSize);
+        $students = $Student->where('is_block',0)->where($search_attribute[$search_type], 'like', '%' . $search_content . '%')->paginate($pageSize);
         
         //传递到V层
         $this->assign('students',$students);
@@ -299,8 +299,8 @@ class ManagerController extends IndexController
         $search_attribute = array('0'=>'name', '1'=>'username', '2'=>'');
         
 
-        //查询是否有相应学生对象
-        $teachers = $Teacher->where($search_attribute[$search_type], 'like', '%' . $search_content . '%')->paginate($pageSize);
+        //查询是否有相应对象
+        $teachers = $Teacher->where('is_block',0)->where($search_attribute[$search_type], 'like', '%' . $search_content . '%')->paginate($pageSize);
         
         //传递到V层
         $this->assign('teachers',$teachers);
@@ -368,7 +368,7 @@ class ManagerController extends IndexController
     public function managerAddTeacher()
     {
         //构造空Student对象
-        $Teacher = new Student;
+        $Teacher = new Teacher;
         $Teacher->id = 0;
         $Teacher->name ='';
         $Teacher->username = '';
@@ -540,7 +540,7 @@ class ManagerController extends IndexController
     public function editCourseSchedule()
     {
         //获取courseSchedule的id
-        $id = $this->request->param('id');http://img.mukewang.com/52da4f2a000150b714280550.jpg
+        $id = $this->request->param('id');
         //获取对象并判断是否存在
         $courseSchedule = CourseSchedule::get($id);
         if(false == $courseSchedule){
@@ -561,9 +561,25 @@ class ManagerController extends IndexController
     public function saveCourseSchedule()
     {
         //根据传递过来数据是否有id判断是增加还是编辑
-        //获取对象
-        //填充对象，并保存
-        //返回结果
+        $id = $this->request->param('id');
+
+        if(0 == $id){
+            $CourseSchedule = new CourseSchedule;
+        }else{
+            $CourseSchedule = CourseSchedule::get($id);
+        }
+        //更新学生信息
+        $CourseSchedule->name =$this->request->param('name');
+        $CourseSchedule->num = $this->request->param('num');
+        //$CourseSchedule->type = $this->request->param('type');
+        $CourseSchedule->start_time = $this->request->param('start_time');
+        $CourseSchedule->end_time = $this->request->param('end_time');
+        //保存学生信息
+        if (!$CourseSchedule->save()) {
+            return $this->error('课程保存错误：' . $CourseSchedule->getError());
+        }else{
+            return $this->success('操作成功', url('Manager/showCourseDetail'));
+        }
     }
     /**
      * [deleteCourseSchedule 删除某节课的安排]
@@ -618,11 +634,113 @@ class ManagerController extends IndexController
         $this->assign('resources',$resources);
         return $this->fetch('resourceList');
     }
+    /**
+     * [showExamQuestionList 获取试题列表]
+     * @return [html] [返回试卷试题页面]
+     */
+    public function showExamQuestionList()
+    {
+        //获取页码
+        $page = $this->request->param('page');
+        if(is_null($page)){
+            $page = 1;
+        }
+        //获取exam_id
+        $exam_id = $this->request->param('exam_id');
+        //根据exam_id获取paper_id
+        $Exam= Exam::get($exam_id);
+        if(false == $Exam){
+            return $this->error('未找到id为' . $exam_id . '的对象！');
+        }
+        //获取题目对象questions
+        $questions = $Exam->getQuestionList();
+
+        $this->assign('total_page',count($questions));
+        $this->assign('question',$questions[$page-1]);
+        //返回查询结果
+        $htmls = $this->fetch('Manager/questionList');
+        return $htmls;
+    }
+    /**
+     * [showPaperList 展示试卷列表]
+     * @return [type] [description]
+     */
+    public function showPaperList()
+    {
+        //获取查询类别
+        
+        $search_type = $this->request->param('search_type');
+
+        $search_content = $this->request->param('search_content');
+
+        if(null == $search_type){
+            $search_type = 2;
+        }
+
+        switch ($search_type) {
+            case 0:
+                $courseScheduleIdList = CourseSchedule::where('name','like','%' . $search_content . '%')->column('id');
+                $paperIdList = Exam::where('course_schedule_id','in',$courseScheduleIdList)->column('paper_id');
+                $papers = Paper::where('id','in',$paperIdList)->select();
+                break;
+            case 1:
+                $papers = Paper::where('name','like','%' . $search_content . '%');
+            default:
+                $papers = Paper::all();
+                break;
+        }
+
+        $this->assign('papers',$papers);
+
+        return $this->fetch('Manager/paperList');
+    }
+    /**
+     * [showKlassStuList 展示班级学生列表]
+     * @return [type] [description]
+     */
+    public function showKlassStuList()
+    {
+        $pageSize = 10;
+
+        $search_type = $this->request->param('search_type');
+
+        $search_content = $this->request->param('search_content');
+
+        $klassId = $this->request->param('id');
+        $Student = Student::where('klass_id',$klassId)->where('is_block',0);
+
+        if(null == $search_type){
+            $search_type = 2;
+        }
+        switch ($search_type) {
+            case 0:
+                $Student = $Student->where('name','like','%' . $search_content . '%');
+                break;
+            case 1:
+                $Student = $Student->where('username','like','%' . $search_content . '%');
+                break;
+            default:
+                break;
+        }
+        $students = $Student->paginate($pageSize);
+        $this->assign('students',$students);
+        return $this->fetch('Manager/klassStudentList');
+    }
+    /**
+     * [deleteStudents 批量删除学生]
+     * @return [type] [description]
+     */
+    public function deleteStudents()
+    {
+        $Student = new Student;
+        $idList = $this->request->param('is_delete/a');
+        $Student->deleteStudents($idList);
+        return $this->success('删除成功', url('Manager/showKlassList'));
+    }
     public function test()
     {
         $pageSize = 5;
-        $resources = Resource::paginate($pageSize);
-        var_dump($resources[3]->Course);
+
     }
 }
 ?>

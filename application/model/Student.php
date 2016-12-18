@@ -15,7 +15,43 @@ class Student extends Model
 	protected $type =[
 		'create_time' => 'datetime',
 	];
+    /**
+     * [delete 重写模型delete方法，delete即将is_block字段置1]
+     * @return [bool] [false则表示失败，true表示成功]
+     */
+    public function delete()
+    {
+        $this->is_block = 1;
+        if(false === $this->save()){
+            return false;
+        }
+        return true;
+    }
+    /**
+     * [deleteStudents 批量删除学生]
+     * @param  [array] $idList [学生id数组]
+     * @return [bool]         [成功为true 否则为false]
+     */
+    static public function deleteStudents($idList)
+    {
+        try {
+            if($idList == null){
+                return false;
+            }else{
+                foreach ($idList as $key => $id) {
+                    $Student = Student::get($id)->delete();
+                    if(false === $Student){
+                        //throw new \Exception('删除失败:' . $Student->getError());
+                        return false;
+                    }
+                }
+            }
+        } catch (Exception $e) {
+            return false;
+        }
+        return true;
 
+    }
     /**
      * 用户登录
      * @param  string $username 用户名

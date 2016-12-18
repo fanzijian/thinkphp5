@@ -27,6 +27,10 @@ class Paper extends Model
     {
     	return $this->hasOne('PaperResult');
     }
+    public function CourseSchedule()
+    {
+        return $this->Exams[0]->CourseSchedule;
+    }
     /**
      * [getCourseName 获取该试卷对应课堂名称]
      * @return [string] [课程名称]

@@ -31,7 +31,7 @@ class Course extends Model
     }
     public function getSchedules()
     {
-        $courseSchedules = CourseSchedule::where('course_id',$this->id)->select();
+        $courseSchedules = CourseSchedule::where('is_block',0)->where('course_id',$this->id)->select();
         return $courseSchedules;
     }
 	/**
