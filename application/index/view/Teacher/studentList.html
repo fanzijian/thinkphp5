@@ -11,7 +11,6 @@
                 <select class="form-control" name="search_type">
                   <option value="0" {if condition="input('get.search_type') == 0"} selected {/if}>姓名</option>
                   <option value="1" {if condition="input('get.search_type') == 1"} selected {/if}>学号</option>
-                  <option value="2" {if condition="input('get.search_type') == 2"} selected {/if}>其他</option>
                 </select>
                 <input name="search_content" type="text" class="form-control" placeholder="请输入搜索内容..." value={:input( 'get.search_content')}>
             </div>
@@ -28,15 +27,21 @@
 <table class="table table-hover table-bordered">
     <tr class="info">
         <th>序号</th>
+        <th>学号</th>
         <th>名称</th>
+        <th>学校</th>
         <th>班级</th>
+        <th>性别</th>
         <th>操作</th>
     </tr>
     {volist name="students" id="student" key="key"}
     <tr>
         <td>{$key}</td>
+        <td>{$student->username}</td>
         <td>{$student->name}</td>
+        <td>{$student->school}</td>
         <td>{$student->Klass->name}</td>
+        <td>{$student->sex}</td>
         <td><a class="btn btn-danger btn-sm" href="{:url('teacherDeleteStudent?id=' . $student->id)}"><i class="glyphicon glyphicon-trash"></i>&nbsp;删除</a>&nbsp;<a class="btn btn-sm btn-primary" href="{:url('teacherEditStudent?id=' . $student->id)}"><i class="glyphicon glyphicon-pencil"></i>&nbsp;编辑</a></td>
     </tr>
     {/volist}

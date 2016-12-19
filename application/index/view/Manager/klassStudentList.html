@@ -29,17 +29,23 @@
 <table class="table table-hover table-bordered">
     <tr class="info">
         <th>序号</th>
+        <th>学号</th>
         <th>名称</th>
+        <th>学校</th>
         <th>班级</th>
+        <th>性别</th>
         <th>查看</th>
         <th>是否删除</th>
     </tr>
     {volist name="students" id="student" key="key"}
     <tr>
         <td>{$key}</td>
+        <td>{$student->username}</td>
         <td>{$student->name}</td>
+        <td>{$student->school}</td>
         <td>{$student->Klass->name}</td>
-        <td><a class="btn btn-sm btn-primary" href="{:url('showStudentDetail?id=' . $student->id)}"><i class="glyphicon  glyphicon-list-alt"></i>&nbsp;详情</a></td>
+        <td>{$student->sex}</td>
+        <td><a class="btn btn-sm btn-primary" href="{:url('showStudentDetail?id=' . $student->id)}"><i class="glyphicon  glyphicon-list-alt"></i>&nbsp;查看详情</a></td>
         <td><input type="checkbox" name="is_delete[]" value="{$student->id}"></td>
     </tr>
     {/volist}

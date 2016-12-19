@@ -4,6 +4,7 @@
 {/block}
 
 {block name="search"}
+<hr />
 {/block}
 {block name="content"}
 <table style="margin:auto">
@@ -16,11 +17,11 @@
                 <table class="table table-hover table-bordered">
                     <tr>
                         <th>时间</th>
-                        <th>举手次数</th>
-                        <th>站立次数</th>
-                        <th>趴桌次数</th>
-                        <th>课堂活跃度</th>
-                        <th>有效检测人数</th>
+                        <th>举手次数(次)</th>
+                        <th>站立次数(次)</th>
+                        <th>趴桌次数(次)</th>
+                        <th>课堂活跃度(%)</th>
+                        <th>有效检测人数(人)</th>
                     </tr>
                     {volist name="lessonProcessList" id="lessonProcess" key="key"}
                     <tr>

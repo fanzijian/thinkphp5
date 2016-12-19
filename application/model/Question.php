@@ -55,10 +55,11 @@ class Question extends Model
      * [getStudents 获取所有的学生对象列表]
      * @return [type] [description]
      */
-    public function getStudents()
+    public function getStudents($start,$num)
     {
         $students = $this->Papers[0]->getStudents();
-        return $students;
+
+        return array_slice($students, $start,$num);
     }
     /**
      * [getAccuracy 获取所有做本题正确的学生的百分比]

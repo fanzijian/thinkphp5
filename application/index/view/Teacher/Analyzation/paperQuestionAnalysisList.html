@@ -1,10 +1,10 @@
 {extend name="Teacher/Template/base"/}
 {block name="title"}
-考试管理
+考试过程分析
 {/block}
 {block name="search"}
-!--<hr />
-< <div class="row">
+
+<!--  <div class="row">
     <div class="col-md-8">
         <form class="form-inline">
             <div class="form-group">
@@ -21,37 +21,35 @@
     <div class="col-md-4 text-right">
 
     </div>
-</div> -->
+</div>  -->
 <hr />
 {/block}
 {block name="content"}
 <table class="table table-hover table-bordered">
     <tr class="info">
         <th>序号</th>
-        <th>试卷名称</th>
-        <th>题号</th>
+        <th>试卷-题号</th>
         <th>难度系数</th>
-        <th>测试人数</th>
-        <th>正确率</th>
-        <th>平均时长</th>
+        <th>测试人数(人)</th>
+        <th>正确率(%)</th>
+        <th>平均答题时长(s)</th>
         <th>平均犹疑度</th>
         <th>操作</th>
     </tr>
     {volist name="questions" id="question" key="key"}
     <tr>
     	<td>{$key}</td>
-    	<td>{$question->getPaperName()}</td>
-    	<td>{$question->id}</td>
+    	<td>{$question->getPaperName()}-{$question->id}</td>
     	<td>{$question->difficulty}</td>
-    	<td>{$question->getTotalStuNum()}人</td>
-    	<td>{$question->getAccuracy()}%</td>
-    	<td>{$question->getAverageDuration()}s</td>
+    	<td>{$question->getTotalStuNum()}</td>
+    	<td>{$question->getAccuracy()}</td>
+    	<td>{$question->getAverageDuration()}</td>
     	<td>{$question->getAverageHesitation()}</td>
-    	<td><a href="{:url('Teacher/showPaperQuestionAnalysisDetail?id=' . $question->id)}">查看详情</a></td>
+    	<td><a class="btn btn-sm btn-primary" href="{:url('Teacher/showPaperQuestionAnalysisDetail?id=' . $question->id)}">查看详情</a></td>
     </tr>
     {/volist}
 </table>
-
+{$questions->render()}
 {/block}
 
 

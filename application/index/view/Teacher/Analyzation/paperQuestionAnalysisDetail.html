@@ -1,6 +1,6 @@
 {extend name="Teacher/Template/base"/}
 {block name="title"}
-考试管理
+考试过程分析
 {/block}
 {block name="search"}
 <!--<hr />
@@ -28,8 +28,8 @@
         <th>序号</th>
         <th>学生</th>
         <th>时长</th>
-        <th>各选项关注次数</th>
-        <th>各选项关注时长</th>
+        <th>各选项关注次数(次)</th>
+        <th>各选项关注时长(s)</th>
         <th>学生选项</th>
         <th>正确答案</th>
         <th>犹疑度</th>
@@ -41,16 +41,34 @@
     <tr>
         <td>{$key}</td>
         <td>{$student->name}</td>
-        <td>{$questionResult->duration}s</td>
+        <td>{$questionResult->duration}</td>
         <td>{$questionResult->visit_count_a}/{$questionResult->visit_count_b}/{$questionResult->visit_count_c}/{$questionResult->visit_count_d}</td>
-        <td>{$questionResult->duration_a}s/{$questionResult->duration_b}s/{$questionResult->duration_c}s/{$questionResult->duration_d}s</td>
+        <td>{$questionResult->duration_a}/{$questionResult->duration_b}/{$questionResult->duration_c}/{$questionResult->duration_d}</td>
         <td>{$questionResult->answer}</td>
         <td>{$question->answer}</td>
         <td>{$questionResult->getHesitation()}</td>
     </tr>
     {/volist}
 </table>
-
+<ul class="pagination">
+{if condition="request()->param('page') == 1"}
+<li class="disabled"><span>&laquo;</span></li>
+{else /}
+<li><a href="?page=1">&laquo;</a></li>
+{/if}
+{for start="1" end="$total_page + 1"}
+{if condition="request()->param('page') == $i"}
+<li class="active"><span>{$i}</span></li>
+{else /}
+<li><a href="?page={$i}">{$i}</a></li>
+{/if}
+{/for}
+{if condition="request()->param('page') == $total_page"}
+<li class="disabled"><span>&raquo;</span></li>
+{else /}
+<li><a href="?page={$total_page}">&raquo;</a></li>
+{/if}
+</ul>
 {/block}
 
 

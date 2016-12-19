@@ -35,11 +35,11 @@
         <th rowspan="2">操作</th>
     </tr>
     <tr>
-    	<th>举手次数</th>
-    	<th>站立次数</th>
-    	<th>趴桌次数</th>
-    	<th>参与度</th>
-    	<th>相关试题</th>
+    	<th>举手次数(次)</th>
+    	<th>站立次数(次)</th>
+    	<th>趴桌次数(次)</th>
+    	<th>参与度(%)</th>
+    	<th>相关试题(题号)</th>
     	<th>教学效果</th>
     </tr>
     {volist name="knowledgePointList" id="knowledgePoint" key="key"}
@@ -49,10 +49,10 @@
         <td>第{$knowledgePoint->getCourseNum()}讲</td>
         <td>知识点{$knowledgePoint->knowledge_seq}-{$knowledgePoint->knowledge_name}</td>
         <td>{$knowledgePoint->difficulty}</td>
-        <td>{$knowledgePoint->getPerformance()['hand_up']}次</td>
-        <td>{$knowledgePoint->getPerformance()['stand_up']}次</td>
-        <td>{$knowledgePoint->getPerformance()['sleep_on_desk']}次</td>
-        <td>{$knowledgePoint->getPerformance()['engagement']}%</td>
+        <td>{$knowledgePoint->getPerformance()['hand_up']}</td>
+        <td>{$knowledgePoint->getPerformance()['stand_up']}</td>
+        <td>{$knowledgePoint->getPerformance()['sleep_on_desk']}</td>
+        <td>{$knowledgePoint->getPerformance()['engagement']}</td>
         <td>{volist name="$knowledgePoint->getRelateQuestion()" id="questionId" key="key"}{$questionId}&nbsp;{/volist}</td>
         <td>{$knowledgePoint->getTeachingEffect()}</td>
         <td>

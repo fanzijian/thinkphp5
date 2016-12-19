@@ -29,8 +29,8 @@
         <th>时间</th>
         <th>班级</th>
         <th>课程</th>
-        <th>出勤率</th>
-        <th>参与度</th>
+        <th>出勤率(%)</th>
+        <th>参与度(%)</th>
         <th>详情</th>
     </tr>
     {volist name="CourseSchedules" id="lesson" key="key"}
@@ -39,10 +39,10 @@
         <td>{$lesson->start_time}</td>
         <td>实验一班</td>
         <td>{$lesson->name}</td>
-        <td>{$lesson->getAttendanceRate()}%</td>
-        <td>{$lesson->getEngagement()}%</td>
+        <td>{$lesson->getAttendanceRate()}</td>
+        <td>{$lesson->getEngagement()}</td>
         <td>
-            <a class="btn btn-sm btn-primary" href="{:url('Teacher/showLessonDetail?id='. $lesson->id)}"><i class="glyphicon glyphicon-detail"></i>&nbsp;详情</a>
+            <a class="btn btn-sm btn-primary" href="{:url('Teacher/showLessonDetail?id='. $lesson->id)}"><i class="glyphicon glyphicon-detail"></i>&nbsp;查看详情</a>
         </td>
     </tr>
     {/volist}

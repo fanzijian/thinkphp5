@@ -31,7 +31,7 @@
         <th>学生</th>
         <th>性别</th>
         <th>主题</th>
-        <th>关注程度</th>
+        <th>注意力集中度(%)</th>
         <th>操作</th>
     </tr>
     {volist name="learns" id="learn" key="key"}
@@ -42,14 +42,14 @@
         <td>{$learn->Student->name}</td>
         <td>{$learn->Student->sex}</td>
         <td>{$learn->getContent()}</td>
-        <td>{$learn->getEngagement()}%</td>
+        <td>{$learn->getEngagement()}</td>
         <td>
             <a class="btn btn-sm btn-primary" href="{:url('Teacher/showSelfLearningDetail?id=' . $learn->id)}"><i class="glyphicon glyphicon-detail"></i>&nbsp;查看详情</a>
         </td>
     </tr>
     {/volist}
 </table>
-
+{$learns->render()}
 {/block}
 
 

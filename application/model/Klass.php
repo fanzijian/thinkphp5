@@ -31,7 +31,10 @@ class Klass extends Model
     {
     	return $this->hasMany('student');
     }
-
+    public function getTotalStuNum()
+    {
+    	return count($this->Students);
+    }
 }
 
 ?>

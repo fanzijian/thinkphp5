@@ -117,7 +117,7 @@ class TeacherController extends IndexController
         $Student = new Student;
         $Teacher = Teacher::get(['id'=>session('id')]);
 
-        $pageSize = 5;
+        $pageSize = 8;
         //获取查询类别
         
         $search_type = $this->request->param('search_type');
@@ -262,7 +262,7 @@ class TeacherController extends IndexController
     {
         $Exam = new Exam;
 
-        $pageSize = 5;
+        $pageSize = 8;
         //获取查询类别
         
         $search_type = $this->request->param('search_type');
@@ -493,7 +493,7 @@ class TeacherController extends IndexController
     public function showCourseList()
     {
         //初始化数据
-        $pageSize = 5;
+        $pageSize = 8;
         //获取查询内容
         $search_type = $this->request->param('search_type');
         $search_content = $this->request->param('search_content');
@@ -776,7 +776,7 @@ class TeacherController extends IndexController
      */
     public function showStuAnalysisList()
     {
-        $pageSize = 10;
+        $pageSize = 8;
 
         $search_type = $this->request->param('search_type');
         $search_content = $this->request->param('search_content');
@@ -889,7 +889,7 @@ class TeacherController extends IndexController
      */
     public function showLessonList()
     {
-        $pageSize = 6;
+        $pageSize = 8;
         $CourseSchedules = CourseSchedule::where('type',1)->where('is_block',0)->paginate($pageSize);
         $this->assign('CourseSchedules',$CourseSchedules);
 
@@ -918,7 +918,7 @@ class TeacherController extends IndexController
      */
     public function showLessonAnalysisList()
     {
-        $pageSize = 6;
+        $pageSize = 8;
         $knowledgePointList = KnowledgePoint::paginate($pageSize);
         $this->assign('knowledgePointList', $knowledgePointList);
 
@@ -979,7 +979,9 @@ class TeacherController extends IndexController
      */
     public function showPaperQuestionAnalysisList()
     {
-        $questions = Question::all();
+        $pageSize = 8;
+
+        $questions = Question::paginate($pageSize);
         $this->assign('questions',$questions);
         return $this->fetch('Teacher/Analyzation/paperQuestionAnalysisList');
     }
@@ -989,11 +991,22 @@ class TeacherController extends IndexController
      */
     public function showPaperQuestionAnalysisDetail()
     {
+        $pageSize = 10;
+        //获取页码
+        $page = $this->request->param('page');
+        if(is_null($page)){
+            $page = 1;
+        }
+
+        $start = ($page - 1) * $pageSize;
+
         $id = $this->request->param('id');
         $question = Question::get($id);
-        $students = $question->getStudents();
+        $students = $question->getStudents($start,$pageSize);
+
         $this->assign('question',$question);
         $this->assign('students',$students);
+        $this->assign('total_page',ceil(count(Question::all()) / $pageSize));
         return $this->fetch('Teacher/Analyzation/paperQuestionAnalysisDetail');
     }
     /**
@@ -1002,7 +1015,8 @@ class TeacherController extends IndexController
      */
     public function showSelfLearningLists()
     {
-        $learns = Learn::all();
+        $pageSize = 5;
+        $learns = Learn::paginate($pageSize);
         $this->assign('learns',$learns);
 
         return $this->fetch('Teacher/Analyzation/selfLearningLists');
@@ -1030,7 +1044,8 @@ class TeacherController extends IndexController
      */
     public function showSelfLearningAnalysisList()
     {
-        $learns = Learn::all();
+        $pageSize = 5;
+        $learns = Learn::paginate($pageSize);
         $this->assign('learns',$learns);
         return $this->fetch('Teacher/Analyzation/selfLearningAnalysisList');
     }

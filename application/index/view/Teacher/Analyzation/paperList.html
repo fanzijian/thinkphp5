@@ -32,7 +32,7 @@
         <th>出题人</th>
         <th>测试内容</th>
         <th>测试对象</th>
-        <th>总人数</th>
+        <th>总人数(人)</th>
         <th>操作</th>
     </tr>
     {volist name="papers" id="paper" key="key"}
@@ -42,8 +42,8 @@
     	<td>{$paper->getTeacherName()}</td>
     	<td>{$paper->name}</td>
     	<td>{$paper->getAggregation()}</td>
-    	<td>{$paper->getTotalStuNum()}人</td>
-    	<td><a href="{:url('Teacher/showExamQuestionList?exam_id=' . $paper->Exams[0]->id)}">查看原题</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{:url('Teacher/showPaperProcessDetail?id=' . $paper->id)}">查看考试过程</a></td>
+    	<td>{$paper->getTotalStuNum()}</td>
+    	<td><a class="btn btn-sm btn-primary" href="{:url('Teacher/showExamQuestionList?exam_id=' . $paper->Exams[0]->id)}">查看原题</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-sm btn-primary" href="{:url('Teacher/showPaperProcessDetail?id=' . $paper->id)}">查看考试过程</a></td>
     </tr>
     {/volist}
 </table>

@@ -28,11 +28,11 @@
         <th>序号</th>
         <th>学生</th>
         <th>知识点</th>
-        <th>正确率</th>
-        <th>参与度</th>
-        <th>平均解题速度</th>
-        <th>平均关注度</th>
-        <th>掌握程度</th>
+        <th>正确率(%)</th>
+        <th>参与度(%)</th>
+        <th>平均解题速度(s)</th>
+        <th>平均关注度(%)</th>
+        <th>掌握程度(%)</th>
     </tr>
     {volist name="students" id="student" key="key"}
     {php}$performance = $knowledgePoint->getStuPerformance($student->id);{/php}
@@ -40,11 +40,11 @@
         <td>{$key}</td>
         <td>{$student->name}</td>
         <td>{$knowledgePoint->knowledge_name}</td>
-        <td>{$performance['accuracy']}%</td>
-        <td>{$performance['engagement']}%</td>
-        <td>{$performance['average_speed']}s</td>
-        <td>{$performance['average_attention']}%</td>
-        <td>{$performance['mastery']}%</td>
+        <td>{$performance['accuracy']}</td>
+        <td>{$performance['engagement']}</td>
+        <td>{$performance['average_speed']}</td>
+        <td>{$performance['average_attention']}</td>
+        <td>{$performance['mastery']}</td>
     </tr>
     {/volist}
 </table>

@@ -29,12 +29,14 @@
     <tr class="info">
         <th>序号</th>
         <th>班级</th>
+        <th>总人数(人)</th>
         <th>操作</th>
     </tr>
     {volist name="klasses" id="klass" key="key"}
     <tr>
         <td>{$key}</td>
         <td>{$klass->name}</td>
+        <td>{$klass->getTotalStuNum()}</td>
         <td><a class="btn btn-sm btn-primary" href="{:url('showKlassStuList?id=' . $klass->id)}"><i class="glyphicon  glyphicon-list-alt"></i>&nbsp;学生管理</a></td>
     </tr>
     {/volist}
