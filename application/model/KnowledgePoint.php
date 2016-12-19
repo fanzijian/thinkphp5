@@ -130,7 +130,7 @@ class KnowledgePoint extends Model
 
 		$questionNum = count($questionResults);
 		if($questionNum != 0){
-			$performance['accuracy'] = round($performance['accuracy']/$questionNum,2);
+			$performance['accuracy'] = round($performance['accuracy']/$questionNum * 100,2);
 			$performance['average_speed'] = round($performance['average_speed'] / $questionNum, 2);
 			$performance['average_attention'] = round($performance['average_attention'] / $questionNum, 2);
 			$performance['mastery'] = round($performance['mastery'] / $questionNum,2);

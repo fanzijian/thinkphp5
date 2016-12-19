@@ -12,6 +12,9 @@
     <script type="text/javascript" src="/thinkphp5/public/static/common/js/highcharts.js"></script>
     <script type="text/javascript" src="/thinkphp5/public/static/common/js/exporting.js"></script>
 <style type="text/css">
+body{
+    padding-top: 70px;
+}
 /*模拟对角线*/ 
 .out{ 
 border-top:40px #D6D3D6 solid;/*上边框宽度等于表格第一行行高*/ 
@@ -20,7 +23,7 @@ height:0px;/*让容器高度为0*/
 border-left:80px #BDBABD solid;/*左边框宽度等于表格第一行第一格宽度*/ 
 position:relative;/*让里面的两个子容器绝对定位*/ 
 } 
-b{font-style:normal;display:block;position:absolute;top:-40px;left:-40px;width:35px;} 
+.out b{font-style:normal;display:block;position:absolute;top:-40px;left:-40px;width:35px;} 
 em{font-style:normal;display:block;position:absolute;top:-25px;left:-70px;width:55x;} 
 .t1{background:#BDBABD;}
 {block name="css"}
@@ -39,8 +42,8 @@ em{font-style:normal;display:block;position:absolute;top:-25px;left:-70px;width:
     <!-- 菜单导航 -->
     <div class="row">
         <div class="col-md-12">
-            <nav class="navbar navbar-default" role="navigation">
-                <div class="container-fluid">
+            <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+                <div class="container">
                     <div class="navbar-header">
                         <a class="navbar-brand" href="{:url('Manager/index')}">{:session('name')}的主页</a>
                     </div>
@@ -119,6 +122,13 @@ em{font-style:normal;display:block;position:absolute;top:-25px;left:-70px;width:
             {block name="page"} {/block}
         </div>
     </div>
+    <script type="text/javascript">
+        $('#bs-example-navbar-collapse-1 ul:first-child  > li').click(function(){
+            console.log($(this));
+            $('#bs-example-navbar-collapse-1 ul:first-child  > li').removeClass('active');
+            $(this).addClass('active');
+        });
+    </script>
 </body>
 
 </html>

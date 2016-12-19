@@ -22,7 +22,7 @@ class QuestionResult extends Model
      */
     public function getHesitation()
     {
-        $hesitation = 0.21;
+        $hesitation = round(($this->visit_count_a + $this->visit_count_b + $this->visit_count_c + $this->visit_count_d)/11,2);
         return $hesitation;
     }
     /**

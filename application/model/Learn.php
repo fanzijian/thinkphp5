@@ -29,8 +29,15 @@ class Learn extends Model
 	 */
 	public function getEngagement()
 	{
-		$engagement = 21;
-		return $engagement;
+		$processData = $this->getProcessData();
+		$engagement = 0;
+		foreach ($processData as $key => $data) {
+			$engagement += $data[1] * 100 + $data[2] * 100;
+		}
+
+		$minutes = count($processData);
+		$engagement /=  $minutes> 0? $minutes: 1;
+		return round($engagement,2);
 	}
 	/**
 	 * [getMaxMinute 获取本次自习的最大分钟数]
@@ -85,7 +92,20 @@ class Learn extends Model
 	 */
 	public function getEngagementDistribution()
 	{
-		$engagementDistribution = "4:5";
+		$processData = $this->getProcessData();
+		$engagement = [0,0,0];
+		foreach ($processData as $key => $data) {
+			$engagement[0] += $data[0] * 100;
+			$engagement[1] += $data[1] * 100;
+			$engagement[2] += $data[2] * 100;
+		}
+
+		$minutes = count($processData);
+		for ($i=0; $i < count($engagement); $i++) { 
+			$engagement[$i] = round($engagement[$i] / ($minutes > 0? $minutes: 1),0) ;
+		}
+		$tmp = $this->GreatestCommonDivisor($engagement);
+		$engagementDistribution = $engagement[0]/$tmp . ':' . $engagement[1]/$tmp . ':' . $engagement[2]/$tmp;
 		return $engagementDistribution;
 	}
 	/**
@@ -147,6 +167,33 @@ class Learn extends Model
 	{
 		return $this->CourseSchedule->getStudents();
 	}
+	/**
+	 * [GreatestCommonDivisor 获取数组的最大公约数]
+	 * @param array $number [int数组]
+	 * @return  $tmp [<最大公约数>]
+	 */
+	public static function GreatestCommonDivisor(array $number)
+	{
+		$length = count($number);
+		$tmp = (int)$number[0];
+		for ($i=0; $i < $length - 1; $i++) { 
+			$tmp = self::GreatestCommonDivisorOfTwo($tmp,(int)$number[$i + 1]);
+		}
+		return $tmp;
+	}
+	/**
+	 * [GreatestCommonDivisorOfTwo 获取输入两个值的最大公约数]
+	 * @param int $e [输入整数1]
+	 * @param int $f [输入整数2]
+	 * @return int $c [最大公约数]
+	 */
+	public static function GreatestCommonDivisorOfTwo($e, $f)
+	{
+    	for($b = $e, $c = $f; $d = $b % $c; $b = $c, $c = $d){
+    	};
+    	return $c;
+	}
+	
 }
 
 ?>

@@ -92,7 +92,10 @@ class Question extends Model
      */
     public function getAverageHesitation()
     {
-        $averageHesitation = 0.21;
+        $averageHesitation = round((QuestionResult::where('question_id',$this->id)->Sum('visit_count_a')
+            + QuestionResult::where('question_id',$this->id)->Sum('visit_count_b')
+            + QuestionResult::where('question_id',$this->id)->Sum('visit_count_c')
+            +QuestionResult::where('question_id',$this->id)->Sum('visit_count_d'))/$this->getTotalStuNum() / 11,2);
         return $averageHesitation;
     }
     /**

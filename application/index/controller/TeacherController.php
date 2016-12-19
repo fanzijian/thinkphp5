@@ -905,7 +905,9 @@ class TeacherController extends IndexController
         $id = $this->request->param('id');
         $CourseSchedule = CourseSchedule::get($id);
         $lessonProcessList = $CourseSchedule->getLessonProcessList();
+        $picUrl = $CourseSchedule->getLessonPicture();
         //var_dump($lessonProcessList);
+        $this->assign('picUrl',$picUrl);
         $this->assign('lessonProcessList',$lessonProcessList);
 
         return $this->fetch('Teacher/Analyzation/lessonDetail');
@@ -963,9 +965,11 @@ class TeacherController extends IndexController
 
         $total = $paper->getQuestionTotalNum();
         $stuFinishRatePerMinute = $paper->getProcessData();
+        $picUrl = $paper->getLessonPic();
 
         $this->assign('total',$total);
         $this->assign('stuFinishRatePerMinute',$stuFinishRatePerMinute);
+        $this->assign('picUrl',$picUrl);
 
         return $this->fetch('Teacher/Analyzation/paperProcessDetail');
     }
@@ -1048,7 +1052,7 @@ class TeacherController extends IndexController
 
     public function test()
     {
-        Paper::get(1)->test();
+        var_dump(Learn::get(1)->GreatestCommonDivisor([100,40,30]));
     }
 
 }

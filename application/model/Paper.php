@@ -62,8 +62,18 @@ class Paper extends Model
     	return $num;
     }
     /**
+     * [getLessonPic 获取上课时候的照片]
+     * @return [string] $picUrl [照片url]
+     */
+    public function getLessonPic()
+    {
+        $exams = $this->Exams;
+        $picUrl = $exams[0]->CourseSchedule->getLessonPicture();
+        return $picUrl;
+    }
+    /**
      * [getStudents 获取学生对象列表]
-     * @return [type] [description]
+     * @return [array] $students [学生对象数组]
      */
     public function getStudents()
     {
@@ -150,6 +160,9 @@ class Paper extends Model
         return $stuFinishRatePerMinute;
         
     }
+    /**
+     * [QuestionAnalysises 获取试题分析结果]
+     */
     public function QuestionAnalysises()
     {
         return $this->hasMany('QuestionAnalysis');

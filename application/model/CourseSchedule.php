@@ -109,6 +109,11 @@ class CourseSchedule extends Model
         }
         return $lessonProcessList;
     }
+    public function getLessonPicture()
+    {
+        $picUrl = Resource::get(['course_schedule_id'=>$this->id,'data_type'=>2])->url;
+        return $picUrl;
+    }
 }
 
 ?>

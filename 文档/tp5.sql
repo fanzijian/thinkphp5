@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2016-12-18 20:02:41
+Date: 2016-12-19 10:30:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -8883,7 +8883,7 @@ INSERT INTO `yunzhi_student` VALUES ('26', '彭仁金', 'M201626', '123456', '0'
 INSERT INTO `yunzhi_student` VALUES ('27', '彭艳', 'M201627', '123456', '1', '华中师范大学', 'M201627.jpg', '2', '13164673497@163.com', '0', '0', '0');
 INSERT INTO `yunzhi_student` VALUES ('28', '郭金城', 'M201628', '123456', '0', '华中科技大学', 'M201628.jpg', '2', '13164673497@163.com', '0', '0', '0');
 INSERT INTO `yunzhi_student` VALUES ('29', '王慧慧', 'M201629', '123456', '1', '华中师范大学', 'M201629.jpg', '2', '13164673497@163.com', '0', '0', '0');
-INSERT INTO `yunzhi_student` VALUES ('30', '王月', 'M201630', '123456', '1', '华中师范大学', 'M201630.jpg', '3', '13164673497@163.com', '0', '0', '0');
+INSERT INTO `yunzhi_student` VALUES ('30', '王月', 'M201630', '123456', '1', '华中师范大学', 'M201630.jpg', '2', '13164673497@163.com', '0', '0', '0');
 INSERT INTO `yunzhi_student` VALUES ('31', '王刘军', 'M201631', '123456', '0', '华中科技大学', 'M201631.jpg', '3', '13164673497@163.com', '0', '0', '0');
 INSERT INTO `yunzhi_student` VALUES ('32', '肖灿', 'M201632', '123456', '1', '华中师范大学', 'M201632.jpg', '3', '13164673497@163.com', '0', '0', '0');
 INSERT INTO `yunzhi_student` VALUES ('33', '伍圣晖', 'M201633', '123456', '0', '华中科技大学', 'M201633.jpg', '3', '13164673497@163.com', '0', '0', '0');
